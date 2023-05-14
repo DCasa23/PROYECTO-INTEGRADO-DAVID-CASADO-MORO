@@ -21,7 +21,7 @@ mongoose.connect(uri,
 const indexRouter = require('./routes/index');
 const projectRouter = require("./routes/project");
 const usersRouter = require('./routes/users');
-const loginRouter = require("./routes/login");
+const inicioRouter = require("./routes/inicio");
 const registerRouter = require("./routes/register");
 const walletRouter = require("./routes/wallet");
 const newsRouter = require("./routes/news");
@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use("/login", loginRouter);
+app.use("/inicio", inicioRouter);
 app.use("/register", registerRouter);
 app.use("/wallet", walletRouter);
 app.use('/news', newsRouter);
@@ -76,7 +76,7 @@ app.use(function (err, req, res, next) {
   if (req.session.cuenta) {
     res.render("error", { tituloWeb: "Registro de usuario", usuario: req.session.cuenta });
   } else {
-    res.render("login", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("inicio", { tituloWeb: "Inicio de sesión", error: false });
   }
 });
 
