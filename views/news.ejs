@@ -1,0 +1,70 @@
+<%- include("template/head.ejs", {tituloWeb:"Noticias", usuario})%>
+    </head>
+
+    <body class="noticias">
+        <%- include("template/header.ejs", {tituloWeb:"Noticias"})%>
+
+            <main class="container-fluid mainnews">
+                <div class="container-fluid p-5">
+                    <h1 class="display-3">Noticias</h1>
+                    <h1 class="display-6">
+                        <%=title%>
+                    </h1>
+                </div>
+
+                <div class="row justify-content-around ">
+                    <div class="col-12 col-sm-12 col-md-9 col-lg-6 table-responsive overflow-auto text-center bg-secondary rounded border border-dark border-1">
+                        <table class="table">
+                            <thead class="thead-dark fs-5">
+                                <tr>
+                                    <th scope="col">Título</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Fecha</th>
+                                    <%if (usuario.rol=="Profesor" ){%>
+                                        <th scope="col">Acción</th>
+                                        <%}%>
+                                </tr>
+                            </thead>
+
+                            <tbody class="border-bottom border-dark ">
+
+                                <!--Haremos el foreach para recorrer el array-->
+                                <% arrayNoticias.forEach(noticia=> { %>
+                                    <tr>
+                                        <th>
+                                            <%= noticia.titulo %>
+                                        </th>
+                                        <td>
+                                            <%= noticia.descripcion %>
+                                        </td>
+                                        <td>
+                                            <%= noticia.fecha %>
+                                        </td>
+                                        <%if (usuario.rol=="Profesor" ){%>
+                                            <td>
+                                                <a class="btn btn-warning btn-sm eliminar"
+                                                    href="/news/editarNoticia/<%=noticia._id%>"
+                                                    data-id="<%=noticia.id%>">Editar/Eliminar</a>
+                                            </td>
+                                            <%}%>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-7 text-center row">
+                        <%if (usuario.rol=="Profesor" ){%>
+                            <div class="col-sm-12 col-md-6">
+                            <a class="btn btn-dark btn-block my-4 me-sm-0 me-md-5" href="/news/crearNoticia">Nueva Noticia</a>
+                        </div>
+                            <%}%>
+                            <div class="col-sm-12 col-md-6">
+                                <a class="btn btn-dark btn-block my-4" href="/">Volver</a>
+                            </div>
+                    </div>
+                </div>
+
+
+            </main>
+
+            <%- include("template/footer.ejs")%>

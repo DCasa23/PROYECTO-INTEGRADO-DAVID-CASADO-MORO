@@ -1,0 +1,73 @@
+<%- include("template/head.ejs", {tituloWeb:"Inicio"})%>
+    </head>
+
+    <body class="principal">
+
+        <%- include("template/header.ejs", {tituloWeb:"Inicio"})%>
+            <main class="container-fluid mb-5">
+                <div class="container-fluid p-5">
+                    <h1 class="display-3">KOJIMA PRODUCTIONS</h1>
+                    <h1 class="display-6">
+                        <%=title%>
+                    </h1>
+                </div>
+                
+                    <div class="row justify-content-around ">
+                        <div class="col-12 col-sm-12 col-md-9 col-lg-6 text-center bg-secondary rounded table-responsive overflow-auto">
+                            <table class="table ">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Responsable</th>
+                                        <th scope="col">Tipo</th>
+                                        <th scope="col">Horas estimadas</th>
+                                        <%if (usuario.rol=="Profesor" ){%>
+                                            <th scope="col">Acción</th>
+                                            <%}%>
+                                                <th scope="col"></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="border-bottom border-dark">
+
+                                    <!--Haremos el foreach para recorrer el array-->
+                                    <% arrayProyectos.forEach(proyecto=> { %>
+                                        <tr>
+                                            <td>
+                                                <%= proyecto.nombre %>
+                                            </td>
+                                            <td>
+                                                <%= proyecto.responsable.nombre %>
+                                            </td>
+                                            <td>
+                                                <%= proyecto.tipo %>
+                                            </td>
+                                            <td>
+                                                <%= proyecto.horas %> horas
+                                            </td>
+                                            <%if (usuario.rol=="Profesor" ){%>
+                                                <td>
+                                                    <a class="btn btn-warning btn-sm"
+                                                        href="/editarProyecto/<%= proyecto.id %>">Editar/Eliminar</a>
+                                                </td>
+                                                <%}%>
+                                                    <td>
+                                                        <a class="btn btn-success btn-sm pe-4 ps-4"
+                                                            href="/project/<%=proyecto.id%>">Entrar</a>
+                                                    </td>
+                                        </tr>
+                                        <% }) %>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <%if (usuario.rol=="Profesor" ){%>
+                            <div class="col-7 text-center mb-5">
+                                <a class="btn btn-dark btn-block my-4" href="/crearProyecto">Nuevo Proyecto</a>
+                            </div>
+                            <%}%>
+                    </div>
+                
+
+            </main>
+            <%- include("template/footer.ejs")%>

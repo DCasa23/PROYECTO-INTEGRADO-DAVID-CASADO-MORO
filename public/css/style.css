@@ -1,0 +1,187 @@
+.principal,
+.proyectos,
+.login,
+.register,
+.usuarios, .problema,
+.incidencias, .noticias, .buzon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.contabilidad {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.principal::after {
+  content: "";
+  background: url("../img/kojima.jpg");
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+.proyectos::after {
+  content: "";
+  background: url("../img/deathnegro.jpg");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+.login::after {
+  content: "";
+  background: url("../img/kojimawall.jpg");
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+.register::after {
+  content: "";
+  background: url("../img/registro.jpg");
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+.usuarios::after {
+  content: "";
+  background: url("../img/usuarios.jpg");
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+.contabilidad::after {
+  content: "";
+  background: url("../img/gigante.jpg");
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+.incidencias::after {
+  content: "";
+  background: url("../img/death.jpg");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+.noticias::after {
+  content: "";
+  background: url("../img/moto.jpg");
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+.buzon::after {
+  content: "";
+  background: url("../img/kojimalast.jfif");
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+.problema::after {
+  content: "";
+  background: url("../img/grey.jpg");
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+main,
+.mainusuarios,
+.mainwallet, .mainincidents, .mainproblem, .mainnews, .mainmailbox {
+  min-height: 85vh;
+}
+
+.mainlogin, .mainprojects,
+.mainregister {
+  min-height: 100vh;
+}
+
+textarea {
+  resize: none;
+}
+
+/*# sourceMappingURL=style.css.map */

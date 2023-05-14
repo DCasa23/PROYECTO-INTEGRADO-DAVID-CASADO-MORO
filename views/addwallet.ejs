@@ -1,0 +1,47 @@
+<%- include("template/head.ejs", {tituloWeb})%>
+    <link rel="stylesheet" href="/css/register.css">
+    </head>
+
+    <body class="login">
+        <main class="container-fluid mainlogin">
+
+            <div class="container">
+                <div class="row justify-content-center containerFormat">
+                    <form action="/wallet/crearGasto" class="rounded bg-dark p-4 text-white align-self-center"
+                        method="POST">
+                        <div class="mt-2 text-center">
+                            <h1 class="display-6">Nuevo Gasto</h1>
+                        </div>
+                        <div class="mb-3 pt-4 ps-5 pe-5">
+                            <label for="gasto" class="form-label">Nombre del Gasto</label>
+                            <input type="text" class="form-control" id="gasto" placeholder="Nombre del Asunto"
+                                name="nombre">
+                        </div>
+                        <div class="mb-3 pt-4 ps-5 pe-5">
+                            <label for="euros" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="euros" placeholder="Valor en Euros"
+                                name="cantidad">
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-12 col-md-9 col-lg-6 text-center">
+                                <button type="submit"
+                                    class="btn btn-success mt-5 buttonFormat me-md-0 me-lg-5 me-xl-5">Guardar
+                                    Valor</button>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-9 col-lg-6 text-center">
+                                <a class="btn btn-success mt-5 buttonFormat" href="/wallet">Volver</a>
+                            </div>
+                            <%if (error){%>
+                                <p class="text-center mt-4 p-1 bg-danger">Rellena todos los campos correctamente</p>
+                                <%}%>
+                                    <%if (success){%>
+                                        <p class="text-center mt-4 p-1 bg-success">Gasto guardado satisfactoriamente
+                                        </p>
+                                        <%}%>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <%- include("template/footer.ejs")%>

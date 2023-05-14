@@ -1,0 +1,65 @@
+<%- include("template/head.ejs", {tituloWeb:"Contabilidad", usuario})%>
+    </head>
+
+    <body class="contabilidad">
+        <%- include("template/header.ejs", {tituloWeb:"Contabilidad"})%>
+
+            <main class="container-fluid mainwallet">
+                <div class="container-fluid p-5">
+                    <h1 class="display-3">Contabilidad</h1>
+                    <h1 class="display-6">
+                        <%=title%>
+                    </h1>
+                </div>
+
+                <div class="row justify-content-around ">
+                    <div class="col-12 col-sm-12 col-md-9 col-lg-6 table-responsive overflow-auto text-center bg-secondary rounded border border-dark border-1">
+                        <table class="table">
+                            <thead class="thead-dark fs-5">
+                                <tr>
+                                    <th scope="col">Concepto</th>
+                                    <th scope="col">Valor</th>
+                                    <%if (usuario.rol=="Profesor" ){%>
+                                        <th scope="col">Acción</th>
+                                        <%}%>
+                                </tr>
+                            </thead>
+
+                            <tbody class="border-bottom border-dark ">
+
+                                <!--Haremos el foreach para recorrer el array-->
+                                <% arrayGastos.forEach(gasto=> { %>
+                                    <tr>
+                                        <th>
+                                            <%= gasto.nombre %>
+                                        </th>
+                                        <td>
+                                            <%= gasto.cantidad+"€"%>
+                                        </td>
+                                        <%if (usuario.rol=="Profesor" ){%>
+                                            <td>
+                                                <a class="btn btn-warning btn-sm"
+                                                    href="/wallet/editarGasto/<%=gasto.id%>">Editar/Eliminar</a>
+                                            </td>
+                                            <%}%>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-7 text-center row">
+                        <%if (usuario.rol=="Profesor" ){%>
+                            <div class="col-sm-12 col-md-6">
+                                <a class="btn btn-secondary btn-block my-4 me-sm-0 me-md-5" href="/wallet/crearGasto">Nuevo Gasto</a>
+                        </div>
+                            <%}%>
+                            <div class="col-sm-12 col-md-6">
+                                <a class="btn btn-secondary btn-block my-4" href="/">Volver</a>
+                            </div>
+                    </div>
+                </div>
+
+
+            </main>
+
+            <%- include("template/footer.ejs")%>

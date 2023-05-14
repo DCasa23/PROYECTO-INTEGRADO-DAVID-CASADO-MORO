@@ -1,0 +1,76 @@
+<%- include("template/head.ejs", {tituloWeb:"Incidencias", usuario})%>
+    </head>
+
+    <body class="incidencias">
+        <%- include("template/header.ejs", {tituloWeb:"Incidencias"})%>
+
+            <main class="container-fluid mainincidents">
+                <div class="container-fluid p-5">
+                    <h1 class="display-3">Incidencias/Avisos</h1>
+                    <h1 class="display-6">
+                        <%=title%>
+                    </h1>
+                </div>
+
+                <div class="row justify-content-around ">
+                    <div class="col-12 col-sm-12 col-md-9 col-lg-6 table-responsive overflow-auto text-center bg-secondary rounded border border-dark border-1">
+                        <table class="table">
+                            <thead class="thead-dark fs-5">
+                                <tr>
+                                    <th scope="col">Asunto</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Autor</th>
+                                    <%if (usuario.rol=="Profesor" ){%>
+                                        <th scope="col">Acción</th>
+                                        <%}%>
+                                </tr>
+                            </thead>
+
+                            <tbody class="border-bottom border-dark ">
+
+                                <!--Haremos el foreach para recorrer el array-->
+                                <% arrayIncidencias.forEach(incidencia=> { %>
+                                    <tr>
+                                        <th>
+                                            <%= incidencia.asunto %>
+                                        </th>
+                                        <td>
+                                            <%= incidencia.descripcion %>
+                                        </td>
+                                        <td>
+                                            <%= incidencia.fecha %>
+                                        </td>
+                                        <td>
+                                            <%= incidencia.autor %>
+                                        </td>
+                                        <%if (usuario.rol=="Profesor" ){%>
+                                            <td>
+                                                <a class="btn btn-warning btn-sm p-0 eliminar"
+                                                    href="/incidents/<%=incidencia._id%>"
+                                                    data-id="<%=incidencia._id%>">Marcar como solventada</a>
+                                            </td>
+                                            <%}%>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-7 text-center row">
+                        <%if (usuario.rol=="Profesor" ){%>
+                            <div class="col-sm-12 col-md-6">
+                                <a class="btn btn-dark btn-block my-4 me-sm-0 me-md-5" href="/incidents/crearIncidencia">Nueva
+                                    Incidencia</a>
+                        </div>
+                            <%}%>
+                            <div class="col-sm-12 col-md-6">
+                                <a class="btn btn-dark btn-block my-4" href="/">Volver</a>
+                            </div>
+                    </div>
+                </div>
+
+
+            </main>
+
+            <%- include("template/footer.ejs")%>
+                <script src="js/delete_incident.js"></script>

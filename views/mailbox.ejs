@@ -1,0 +1,66 @@
+<%- include("template/head.ejs", {tituloWeb:"Buzon de Problemas", usuario})%>
+    </head>
+
+    <body class="buzon">
+        <%- include("template/header.ejs", {tituloWeb:"Buzon de Problemas"})%>
+
+            <main class="container-fluid mainmailbox">
+                <div class="container-fluid p-5">
+                    <h1 class="display-3">Buzón de Problemas</h1>
+                    <h1 class="display-6">
+                        <%=title%>
+                    </h1>
+                </div>
+
+                <div class="row justify-content-around ">
+                    <div class="col-12 col-sm-12 col-md-9 col-lg-6 table-responsive overflow-auto text-center bg-secondary rounded border border-dark border-1">
+                        <table class="table">
+                            <thead class="thead-dark fs-5">
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Remitente</th>
+                                    <th scope="col">Asunto</th>
+                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Acción</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="border-bottom border-dark ">
+
+                                <!--Haremos el foreach para recorrer el array-->
+                                <% arrayProblemas.forEach(problema=> { %>
+                                    <tr>
+                                        <th>
+                                            <%= problema.fecha %>
+                                        </th>
+                                        <td>
+                                            <%= problema.remitente %>
+                                        </td>
+                                        <td>
+                                            <%= problema.asunto %>
+                                        </td>
+                                        <td>
+                                            <%= problema.descripcion %>
+                                        </td>
+                                        <%if (usuario.rol=="Profesor" ){%>
+                                            <td>
+                                                <a class="btn btn-danger btn-sm eliminar" href="/login"
+                                                    data-id="<%=problema.id%>">Eliminar</a>
+                                            </td>
+                                            <%}%>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-7 text-center">
+
+                        <a class="btn btn-dark btn-block my-4" href="/">Volver</a>
+                    </div>
+                </div>
+
+
+            </main>
+
+            <%- include("template/footer.ejs")%>
+                <script src="/js/delete_mail.js"></script>
