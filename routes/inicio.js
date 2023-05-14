@@ -15,9 +15,9 @@ router.get("/*", (req, res, next) => {
 });
 
 // GET página login
-router.get("/", inicioController.inicio);
+router.get("/", inicioController.login);
 
 // POST request para loguear usuario
-router.post("/", inicioController.user_inicio_post);
+router.post("/", inicioController.user_login_post);
 
 module.exports = router;

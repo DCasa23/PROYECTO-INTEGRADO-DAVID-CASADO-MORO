@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 
+
 <head>
   <title>Iniciar Sesion-Proyecto Alba</title>
   <!-- Required meta tags -->
@@ -51,9 +52,9 @@
     </div>
   </main>
   <footer>
-    <div id="mensajeCrear" class="d-none">
+    <div>
       <div class="row">
-        <%if (error){%>
+        <%if (locals.error){%>
           <span class="col-center text-center col-6 fs-5">Parece que no tienes cuenta aquí,¿Deseas crear una cuenta?</span>
           <%}%>
         
