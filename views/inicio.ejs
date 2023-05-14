@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Iniciar Sesion-Proyecto Alba</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+    <div class="container-fluid imagen">
+      <div class="row">
+        <div class=" col-center col-lg-6 col-md-12 col-sm-12"><img class="col-center col-12 bd-placeholder-img bd-placeholder-img-lg featurette image
+            img-fluid mx-auto" src="img/ProyectoAlbaRemove.png"></div>
+      </div>
+    </div>
+    <div>
+      <form class="row g-3 needs-validation justify-content-center justify-content-center formulario mt-md-3 m-sm-4 m-4" action="/inicio"  method="POST">
+
+        <div class="col-md-12 position-relative text-center">
+          <label class="col-12 text-center" for="nombre" class="form-label ">Nombre de Usuario</label>
+          <input class="col-lg-2 col-md-4 col-sm-6 col-12 text-center" type="text" class=" form-control" autocomplete="off" id="usuarioform">
+          
+        </div>
+        <div class="col-md-12 position-relative text-center">
+          <label class="col-12 text-center" for="apellido" class="form-label">Contraseña</label>
+          <input class="col-lg-2 col-md-4 col-sm-6 col-12 text-center" type="password" class="form-control" id="passwordform">
+          
+
+        </div>
+
+        <div class="col-12 position-relative text-center">
+          <button class="btn btn-warning fw-bold" type="submit"> Enviar</button>
+        </div>
+        <div class="col-12 position-relative text-center">
+          <a class="btn btn-warning fw-bold" href="/register"> Crear Usuario</a>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <div id="mensajeCrear" class="d-none">
+      <div class="row">
+        <%if (error){%>
+          <span class="col-center text-center col-6 fs-5">Parece que no tienes cuenta aquí,¿Deseas crear una cuenta?</span>
+          <%}%>
+        
+      </div>
+      </div>
+
+      
+     
+      
+  </div>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+    <script src="js/inicio.js"></script>
+    <script src="js/direcciones.js"></script>
+</body>
+
+</html>

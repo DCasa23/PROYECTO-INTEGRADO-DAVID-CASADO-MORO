@@ -1,6 +1,6 @@
 .principal,
 .proyectos,
-.login,
+
 .register,
 .usuarios,.problema,
 .incidencias,.noticias,.buzon{
@@ -47,35 +47,8 @@
     z-index: -1;
 }
 
-.login::after {
-    content: "";
-    background: url('../img/kojimawall.jpg');
-    opacity: 1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
-    z-index: -1;
-}
 
-.register::after {
-    content: "";
-    background: url('../img/registro.jpg');
-    opacity: 0.5;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
-    z-index: -1;
-}
+
 
 .usuarios::after {
     content: "";
@@ -169,10 +142,7 @@ main,
     min-height: 85vh;
 }
 
-.mainlogin,.mainprojects,
-.mainregister {
-    min-height: 100vh;
-}
+
 
 textarea{
     resize: none;

@@ -1,14 +1,13 @@
-.containerFormat {
-  height: 700px;
+body{
+    
+    background-color:#eee8cd;
+    min-height: 100%;
+    
 }
-
-.loginFormat {
-  width: 600px;
-  height: 450px;
+.col-center {
+    float: none;
+    margin: 0 auto;
 }
-
-.buttonFormat {
-  width: 200px;
+.imagen{
+max-height: 500px;
 }
-
-/*# sourceMappingURL=login.css.map */
