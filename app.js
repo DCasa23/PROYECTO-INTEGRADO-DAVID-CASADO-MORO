@@ -9,7 +9,7 @@ require("dotenv").config();
 // Conexión a la Base De Datos
 var mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.4hlujgn.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`; //URL de conexión, que completaremos luego
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.q4mbecl.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`; //URL de conexión, que completaremos luego
 mongoose.connect(uri,
   { useNewUrlParser: true, useUnifiedTopology: true }
 )
@@ -22,7 +22,8 @@ const indexRouter = require('./routes/index');
 const projectRouter = require("./routes/project");
 const usersRouter = require('./routes/users');
 const inicioRouter = require("./routes/inicio");
-const registerRouter = require("./routes/register");
+const perfilRouter = require("./routes/perfil");
+const registroRouter = require("./routes/registro");
 const walletRouter = require("./routes/wallet");
 const newsRouter = require("./routes/news");
 const incidentsRouter = require("./routes/incidents");
@@ -48,8 +49,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use("/perfil", perfilRouter);
 app.use("/inicio", inicioRouter);
-app.use("/register", registerRouter);
+app.use("/registro", registroRouter);
 app.use("/wallet", walletRouter);
 app.use('/news', newsRouter);
 app.use('/incidents', incidentsRouter);

@@ -8,7 +8,7 @@ const indexController = require("../controllers/indexController");
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("inicio", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("index", { tituloWeb: "Inicio de sesión", error: false });
   } else {
     next();
   }

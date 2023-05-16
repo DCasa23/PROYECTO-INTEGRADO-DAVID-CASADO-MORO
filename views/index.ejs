@@ -1,73 +1,573 @@
-<%- include("template/head.ejs", {tituloWeb:"Inicio"})%>
-    </head>
+<!doctype html>
+<html lang="en">
 
-    <body class="principal">
+<head>
+  <title>Pagina Principal - Proyecto Alba</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <%- include("template/header.ejs", {tituloWeb:"Inicio"})%>
-            <main class="container-fluid mb-5">
-                <div class="container-fluid p-5">
-                    <h1 class="display-3">KOJIMA PRODUCTIONS</h1>
-                    <h1 class="display-6">
-                        <%=title%>
-                    </h1>
-                </div>
-                
-                    <div class="row justify-content-around ">
-                        <div class="col-12 col-sm-12 col-md-9 col-lg-6 text-center bg-secondary rounded table-responsive overflow-auto">
-                            <table class="table ">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Responsable</th>
-                                        <th scope="col">Tipo</th>
-                                        <th scope="col">Horas estimadas</th>
-                                        <%if (usuario.rol=="Profesor" ){%>
-                                            <th scope="col">Acción</th>
-                                            <%}%>
-                                                <th scope="col"></th>
-                                    </tr>
-                                </thead>
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <link rel="icon" href="../img/favicon.png" type="image/png" />
+</head>
 
-                                <tbody class="border-bottom border-dark">
+<body>
+  <header class="container-fluid border-bottom border-dark border-1">
+    <div class="row d-flex flex-wrap align-items-center">
+      <div class="col-lg-2 d-none d-lg-block float-start align-items-center text-center px-0 py-0 "><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
+        img-fluid mx-auto;" src="../img/ProyectoAlbaRemove.png"></div>
+      <div class="col-md-3 col-sm-3 col-4 d-lg-none float-start align-items-center text-center px-0 py-0 "><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
+        img-fluid mx-auto;" src="../img/guest.png"><a id="botonusuario" href="/perfil" class="nombreperfil fw-bold text-dark text-decoration-none m-lg-4 m-xl-4 fs-4" >Usuario</a></div>
+      <div class="col-8 text-center align-self-center float-none ">
+        <h1>Proyecto Alba</h1>
+        <h4>Learning Environment</h4>
+      </div>
+      <div class="col-2 d-none d-md-none d-lg-block float-start text-center p-0"><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
+        img-fluid mx-auto pt-lg-1;" src="../img/guest.png"><a id="botonusuario2" href="/perfil" class="nombreperfil fw-bold text-dark text-decoration-none m-lg-4 m-xl-4 fs-4" ><%=usuario.nombre%></a></div>
+    </div>
+  </header>
+  <main class="container-fluid p-0 mb-0">
 
-                                    <!--Haremos el foreach para recorrer el array-->
-                                    <% arrayProyectos.forEach(proyecto=> { %>
-                                        <tr>
-                                            <td>
-                                                <%= proyecto.nombre %>
-                                            </td>
-                                            <td>
-                                                <%= proyecto.responsable.nombre %>
-                                            </td>
-                                            <td>
-                                                <%= proyecto.tipo %>
-                                            </td>
-                                            <td>
-                                                <%= proyecto.horas %> horas
-                                            </td>
-                                            <%if (usuario.rol=="Profesor" ){%>
-                                                <td>
-                                                    <a class="btn btn-warning btn-sm"
-                                                        href="/editarProyecto/<%= proyecto.id %>">Editar/Eliminar</a>
-                                                </td>
-                                                <%}%>
-                                                    <td>
-                                                        <a class="btn btn-success btn-sm pe-4 ps-4"
-                                                            href="/project/<%=proyecto.id%>">Entrar</a>
-                                                    </td>
-                                        </tr>
-                                        <% }) %>
+    <div class="border-end border-dark border-2 float-start pt-5 col-4 col-lg-2 col-md-3 col-sm-3  izquierdo">
 
-                                </tbody>
-                            </table>
-                        </div>
-                        <%if (usuario.rol=="Profesor" ){%>
-                            <div class="col-7 text-center mb-5">
-                                <a class="btn btn-dark btn-block my-4" href="/crearProyecto">Nuevo Proyecto</a>
-                            </div>
-                            <%}%>
-                    </div>
-                
+      <ul class="list-unstyled ps-lg-3 ps-md-3 ps-sm-1 ps-1">
+        <li class="mb-1" id="headingTwo">
+          <button id="proyectosboton" class="btn btn-toggle align-items-center rounded collapsed ps-0 boton" data-bs-toggle="collapse"
+            data-bs-target="#proyectos" aria-expanded="true" aria-controls="proyectos"><span
+              class="fs-5 fw-bold">Proyectos</span>
 
-            </main>
-            <%- include("template/footer.ejs")%>
+          </button>
+          <div class="collapse show menu" id="proyectos" aria-labelledby="headingTwo" data-parent="#accordion">
+            <ul class="card-body btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
+              <li class="pb-3"><a id="proyectoscortas" href="#" class="link-dark rounded text-decoration-none fs-6">Preguntas Cortas</a></li>
+              <li class="pb-3"><a id="proyectosdesarrollo" href="#" class="link-dark rounded text-decoration-none fs-6">Examen Desarrollo</a>
+              </li>
+              <li class="pb-3"><a id="proyectostest" href="#" class="link-dark rounded text-decoration-none fs-6">Test</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Cantar Temas</a></li>
+              <li class="pb-3"><a id="proyectostarjetas" href="#" class="link-dark rounded text-decoration-none fs-6">Tarjetas de Memoria</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1 d-none d-sm-block d-md-block d-lg-none">
+          <button class="btn btn-toggle align-items-center rounded collapsed ps-0 boton" data-bs-toggle="collapse"
+            data-bs-target="#cr-proyecto" aria-expanded="true"><span class="fs-5 fw-bold">Crear Proyecto</span>
+
+          </button>
+          <div class="collapse menu" id="cr-proyecto" aria-labelledby="headingTwo" data-parent="#accordion">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
+              <li class="pb-3"><a id="preguntascrear" href="#" class="link-dark rounded text-decoration-none fs-6">Preguntas Cortas</a></li>
+              <li class="pb-3"><a id="desarrollocrear"href="#" class="link-dark rounded text-decoration-none fs-6">Examen Desarrollo</a>
+              </li>
+              <li class="pb-3"><a id="testcrear" href="#" class="link-dark rounded text-decoration-none fs-6">Test</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Cantar Temas</a></li>
+              <li class="pb-3"><a id="tarjetascrear" href="#" class="link-dark rounded text-decoration-none fs-6">Tarjetas de Memoria</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        
+        
+        <li class="border-top border-dark my-3 me-5"></li>
+        <li class="mb-1 ">
+          <button class="btn btn-toggle align-items-center rounded collapsed ps-0 boton" data-bs-toggle="collapse"
+            data-bs-target="#tareas" aria-expanded="true"><span class="fs-5 fw-bold">Tareas</span>
+          </button>
+          <div class="collapse menu" id="tareas">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Creadas</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Pendientes</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Corregidas</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Papelera</a></li>
+
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1 d-none d-sm-block d-md-block d-lg-none">
+          <button class="btn btn-toggle align-items-center rounded ps-0" aria-expanded="false"><span
+              class="fs-5 fw-bold">Crear Tarea</span>
+
+          </button>
+        </li>
+        <li class="border-top border-dark my-3 me-5"></li>
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded collapsed ps-0 boton" data-bs-toggle="collapse"
+            data-bs-target="#alumnos" aria-expanded="false">
+            <span class="fs-5 fw-bold">Alumnos</span>
+          </button>
+          <div class="collapse menu" id="alumnos">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Crear Alumno</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Alumnos</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Crear Grupo</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Grupos</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1 d-none d-sm-block d-md-block d-lg-none">
+          <button class="btn btn-toggle align-items-center rounded ps-0" aria-expanded="false"><span
+              class="fs-5 fw-bold">Crear Alumno</span>
+          </button>
+        </li>
+        <li class="mb-1 d-none d-sm-block d-md-block d-lg-none">
+          <button class="btn btn-toggle align-items-center rounded ps-0" aria-expanded="false"><span
+              class="fs-5 fw-bold">Crear Grupo</span>
+          </button>
+        </li>
+        <li class="border-top border-dark my-3 me-5"></li>
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded collapsed ps-0 boton" data-bs-toggle="collapse"
+            data-bs-target="#mensajes" aria-expanded="false">
+            <span class="fs-5 fw-bold">Mensajes</span>
+          </button>
+          <div class="collapse menu" id="mensajes">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Redactar</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Entrada</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Enviados</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6 text-decoration-line-through">Borrados</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="border-top border-dark my-3 me-5"></li>
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded collapsed ps-0" data-bs-toggle="collapse"
+            data-bs-target="#ajustes" aria-expanded="false">
+            <span class="fs-5 fw-bold">Ajustes</span>
+          </button>
+
+        </li>
+        <li class="mb-1">
+          <a id="botonusuario3" href="/perfil" class="btn btn-toggle align-items-center rounded ps-0" aria-expanded="false">
+            <span class="fs-5 fw-bold">Cuenta Usuario</span>
+          </a>
+
+        </li>
+        <li class="border-top border-dark my-3 me-5"></li>
+      </ul>
+    </div>
+
+
+    <div class="float-start ms-0 row justify-content-center col-8 col-lg-8 col-md-9 col-sm-9 text-center">
+
+      <div class="h-100 m-3 col-11 float-none col-center border border-dark border-2 overflow-hidden"
+        style=" background-color:#eee8cd;max-height: 600px;">
+        <div class=" row border border-dark border-end-0 border-top-0 border-start-0">
+          <div class="col-xl-11 col-lg-10 col-sm-12 col-md-12 col-center pt-4 pb-md-3 pb-sm-3 pb-3 pb-lg-3"><span
+              class="fs-5 fw-bold">Proyectos Generales</span></div>
+          <div class="col-lg-2 col-xl-1 d-none d-lg-block text-end pe-2 pt-1 pb-1"> <img class=" bd-placeholder-img bd-placeholder-img-lg featurette image
+          img-fluid mx-auto align-items-end;" src="../img/+remove.png"></div>
+        </div>
+        <div class="col-12 overflow-auto mt-3" style="max-height: 500px;">
+          <div>
+            <form class="form-inline my-2 my-lg-2">
+              <input class="form-control mr-sm-2" type="search" placeholder="Buscar Proyecto..." aria-label="Search">
+
+            </form>
+          </div>
+          <ul class="mb-3 float-none list-unstyled float-start">
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+              img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                  img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                    img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                      img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                        img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                          img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                            img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                              img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                  img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                    img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                      img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                        img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                          img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                            img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                              img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                  img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                    img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                      img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                        img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                          img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                            img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                              img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                  img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                    img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                      img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                        img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                          img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                            img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                              img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                  img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                    img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
+                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                      img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
+                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                        img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
+                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                          img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
+                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                            img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="h-100 m-3 col-11 float-none col-center border border-dark border-2 overflow-hidden"
+        style=" background-color: rgba(0,0,255,.1);max-height: 800px;">
+        <div class=" row border border-dark border-end-0 border-top-0 border-start-0">
+          <div class="col-xl-11 col-lg-10 col-sm-12 col-md-12 col-center pt-4 pb-lg-3 pb-md-3 pb-sm-3 pb-3"><span
+              class="fs-5 fw-bold">Ultimos Proyectos</span></div>
+          <div class="col-xl-1 col-lg-2 d-none d-lg-block text-end pe-2 pt-1 pb-1"> <img class=" bd-placeholder-img bd-placeholder-img-lg featurette image
+          img-fluid mx-auto align-items-end;" src="../img/+remove.png"></div>
+        </div>
+        <div class="col-center col-12 overflow-auto mt-3" style="max-height: 700px;">
+          <div>
+            <form class="form-inline my-2 my-lg-2">
+              <input class="form-control mr-sm-2" type="search" placeholder="Buscar Proyecto..." aria-label="Search">
+
+            </form>
+          </div>
+          <ul class="justify-content-center mb-3 float-none list-unstyled float-start">
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 elemento"
+              ondblclick="cambiarleerTodo(this)" onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+              img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
+                  asdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3" ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span
+                  class="elemento">Holaaasdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 mb-3" ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+              img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
+                  asdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 " ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span
+                  class="elemento">Holaaasdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 mb-3" ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+              img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
+                  asdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 " ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span
+                  class="elemento">Holaaasdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 mb-3" ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+              img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
+                  asdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 " ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span
+                  class="elemento">Holaaasdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 mb-3" ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+              img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
+                  asdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 " ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span
+                  class="elemento">Holaaasdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 mb-3" ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+              img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
+                  asdasdasdad</span></div>
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 " ondblclick="cambiarleerTodo(this)"
+              onclick="leerTodo(this)">
+              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                img-fluid mx-auto align-items-end; pb-2" src="../img/+remove.png"></div>
+              <div class="col-center text-truncate" style=" max-width: 150px;"><span
+                  class="elemento">Holaaasdasdasdad</span></div>
+            </li>
+
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 "><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                  img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaaaaaaaaaaaaaaaaaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                    img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaaaaaaaaaaaaaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                      img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                        img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                          img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                            img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                              img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                  img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                    img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                      img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                        img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                          img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                            img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                              img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                  img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                    img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                      img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                        img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                          img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                            img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                              img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                  img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                    img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                      img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                        img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                          img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                            img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                              img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                  img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                    img-fluid mx-auto align-items-end;"
+                src="../img/+remove.png">Holaaaaaa</li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
+                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                      img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
+                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                        img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
+                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                          img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
+                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                                                                                            img-fluid mx-auto align-items-end;" src="../img/+remove.png">Holaaaaaa
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="border-start border-dark border-2 pt-5 float-end col-2 derecho d-none d-lg-block">
+      <ul class="list-unstyled ps-3">
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded collapsed boton" data-bs-toggle="collapse"
+            data-bs-target="#cr-proyecto" aria-expanded="true"><span class="fs-5 fw-bold">Crear Proyecto</span>
+
+          </button>
+          <div class="collapse show menu" id="cr-proyecto">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-4  small">
+              <li class="pb-3"><a id="preguntascrear2" href="#" class="link-dark rounded text-decoration-none fs-6">Preguntas Cortas</a></li>
+              <li class="pb-3"><a id="desarrollocrear2" href="#" class="link-dark rounded text-decoration-none fs-6">Examen Desarrollo</a>
+              </li>
+              <li class="pb-3"><a id="testcrear2" href="#" class="link-dark rounded text-decoration-none fs-6">Test</a></li>
+              <li class="pb-3"><a href="#" class="link-dark rounded text-decoration-none fs-6">Cantar Temas</a></li>
+              <li class="pb-3"><a id="tarjetascrear2" href="#" class="link-dark rounded text-decoration-none fs-6">Tarjetas de Memoria</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded" aria-expanded="false"><span
+              class="fs-5 fw-bold">Crear Tarea</span>
+
+          </button>
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded" aria-expanded="false"><span
+              class="fs-5 fw-bold">Crear Alumno</span>
+          </button>
+        </li>
+        <li class="mb-1">
+          <button class="btn btn-toggle align-items-center rounded" aria-expanded="false"><span
+              class="fs-5 fw-bold">Crear Grupo</span>
+          </button>
+        </li>
+        <li class="border-top border-dark my-3 me-5"></li>
+
+      </ul>
+    </div>
+
+
+
+
+  </main>
+  <footer
+    class="container-fluid p-0 py-3 d-none d-sm-none d-md-block border border-warning border-bottom-0 border-end-0 border-start-0 border-5">
+    <div class=" float-start h-100 col-12 text-center p-0 me-5"><span class="fs-2 col-center fw-bold">Proyecto
+        Alba</span>
+    </div>
+    <div class=" float-start h-100 col-12 text-center p-0 me-5"><span class="fs-5 col-center">Creado por David
+        Casado-DAW-Diseño de Interfaces</span>
+    </div>
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+  <script src="../js/myscript.js">
+
+  </script>
+  <script src="../js/direcciones.js">
+
+  </script>
+</body>
+
+</html>

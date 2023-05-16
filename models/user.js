@@ -4,10 +4,18 @@ const Schema = mongoose.Schema;
 // Declaración del modelo y sus datos
 const userSchema = new Schema({
     nombre: String,
-    nombreReal: String,
     apellidos: String,
+    correo: String,
+    direccion: String,
+    ciudad: String,
     password: String,
-    rol: String
+    telefono: Number,
+    dni:String,
+    rol: String,
+    metodoPago: String,
+    grupoPago: String,
+    fechaIngreso: Date,
+    fechaRenovacion: Date,
 });
 
 // Creación del modelo

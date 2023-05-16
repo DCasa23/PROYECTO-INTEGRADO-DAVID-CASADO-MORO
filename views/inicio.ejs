@@ -31,13 +31,13 @@
       <form class="row g-3 needs-validation justify-content-center justify-content-center formulario mt-md-3 m-sm-4 m-4" action="/inicio"  method="POST">
 
         <div class="col-md-12 position-relative text-center">
-          <label class="col-12 text-center" for="nombre" class="form-label ">Nombre de Usuario</label>
-          <input class="col-lg-2 col-md-4 col-sm-6 col-12 text-center" type="text" class=" form-control" autocomplete="off" id="usuarioform">
+          <label class="col-12 text-center" for="correo" class="form-label ">Correo de Usuario</label>
+          <input class="col-lg-2 col-md-4 col-sm-6 col-12 text-center" type="text" class=" form-control" autocomplete="off" id="usuarioform" name="correo">
           
         </div>
         <div class="col-md-12 position-relative text-center">
-          <label class="col-12 text-center" for="apellido" class="form-label">Contraseña</label>
-          <input class="col-lg-2 col-md-4 col-sm-6 col-12 text-center" type="password" class="form-control" id="passwordform">
+          <label class="col-12 text-center" for="password" class="form-label">Contraseña</label>
+          <input class="col-lg-2 col-md-4 col-sm-6 col-12 text-center" type="password" class="form-control" id="passwordform" name="password">
           
 
         </div>
@@ -46,7 +46,7 @@
           <button class="btn btn-warning fw-bold" type="submit"> Enviar</button>
         </div>
         <div class="col-12 position-relative text-center">
-          <a class="btn btn-warning fw-bold" href="/register"> Crear Usuario</a>
+          <a class="btn btn-warning fw-bold" href="/registro"> Crear Usuario</a>
         </div>
       </form>
     </div>

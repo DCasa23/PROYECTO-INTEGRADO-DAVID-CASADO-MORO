@@ -9,7 +9,7 @@ exports.user_login_post = async (req, res) => {
     // Recuperación de los datos introducidos en el login mediante body-parser
     let body = req.body;
     try {
-        let usuarioEncontrado = await Usuario.findOne({ nombre: `${body.nombre}`, password: `${body.password}` });
+        let usuarioEncontrado = await Usuario.findOne({ correo: `${body.correo}`, password: `${body.password}` });
         if (usuarioEncontrado !== null) {
             req.session.cuenta = usuarioEncontrado;
             res.redirect("/");

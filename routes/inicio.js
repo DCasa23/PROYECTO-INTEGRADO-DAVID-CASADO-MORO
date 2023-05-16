@@ -14,7 +14,7 @@ router.get("/*", (req, res, next) => {
     }
 });
 
-// GET página login
+//GET página login
 router.get("/", inicioController.login);
 
 // POST request para loguear usuario
