@@ -1,43 +1,48 @@
-<%- include("template/head.ejs", {tituloWeb})%>
-    <link rel="stylesheet" href="/css/register.css">
+<!doctype html>
+<html lang="en">
+
+<head>
+<%- include("template/head.ejs")%>
+<link rel="stylesheet" type="text/css" href="../css/perfil.css" />
     </head>
 
     <body class="login">
+         <%- include("template/header.ejs")%>
         <main class="container-fluid mainlogin">
-
+            <%- include("template/navleft.ejs")%>
             <div class="container">
                 <div class="row justify-content-center containerFormat">
                     <form id="editar" class="rounded bg-dark p-4 text-white loginFormat align-self-center"
-                        data-id="<%=usuarioEditar.id%>">
+                        data-id="<%=usuario.id%>">
                         <div class="mt-2 text-center">
                             <h1 class="display-6">Editar usuario</h1>
                         </div>
                         <div class="mb-3 pt-4 ps-5 pe-5">
                             <label for="nombreproyecto" class="form-label">Nombre del usuario</label>
                             <input type="text" class="form-control" id="nombre" placeholder="Nombre..." name="nombre"
-                                value="<%=usuarioEditar.nombre%>">
+                                value="<%=usuario.nombre%>">
                         </div>
                         <div class="mb-3 pt-4 ps-5 pe-5">
                             <label for="nombreproyecto" class="form-label">Nombre real del usuario</label>
                             <input type="text" class="form-control" id="nombreReal" placeholder="Nombre real..." name="nombreReal"
-                                value="<%=usuarioEditar.nombreReal%>">
+                                value="<%=usuario.nombreReal%>">
                         </div>
                         <div class="mb-3 pt-4 ps-5 pe-5">
                             <label for="tipo" class="form-label">Apellidos del usuario</label>
                             <input type="text" class="form-control" id="apellidos" placeholder="Apellidos..."
-                                name="apellidos" value="<%=usuarioEditar.apellidos%>">
+                                name="apellidos" value="<%=usuario.apellidos%>">
                         </div>
                         <div class="mb-3 pt-4 ps-5 pe-5">
                             <label for="tipo" class="form-label">Contraseña del usuario</label>
                             <input type="text" class="form-control" id="password" placeholder="Contraseña..."
-                                name="password" value="<%=usuarioEditar.password%>">
+                                name="password" value="<%=usuario.password%>">
                         </div>
                         <div class="mb-3 pt-4 ps-5 pe-5">
                             <label for="exampleInputPassword1" class="form-label">Elegir Rol</label>
                             <select class="form-select" aria-label="Default select example" name="rol">
-                                <option value="Alumno" <%if(usuarioEditar.rol=="Alumno" ){%>selected<%}%>>Alumno
+                                <option value="Alumno" <%if(usuario.rol=="Alumno" ){%>selected<%}%>>Alumno
                                 </option>
-                                <option value="Profesor" <%if(usuarioEditar.rol=="Profesor" ){%>selected<%}%>>Profesor
+                                <option value="Profesor" <%if(usuario.rol=="Profesor" ){%>selected<%}%>>Profesor
                                 </option>
                             </select>
                         </div>
@@ -59,6 +64,17 @@
                     </form>
                 </div>
             </div>
-        </main>
-        <%- include("template/footer.ejs")%>
-            <script src="/js/edit_delete_user.js"></script>
+         <%- include("template/navright.ejs")%>
+
+
+
+
+  </main>
+  
+
+  <%- include("template/footer.ejs")%>
+  
+</body>
+
+
+</html>

@@ -8,14 +8,20 @@ const perfilController = require("../controllers/perfilController");
 router.get("/*", (req, res, next) => {
     req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
     if (!req.session.cuenta) {
-        res.render("perfil", { tituloWeb: "Inicio de sesión", error: false, success: false });
+        res.render("login", { tituloWeb: "Inicio de sesión", error: false, success: false });
     } else {
         next();
     }
 });
 
 // GET de la página register
-router.get("/", perfilController.perfil);
+router.get('/', perfilController.perfil);
+
+router.get('/editarperfil', perfilController.users_edit_get);
+
+router.put('/editarperfil',  perfilController.users_edit_put);
+
+router.delete('/editarperfil',  perfilController.users_edit_delete);
 
 
 
