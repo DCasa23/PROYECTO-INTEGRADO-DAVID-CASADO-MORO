@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 // Require de los controladores de users
-const desarrolloController = require("../controllers/desarrolloController");
+const tarjetasController = require("../controllers/tarjetasController");
 
 // Comprueba que tiene iniciada sesión
 router.get("/", (req, res, next) => {
@@ -15,11 +15,11 @@ router.get("/", (req, res, next) => {
 });
 
 /* GET home page. */
-router.get('/', desarrolloController.desarrollo);
+router.get('/', tarjetasController.tarjetas);
 
-router.get('/creardesarrollo/', desarrolloController.desarrollo_create_project);
+router.get('/creartarjetas/', tarjetasController.tarjetas_create_project);
 
-router.post('/creardesarrollo/', desarrolloController.desarrollo_create_project_post);
+router.post('/creartarjetas/', tarjetasController.tarjetas_create_project_post);
 
 
 

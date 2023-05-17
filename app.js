@@ -21,6 +21,9 @@ mongoose.connect(uri,
 const indexRouter = require('./routes/index');
 
 const usersRouter = require('./routes/users');
+const cortasRouter = require("./routes/cortas");
+const tarjetasRouter = require("./routes/tarjetas");
+const testRouter = require("./routes/test");
 const desarrolloRouter = require("./routes/desarrollo");
 const inicioRouter = require("./routes/inicio");
 const perfilRouter = require("./routes/perfil");
@@ -46,6 +49,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/desarrollo', desarrolloRouter);
+app.use('/test', testRouter);
+app.use('/tarjetas', tarjetasRouter);
+app.use('/cortas', cortasRouter);
 app.use('/users', usersRouter);
 app.use("/perfil", perfilRouter);
 app.use("/inicio", inicioRouter);
