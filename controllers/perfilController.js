@@ -4,7 +4,7 @@ exports.perfil = (req, res) => {
     res.render("perfil", { tituloWeb: "Perfil de usuario",usuario: req.session.cuenta});
 };
 exports.users_edit_get = async (req, res) => {
-    res.render("perfil/editarperfil", { tituloWeb: "Perfil de usuario",usuario: req.session.cuenta});
+    res.render("editarperfil", { tituloWeb: "Perfil de usuario",usuario: req.session.cuenta});
 };
 
 exports.users_edit_put = async (req, res) => {

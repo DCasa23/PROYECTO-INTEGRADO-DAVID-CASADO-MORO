@@ -17,11 +17,11 @@ router.get("/*", (req, res, next) => {
 // GET de la página register
 router.get('/', perfilController.perfil);
 
-router.get('/editarperfil', perfilController.users_edit_get);
+router.get('/perfil/editarperfil', perfilController.users_edit_get);
 
-router.put('/editarperfil',  perfilController.users_edit_put);
+router.put('/perfil/editarperfil',  perfilController.users_edit_put);
 
-router.delete('/editarperfil',  perfilController.users_edit_delete);
+router.delete('/perfil/editarperfil',  perfilController.users_edit_delete);
 
 
 
