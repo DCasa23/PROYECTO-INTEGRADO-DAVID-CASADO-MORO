@@ -1,10 +1,15 @@
-<%- include("template/head.ejs", {tituloWeb:"Usuarios", usuario})%>
+<!doctype html>
+<html lang="en">
+<head>
+<%- include("template/head.ejs")%>
+<link rel="stylesheet" type="text/css" href="../css/perfil.css" />
     </head>
 
-    <body class="usuarios">
-        <%- include("template/header.ejs", {tituloWeb:"Usuarios"})%>
+    <body>
+        <%- include("template/header.ejs")%>
 
-            <main class="container-fluid mainusuarios">
+            <main class="container-fluid ">
+                <%- include("template/navleft.ejs")%>
                 <div class="container-fluid p-5">
                     <h1 class="display-3 text-light">Usuarios</h1>
                     <h1 class="display-6 text-light">
@@ -17,6 +22,14 @@
                             <table class="table">
                                 <thead class="thead-dark fs-5">
                                     <tr>
+                                        <th scope="col">Nombre de usuario</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Apellidos</th>
+                                        <th scope="col">Rol</th>
+                                        <th scope="col">Nombre de usuario</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Apellidos</th>
+                                        <th scope="col">Rol</th>
                                         <th scope="col">Nombre de usuario</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Apellidos</th>
@@ -44,6 +57,33 @@
                                             <td>
                                                 <%= usuarios.rol %>
                                             </td>
+                                            <td>
+                                                <%= usuarios.dni %>
+                                            </td>
+                                            <td>
+                                                <%= usuarios.telefono %>
+                                            </td>
+                                            <td>
+                                                <%= usuarios.direccion %>
+                                            </td>
+                                            <td>
+                                                <%= usuarios.ciudad %>
+                                            </td>
+                                            <td>
+                                                <%= usuarios.password %>
+                                            </td>
+                                            <td>
+                                                <%= usuarios.metodoPago %>
+                                            </td>
+                                            <td>
+                                                <%= usuarios.grupoPago %>
+                                            </td>
+                                            <td>
+                                                <%= usuarios.fechaIngreso %>
+                                            </td>
+                                            <td>
+                                                <%= usuarios.fechaRenovacion %>
+                                            </td>
                                             <%if (usuario.rol=="Profesor" ){%>
                                                 <td>
                                                     <a class="btn btn-warning btn-sm"
@@ -59,7 +99,7 @@
                         <div class="col-7 text-center row">
                             <%if (usuario.rol=="Profesor" ){%>
                                 <div class="col-sm-12 col-md-6">
-                                    <a class="btn btn-secondary btn-block my-4 me-sm-0 me-md-5" href="/register">Nuevo Usuario</a>
+                                    <a class="btn btn-secondary btn-block my-4 me-sm-0 me-md-5" href="/registro">Nuevo Usuario</a>
                             </div>
                                 <%}%>
                                 <div class="col-sm-12 col-md-6">
@@ -68,7 +108,10 @@
                         </div>
                     </div>
                 </div>
-
+                <%- include("template/navright.ejs")%>
             </main>
 
             <%- include("template/footer.ejs")%>
+        </body>
+
+        </html>

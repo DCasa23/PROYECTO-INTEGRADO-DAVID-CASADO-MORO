@@ -17,9 +17,9 @@ router.get("/", (req, res, next) => {
 /* GET home page. */
 router.get('/', cortasController.cortas);
 
-router.get('/crearcortas/', cortasController.cortas_create_project);
+router.get('/crearcortas', cortasController.cortas_create_project);
 
-router.post('/crearcortas/', cortasController.cortas_create_project_post);
+router.post('/crearcortas', cortasController.cortas_create_project_post);
 
 
 
