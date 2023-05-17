@@ -1,15 +1,14 @@
-const Proyecto = require("../models/proyectos");
+
 const Usuario = require("../models/user");
 
 exports.index = async (req, res) => {
     try {
-        const arrayProyectos = await Proyecto.find();
-        res.render('index', { tituloWeb: "Inicio de sesión", arrayProyectos: arrayProyectos, title: 'Inicio', usuario: req.session.cuenta });
+        res.render('index', { tituloWeb: "Inicio de sesión", title: 'Inicio', usuario: req.session.cuenta });
     } catch (error) {
         console.log(error);
     }
 };
-
+/*
 exports.index_create_project = async (req, res) => {
     try {
         const arrayJefes = await Usuario.find({ rol: "Profesor" });
@@ -120,7 +119,7 @@ exports.index_edit_project_delete = async (req, res) => {
 };
 
 
-
+*/
 
 
 

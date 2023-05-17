@@ -19,16 +19,13 @@ mongoose.connect(uri,
 
 
 const indexRouter = require('./routes/index');
-const projectRouter = require("./routes/project");
+
 const usersRouter = require('./routes/users');
+const desarrolloRouter = require("./routes/desarrollo");
 const inicioRouter = require("./routes/inicio");
 const perfilRouter = require("./routes/perfil");
 const registroRouter = require("./routes/registro");
-const walletRouter = require("./routes/wallet");
-const newsRouter = require("./routes/news");
-const incidentsRouter = require("./routes/incidents");
-const problemRouter = require("./routes/problem");
-const mailboxRouter = require("./routes/mailbox");
+
 
 var app = express();
 
@@ -48,16 +45,11 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/desarrollo', desarrolloRouter);
 app.use('/users', usersRouter);
 app.use("/perfil", perfilRouter);
 app.use("/inicio", inicioRouter);
 app.use("/registro", registroRouter);
-app.use("/wallet", walletRouter);
-app.use('/news', newsRouter);
-app.use('/incidents', incidentsRouter);
-app.use('/mailbox', mailboxRouter);
-app.use('/problem', problemRouter);
-app.use('/project', projectRouter);
 
 
 

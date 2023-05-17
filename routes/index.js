@@ -15,8 +15,9 @@ router.get("/", (req, res, next) => {
 });
 
 /* GET home page. */
-router.get('/', indexController.index);
 
+router.get('/', indexController.index);
+/*
 router.get('/crearProyecto', indexController.index_create_project);
 
 router.post('/crearProyecto', indexController.index_create_project_post);
@@ -26,5 +27,5 @@ router.get("/editarProyecto/:id", indexController.index_edit_project);
 router.put("/editarProyecto/:id", indexController.index_edit_project_put);
 
 router.delete("/editarProyecto/:id", indexController.index_edit_project_delete);
-
+*/
 module.exports = router;
