@@ -3,12 +3,13 @@ const Schema = mongoose.Schema;
 
 // Declaración del modelo y sus datos
 const cortasSchema = new Schema({
-    preguntaprimera: String,
-    respuestaprimera: String,
-    preguntasegunda: String,
-    respuestasegunda: String,
-    preguntatercera: String,
-    respuestatercera: String,
+    correo: String,
+    duracion: Number,
+    pregunta: String,
+    respuesta: String,
+    nota: Number,
+    comentario: String,
+    
 });
 
 // Creación del modelo
