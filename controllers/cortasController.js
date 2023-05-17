@@ -1,4 +1,5 @@
 const Cortas = require("../models/cortas");
+const Usuario = require("../models/user");
 
 exports.cortas = async (req, res) => {
     try {

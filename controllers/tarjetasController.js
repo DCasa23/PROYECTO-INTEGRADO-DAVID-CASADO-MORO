@@ -1,4 +1,5 @@
 const Tarjetas = require("../models/tarjetas");
+const Usuario = require("../models/user");
 
 exports.tarjetas = async (req, res) => {
     try {

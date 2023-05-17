@@ -1,4 +1,5 @@
 const Test = require("../models/test");
+const Usuario = require("../models/user");
 
 exports.test = async (req, res) => {
     try {
