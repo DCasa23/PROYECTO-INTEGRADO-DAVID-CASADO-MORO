@@ -18,7 +18,6 @@ exports.index_create_project = async (req, res) => {
         console.log(error);
     }
 };
-
 exports.index_create_project_post = async (req, res) => {// Recuperamos los datos del formulario
     const body = req.body;
     try {
@@ -119,3 +118,9 @@ exports.index_edit_project_delete = async (req, res) => {
         console.log(error);
     }
 };
+
+
+
+
+
+

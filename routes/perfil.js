@@ -15,9 +15,8 @@ router.get("/*", (req, res, next) => {
 });
 
 // GET de la página register
-router.get("/", perfilController.register);
+router.get("/", perfilController.perfil);
 
-// POST request para registrar un nuevo usuario
-router.post("/", perfilController.user_register_post);
+
 
 module.exports = router;
