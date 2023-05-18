@@ -14,13 +14,13 @@
       <div class="col-lg-2 d-none d-lg-block float-start align-items-center text-center px-0 py-0 "><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
         img-fluid mx-auto;" src="/img/ProyectoAlbaRemove.png"></div>
       <div class="col-md-3 col-sm-3 col-4 d-lg-none float-start align-items-center text-center px-0 py-0 "><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
-        img-fluid mx-auto;" src="/img/guest.png"><a id="botonusuario" href="/perfil" class="nombreperfil fw-bold text-dark text-decoration-none m-lg-4 m-xl-4 fs-4" ></a></div>
+        img-fluid mx-auto;" src="/img/guest.png"><a id="botonusuario" href="/perfil" class="nombreperfil fw-bold text-dark text-decoration-none m-lg-4 m-xl-4 fs-4" ><%=usuarioEditar.nombre%></a></div>
       <div class="col-8 text-center align-self-center float-none ">
         <h1>Proyecto Alba</h1>
         <h4>Learning Environment</h4>
       </div>
       <div class="col-2 d-none d-md-none d-lg-block float-start text-center p-0"><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
-        img-fluid mx-auto pt-lg-1;" src="/img/guest.png"><a id="botonusuario2" href="/perfil" class="nombreperfil fw-bold text-dark text-decoration-none m-lg-4 m-xl-4 fs-4" ></a></div>
+        img-fluid mx-auto pt-lg-1;" src="/img/guest.png"><a id="botonusuario2" href="/perfil" class="nombreperfil fw-bold text-dark text-decoration-none m-lg-4 m-xl-4 fs-4" ><%=usuarioEditar.nombre%></a></div>
     </div>
   </header>
   <main class="container-fluid p-0 mb-0">
@@ -93,26 +93,13 @@
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="grupoPago" placeholder="grupoPago..." name="grupoPago"
                   value="<%=usuarioEditar.grupoPago%>">
             </div>
-            <div class="row col-12 m-0 py-3">
-              <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Fecha Ingreso</label>
-              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="fechaIngreso" placeholder="fechaIngreso..." name="fechaIngreso"
-                  value="<%=usuarioEditar.fechaIngreso%>">
-            </div>
-            <div class="row col-12 m-0 py-3">
-              <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Fecha Renovación</label>
-              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="fechaRenovacion" placeholder="fechaRenovacion..." name="fechaRenovacion"
-                  value="<%=usuarioEditar.fechaRenovacion%>">
-            </div>
+            
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Metodología de Pago</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="metodoPago" placeholder="metodoPago..." name="metodoPago"
                   value="<%=usuarioEditar.metodoPago%>">
             </div>
-            <div class="row col-12 m-0 py-3">
-              <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Metodología de Pago</label>
-              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="id" placeholder="metodoPago..." name="id"
-                  value="<%=usuarioEditar._id%>">
-            </div>
+            
             <div class="row form-inline my-2 my-lg-0 justify-content-around">
               <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2" href="/">Cancelar</a>
               <button id="edit" class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 my-2" type="submit" >Confirmar</button>

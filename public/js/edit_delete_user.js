@@ -29,9 +29,9 @@ $(document).ready(function () {
         const telefono = formEditar.elements["telefono"].value;
         const metodoPago = formEditar.elements["metodoPago"].value;
         const grupoPago = formEditar.elements["grupoPago"].value;
-        const fechaIngreso = formEditar.elements["fechaIngreso"].value;
-        const fechaRenovacion = formEditar.elements["fechaRenovacion"].value;
-        const id = formEditar.elements["id"].value;
+       
+        //const id = formEditar.elements["id"].value;
+        const id = formEditar.dataset.id
         try {
             
             const data = await fetch(`/perfil/editarperfil/${id}`, {
@@ -39,7 +39,7 @@ $(document).ready(function () {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ nombre,correo,apellidos,rol,password,dni,ciudad,direccion,telefono,metodoPago,grupoPago,fechaIngreso,fechaRenovacion })
+                body: JSON.stringify({ nombre,correo,apellidos,rol,password,dni,ciudad,direccion,telefono,metodoPago,grupoPago })
             })
             const res = await data.json();
             
