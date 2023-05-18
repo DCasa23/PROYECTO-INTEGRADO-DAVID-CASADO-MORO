@@ -14,7 +14,7 @@ exports.users_edit_get = async (req, res) => {
 };
 
 exports.users_edit_put = async (req, res) => {
-    console.log("ESTOY DENTRISIMO")
+    
 const id = req.params.id;
     const body = req.body;
     console.log(id)
@@ -26,14 +26,14 @@ const id = req.params.id;
         console.log(usuarioEditar)
         res.json({
             estado: true,
-            mensaje: 'Pokémon editado'
+            mensaje: 'Usuario editado'
         })
     } catch (error) {
-        console.log("FAAAATAL")
+        
         console.log(error)
         res.json({
             estado: false,
-            mensaje: 'Problema al editar el Pokémon'
+            mensaje: 'Problema al editar el Usuario'
         })
     }
 }

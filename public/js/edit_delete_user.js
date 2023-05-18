@@ -16,7 +16,6 @@ $(document).ready(function () {
 
     // PUT USER
     $("#edit").click(async function (e) {
-        console.log("ENtreeeee")
         e.preventDefault();
         const formEditar = document.querySelector("#editar");
         const nombre = formEditar.elements["nombre"].value;
@@ -34,8 +33,7 @@ $(document).ready(function () {
         const fechaRenovacion = formEditar.elements["fechaRenovacion"].value;
         const id = formEditar.elements["id"].value;
         try {
-            console.log("trabmaie")
-            console.log(id);
+            
             const data = await fetch(`/perfil/editarperfil/${id}`, {
                 method: "PUT",
                 headers: {
@@ -44,11 +42,9 @@ $(document).ready(function () {
                 body: JSON.stringify({ nombre,correo,apellidos,rol,password,dni,ciudad,direccion,telefono,metodoPago,grupoPago,fechaIngreso,fechaRenovacion })
             })
             const res = await data.json();
-            console.log("HOLA: "+res)
             
             if (res.estado) {
-                console.log("Hello")
-                window.location.href = "/users";
+                window.location.href = "/inicio";
             } else {
                 console.log(res);
             }
