@@ -1,5 +1,5 @@
 const Tarjetas = require("../models/tarjetas");
-const Usuario = require("../models/user");
+
 
 exports.tarjetas = async (req, res) => {
     try {
@@ -13,7 +13,7 @@ exports.tarjetas = async (req, res) => {
 exports.tarjetas_create_project = async (req, res) => {
    
         
-        res.render("creartarjetas", { tituloWeb: "Crear nuevo proyecto", error: false, success: false });
+        res.render("creartarjetas", { tituloWeb: "Crear nuevo proyecto", error: false, success: false, usuario: req.session.cuenta });
   
 };
 exports.tarjetas_create_project_post = async (req, res) => {// Recuperamos los datos del formulario

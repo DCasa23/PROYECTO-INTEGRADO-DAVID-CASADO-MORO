@@ -1,5 +1,5 @@
 const Desarrollo = require("../models/desarrollo");
-const Usuario = require("../models/user");
+
 
 exports.desarrollo = async (req, res) => {
     try {
@@ -13,7 +13,7 @@ exports.desarrollo = async (req, res) => {
 exports.desarrollo_create_project = async (req, res) => {
    
         
-        res.render("creardesarrollo", { tituloWeb: "Crear nuevo proyecto", error: false, success: false });
+        res.render("creardesarrollo", { tituloWeb: "Crear nuevo proyecto", error: false, success: false,usuario: req.session.cuenta });
   
 };
 exports.desarrollo_create_project_post = async (req, res) => {// Recuperamos los datos del formulario

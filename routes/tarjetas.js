@@ -8,7 +8,7 @@ const tarjetasController = require("../controllers/tarjetasController");
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("login", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("tarjetas", { tituloWeb: "Inicio de sesión", error: false });
   } else {
     next();
   }

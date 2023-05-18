@@ -98,7 +98,7 @@
                 class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center">Metodología
                 de Pago:</label><input id="textoPerfil"
                 class="textopago col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" disabled
-                placeholder="<%=usuario.metodoPago%>"></input>
+                placeholder="<%= usuario.metodoPago %>"></input>
             </li>
 
           </ul>
@@ -106,7 +106,7 @@
       </div>
       <div class="row form-inline my-2 my-lg-0 justify-content-around">
         <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2" href="/">Volver a Inicio</a>
-        <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 my-2" href="/perfil/editarperfil"
+        <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 my-2" href="/perfil/editarperfil/<%= usuario._id %>"
           >Modificar</a>
       </div>
 

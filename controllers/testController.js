@@ -1,5 +1,5 @@
 const Test = require("../models/test");
-const Usuario = require("../models/user");
+
 
 exports.test = async (req, res) => {
     try {
@@ -13,7 +13,7 @@ exports.test = async (req, res) => {
 exports.test_create_project = async (req, res) => {
    
         
-        res.render("creartest", { tituloWeb: "Crear nuevo proyecto", error: false, success: false });
+        res.render("creartest", { tituloWeb: "Crear nuevo proyecto", error: false, success: false , usuario: req.session.cuenta });
   
 };
 exports.test_create_project_post = async (req, res) => {// Recuperamos los datos del formulario

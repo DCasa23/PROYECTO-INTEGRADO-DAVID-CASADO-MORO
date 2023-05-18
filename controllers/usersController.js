@@ -14,6 +14,7 @@ exports.users = async (req, res) => {
 exports.users_edit_get = async (req, res) => {
     const id = req.params.id;
     try {
+        console.log("Entro")
         const usuarioEditar = await Usuario.findById(id);
         res.render("edituser", { tituloWeb: "Editar usuario", usuarioEditar: usuarioEditar });
     } catch (error) {

@@ -4,12 +4,44 @@ exports.perfil = (req, res) => {
     res.render("perfil", { tituloWeb: "Perfil de usuario",usuario: req.session.cuenta});
 };
 exports.users_edit_get = async (req, res) => {
-    res.render("editarperfil", { tituloWeb: "Perfil de usuario",usuario: req.session.cuenta});
+    const id = req.params.id;
+    try {
+        const usuarioEditar = await Usuario.findOne({_id:id});
+        res.render("editarperfil", { tituloWeb: "Editar usuario", usuarioEditar: usuarioEditar });
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 exports.users_edit_put = async (req, res) => {
-    const id = req.params.id;
+    console.log("ESTOY DENTRISIMO")
+const id = req.params.id;
     const body = req.body;
+    console.log(id)
+    console.log('body', body)
+    try {
+        const usuarioEditar = await Usuario.findByIdAndUpdate(
+            id, body, { useFindAndModify: false }
+        )
+        console.log(usuarioEditar)
+        res.json({
+            estado: true,
+            mensaje: 'Pokémon editado'
+        })
+    } catch (error) {
+        console.log("FAAAATAL")
+        console.log(error)
+        res.json({
+            estado: false,
+            mensaje: 'Problema al editar el Pokémon'
+        })
+    }
+}
+   /* ---------
+    
+    const body = req.body;
+    
+    const id = req.params.id;
     
     try {
         if (body.nombre != "" && body.correo != "" && body.password != "" && body.apellidos != "") {
@@ -33,7 +65,7 @@ exports.users_edit_put = async (req, res) => {
             mensaje: 'Problema al editar el usuario'
         })
     }
-};
+};*/
 
 exports.users_edit_delete = async (req, res) => {
     const id = req.params.id;

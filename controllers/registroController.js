@@ -1,7 +1,7 @@
 const Usuario = require("../models/user");
 
 exports.register = (req, res) => {
-    res.render("registro", { tituloWeb: "Registro de usuario", error: false, success: false });
+    res.render("registro", { tituloWeb: "Registro de usuario", error: false, success: false,usario : req.session.cuenta });
 };
 
 exports.user_register_post = async (req, res) => {

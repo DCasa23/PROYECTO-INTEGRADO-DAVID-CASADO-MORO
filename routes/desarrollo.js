@@ -8,7 +8,7 @@ const desarrolloController = require("../controllers/desarrolloController");
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("login", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("desarrollo", { tituloWeb: "Inicio de sesión", error: false });
   } else {
     next();
   }

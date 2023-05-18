@@ -1,5 +1,4 @@
 const Cortas = require("../models/cortas");
-const Usuario = require("../models/user");
 
 exports.cortas = async (req, res) => {
     try {
@@ -13,7 +12,7 @@ exports.cortas = async (req, res) => {
 exports.cortas_create_project = async (req, res) => {
    
         
-        res.render("crearcortas", { tituloWeb: "Crear nuevo proyecto", error: false, success: false });
+        res.render("crearcortas", { tituloWeb: "Crear nuevo proyecto", error: false, success: false, usuario: req.session.cuenta});
   
 };
 exports.cortas_create_project_post = async (req, res) => {// Recuperamos los datos del formulario

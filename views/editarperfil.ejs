@@ -4,12 +4,25 @@
 <head>
   <%- include("template/head.ejs")%>
   
-  <link rel="stylesheet" type="text/css" href="../css/perfil.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="../js/edit_delete_user.js"></script>
 </head>
 
 <body>
-  <%- include("template/header.ejs")%>
+  <header class="container-fluid border-bottom border-dark border-1">
+    <div class="row d-flex flex-wrap align-items-center">
+      <div class="col-lg-2 d-none d-lg-block float-start align-items-center text-center px-0 py-0 "><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
+        img-fluid mx-auto;" src="/img/ProyectoAlbaRemove.png"></div>
+      <div class="col-md-3 col-sm-3 col-4 d-lg-none float-start align-items-center text-center px-0 py-0 "><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
+        img-fluid mx-auto;" src="/img/guest.png"><a id="botonusuario" href="/perfil" class="nombreperfil fw-bold text-dark text-decoration-none m-lg-4 m-xl-4 fs-4" >Usuario</a></div>
+      <div class="col-8 text-center align-self-center float-none ">
+        <h1>Proyecto Alba</h1>
+        <h4>Learning Environment</h4>
+      </div>
+      <div class="col-2 d-none d-md-none d-lg-block float-start text-center p-0"><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
+        img-fluid mx-auto pt-lg-1;" src="/img/guest.png"><a id="botonusuario2" href="/perfil" class="nombreperfil fw-bold text-dark text-decoration-none m-lg-4 m-xl-4 fs-4" >Usuario</a></div>
+    </div>
+  </header>
   <main class="container-fluid p-0 mb-0">
 
     <%- include("template/navleft.ejs")%>
@@ -27,78 +40,82 @@
         </div>
         <div class="col-12 mt-3" style="max-height: 1700px;">
 
-          <form id="editar" class="mb-3 list-unstyled" data-id="<%=usuario.id%>"> 
-
+          <form id="editar" class="mb-3 list-unstyled" data-id="<%=usuarioEditar._id%>"> 
 
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Correo del Usuario</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="correo" placeholder="Nombre..." name="nombre"
-                  value="<%=usuario.correo%>">
+                  value="<%=usuarioEditar.correo%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Contraseña</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="password" placeholder="Nombre..." name="password"
-                  value="<%=usuario.password%>">
+                  value="<%=usuarioEditar.password%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Nombre del usuario</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="nombre" placeholder="Nombre..." name="nombre"
-                  value="<%=usuario.nombre%>">
+                  value="<%=usuarioEditar.nombre%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Apellidos</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="apellidos" placeholder="Nombre..." name="apellidos"
-                  value="<%=usuario.apellidos%>">
+                  value="<%=usuarioEditar.apellidos%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">DNI</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="dni" placeholder="Nombre..." name="dni"
-                  value="<%=usuario.dni%>">
+                  value="<%=usuarioEditar.dni%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Direccion</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="direccion" placeholder="direccion..." name="direccion"
-                  value="<%=usuario.direccion%>">
+                  value="<%=usuarioEditar.direccion%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Ciudad</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="ciudad" placeholder="ciudad..." name="ciudad"
-                  value="<%=usuario.ciudad%>">
+                  value="<%=usuarioEditar.ciudad%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Telefono</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="telefono" placeholder="telefono..." name="telefono"
-                  value="<%=usuario.telefono%>">
+                  value="<%=usuarioEditar.telefono%>">
             </div>
             
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Rol</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="rol" placeholder="rol..." name="rol"
-                  value="<%=usuario.rol%>">
+                  value="<%=usuarioEditar.rol%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Plan de Formación</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="grupoPago" placeholder="grupoPago..." name="grupoPago"
-                  value="<%=usuario.grupoPago%>">
+                  value="<%=usuarioEditar.grupoPago%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Fecha Ingreso</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="fechaIngreso" placeholder="fechaIngreso..." name="fechaIngreso"
-                  value="<%=usuario.fechaIngreso%>">
+                  value="<%=usuarioEditar.fechaIngreso%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Fecha Renovación</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="fechaRenovacion" placeholder="fechaRenovacion..." name="fechaRenovacion"
-                  value="<%=usuario.fechaRenovacion%>">
+                  value="<%=usuarioEditar.fechaRenovacion%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Metodología de Pago</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="metodoPago" placeholder="metodoPago..." name="metodoPago"
-                  value="<%=usuario.metodoPago%>">
+                  value="<%=usuarioEditar.metodoPago%>">
+            </div>
+            <div class="row col-12 m-0 py-3">
+              <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Metodología de Pago</label>
+              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="id" placeholder="metodoPago..." name="id"
+                  value="<%=usuarioEditar._id%>">
             </div>
             <div class="row form-inline my-2 my-lg-0 justify-content-around">
               <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2" href="/">Cancelar</a>
-              <button id="edit" class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 my-2" type="submit">Confirmar</button>
+              <button id="edit" class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 my-2" type="submit" >Confirmar</button>
             </div>
           </form>
         </div>
@@ -119,63 +136,7 @@
   
 
   <%- include("template/footer.ejs")%>
-  <script>
-    $(document).ready(function () {
-    // DELETE USER
-    const id = $("#editar").data("id");
-    $("#delete").click(async function (e) {
-        console.log("Hola")
-        e.preventDefault();
-        const data = await fetch(`/users/${id}`, {
-            method: "delete"
-        });
-        const res = await data.json();
-        if (res.estado) {
-            window.location.href = "/users";
-        } else {
-            console.log(res);
-        }
-    });
-
-
-    
-    // PUT USER
-    $("#edit").click(async function (e) {
-        e.preventDefault();
-        const formEditar = document.querySelector("#editar");
-        const nombre = formEditar.elements["nombre"].value;
-        const correo = formEditar.elements["correo"].value;
-        const apellidos = formEditar.elements["apellidos"].value;
-        const rol = formEditar.elements["rol"].value;
-        const password = formEditar.elements["password"].value;
-        const dni = formEditar.elements["dni"].value;
-        const ciudad = formEditar.elements["ciudad"].value;
-        const direccion = formEditar.elements["direccion"].value;
-        const telefono = formEditar.elements["telefono"].value;
-        const metodoPago = formEditar.elements["metodoPago"].value;
-        const grupoPago = formEditar.elements["grupoPago"].value;
-        const fechaIngreso = formEditar.elements["fechaIngreso"].value;
-        const fechaRenovacion = formEditar.elements["fechaRenovacion"].value;
-        try {
-            const data = await fetch(`/editarperfil`, {
-                method: "PUT",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ nombre,correo,apellidos,rol,password,dni,ciudad,direccion,telefono,metodoPago,grupoPago,fechaIngreso,fechaRenovacion })
-            })
-            const res = await data.json();
-            if (res.estado) {
-                window.location.href = "/users";
-            } else {
-                console.log(res);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-            })
-          });
-  </script>
+  <script src="/js/edit_delete_user.js"></script>
 </body>
 
 
