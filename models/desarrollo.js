@@ -3,13 +3,9 @@ const Schema = mongoose.Schema;
 
 // Declaración del modelo y sus datos
 const desarrolloSchema = new Schema({
-    correo: String,
-    duracion: Number,
+    tema: String,
     pregunta: String,
-    respuesta: String,
-    nota: Number,
-    comentario: String,
-    
+    tipopregunta: Number,
 });
 
 // Creación del modelo

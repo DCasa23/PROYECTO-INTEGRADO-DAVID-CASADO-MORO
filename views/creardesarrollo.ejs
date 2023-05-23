@@ -23,31 +23,37 @@
           </div>
 
         </div>
+        <form action="/desarrollo/creardesarrollo" class= "needs-validation formulario" method="POST">
+          
         <div class="col-12 mt-3" style="max-height: 1100px;">
-          <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2"
+          <div>
+          <input id="textoPreguntas" name="tema" type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2"
             placeholder="Nombre del Tema"></input>
 
-          <ul class="mb-3 list-unstyled">
-            <li class="row col-12 m-0 py-3"><input id="textoPreguntas"
+          </div>
+          <div>
+           <input id="textoPreguntas" name="pregunta" type="text"
                 class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                placeholder="Escribir Tema"></input></li>
-            <ul class="mb-3 list-unstyled">
-              <span>Duración de la Prueba</span>
-              <li class="col-center col-12 col-sm-12 col-md-4 col-lg-3"><input id="unica" name="tipopregunta"
-                  type="radio" value="unica" checked="checked"> 15 minutos</input></li>
-              <li><input id="tf" name="tipopregunta" type="radio" value="tf"> 30 minutos</input></li>
-              <li><input id="varias" name="tipopregunta" type="radio" value="varias"> 60 minutos</input></li>
-            </ul>
+                placeholder="Escribir Tema"></input>
+              </div>
+              <div>
+                <ul class="mb-3 list-unstyled">
+                  <span>Duración de la Prueba</span>
+                  <li class="col-center col-12 col-sm-12 col-md-4 col-lg-3"><input id="unica" name="tipopregunta"
+                      type="radio" value="15" checked="checked"> 15 minutos</input></li>
+                  <li><input id="tf" name="tipopregunta" type="radio" value="30"> 30 minutos</input></li>
+                  <li><input id="varias" name="tipopregunta" type="radio" value="60"> 60 minutos</input></li>
+                </ul>
+          </div>
 
-
-          </ul>
         </div>
+        
+          <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2" href="/desarrollo" id="volveriniciarsesion">Ir a Preguntas Desarrollo</a>
+          <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Guardar</button>
+        
+      </form>
       </div>
-      <div class="row form-inline my-2 my-lg-0 justify-content-around">
-        <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2" type="submit">Volver a Inicio</button>
-        <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2"
-          type="submit">Finalizar</button>
-      </div>
+      
 
     </div>
 
