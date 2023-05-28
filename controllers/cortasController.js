@@ -1,4 +1,5 @@
 const Cortas = require("../models/cortas");
+const Cortas2 = require("../models/cortas2");
 
 exports.cortas = async (req, res) => {
     try {
@@ -50,6 +51,24 @@ exports.cortas_develope_project = async (req, res) => {
             mensaje: 'Corta no encontrado!',usuario: req.session.cuenta
         })
     }
+};
+exports.cortas_develope_project_post = async (req, res) => {// Recuperamos los datos del formulario
+    let body = req.body;
+    console.log("YASADASD")
+   try {
+       if (body.respuesta1 != "") {
+           console.log("ENTRAMOS")
+           let nuevaCortas2 = new Cortas2(body);
+           await nuevaCortas2.save();
+           res.render("ejercortas", { tituloWeb: "Publicar Cortas", error: false, success: true });
+           res.redirect("/");
+       } else {
+           res.render("ejercortas", { tituloWeb: "Publicar Cortas", error: true, success: false });
+       }
+   } catch (error) {
+       console.log("ENTRAMOSnoooooo")
+       console.log(error);
+   }
 };
 
 

@@ -23,5 +23,5 @@ router.post('/crearcortas/', cortasController.cortas_create_project_post);
 
 router.get('/:id', cortasController.cortas_develope_project);
 
-
+router.post('/:id/ejercortas', cortasController.cortas_develope_project_post);
 module.exports = router;
