@@ -1,5 +1,5 @@
 const Desarrollo = require("../models/desarrollo");
-
+const Desarrollo2 = require("../models/desarrollo2");
 
 exports.desarrollo = async (req, res) => {
     try {
@@ -54,7 +54,24 @@ exports.desarrollo_develope_project = async (req, res) => {
         })
     }
 };
-
+exports.desarrollo_develope_project_post = async (req, res) => {// Recuperamos los datos del formulario
+    let body = req.body;
+    console.log("YASADASD")
+   try {
+       if (body.respuesta != "") {
+           console.log("ENTRAMOS")
+           let nuevaDesarrollo2 = new Desarrollo2(body);
+           await nuevaDesarrollo2.save();
+           res.render("ejerdesarrollo", { tituloWeb: "Publicar Desarrollo", error: false, success: true });
+           res.redirect("/");
+       } else {
+           res.render("ejerdesarrollo", { tituloWeb: "Publicar Desarrollo", error: true, success: false });
+       }
+   } catch (error) {
+       console.log("ENTRAMOSnoooooo")
+       console.log(error);
+   }
+};
 
 
 
