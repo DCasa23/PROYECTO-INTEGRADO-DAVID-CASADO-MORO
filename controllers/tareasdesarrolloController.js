@@ -25,10 +25,11 @@ exports.desarrollo_develope_project = async (req, res) => {
             error: false, usuario: req.session.cuenta
         })
     } catch (error) { //Si el id indicado no se encuentra
+        console.log("no ha ent")
         console.log('Se ha producido un error', error)
         res.render('resultadodesarrollo', { //Mostraremos el error en la vista "detalle"
             error: true,
-            mensaje: 'Corta no encontrado!',usuario: req.session.cuenta
+            mensaje: 'Desarrollo no encontrado!',usuario: req.session.cuenta
         })
     }
 };

@@ -29,6 +29,7 @@ const inicioRouter = require("./routes/inicio");
 const perfilRouter = require("./routes/perfil");
 const registroRouter = require("./routes/registro");
 const tareasdesarrolloRouter = require("./routes/tareasdesarrollo");
+const tareascortasRouter = require("./routes/tareascortas");
 
 
 var app = express();
@@ -58,6 +59,7 @@ app.use("/perfil", perfilRouter);
 app.use("/inicio", inicioRouter);
 app.use("/registro", registroRouter);
 app.use("/tareasdesarrollo", tareasdesarrolloRouter);
+app.use("/tareascortas", tareascortasRouter);
 
 
 

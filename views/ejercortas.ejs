@@ -30,60 +30,100 @@
         <div class="float-start ms-0 row justify-content-center col-8 col-lg-8 col-md-9 col-sm-9 text-center">
 
             <div class="h-100 m-3 col-11 float-none col-center border border-dark border-2 overflow-hidden"
-                style=" background-color:#eee8cd;max-height: 1200px;">
+                style=" background-color:#eee8cd;max-height: 1500px; min-height: 1400px;">
                 <div class=" row border border-dark border-end-0 border-top-0 border-start-0">
                     <div class="col-center pt-4 pb-md-3 pb-sm-3 pb-3 pb-lg-3">
                         <span class="fs-5 fw-bold">Crear Test</span>
                     </div>
 
                 </div>
-                <form action="/cortas/ejercortas" class= "needs-validation formulario" method="POST">
-                <div class="col-12 mt-3" style="max-height: 1100px;">
+                <form action="/cortas/:id/ejercortas" class= "needs-validation formulario" method="POST">
+                <div class="col-12 mt-3" style="max-height: 1500px;">
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                         placeholder="Nombre del Tema" value="<%= cortas.tema %>"></input>
 
                     
                        
                           <div>
-                            <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                 placeholder="Escribir Pregunta"></input>
-                               </div>
+                            <input id="textoPreguntas" value="<%= cortas.pregunta1 %>" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                                 placeholder="Escribir Pregunta" readonly ></input>
+                                </div>
+                                <div>
+                                  <input id="textoRespuestas" name="respuesta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
+                                       placeholder="Escribir Respuesta"></input>
+                                      </div>
                                <div>
-                                <input id="textoPreguntas" name="pregunta2" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                     placeholder="Escribir Pregunta"></input>
+                                <input id="textoPreguntas" value="<%= cortas.pregunta2 %>" name="pregunta2" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                                     placeholder="Escribir Pregunta" readonly ></input>
                                    </div>
                                    <div>
-                                    <input id="textoPreguntas" name="pregunta3" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                         placeholder="Escribir Pregunta"></input>
+                                    <input id="textoRespuestas" name="respuesta2" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
+                                         placeholder="Escribir Respuesta"></input>
+                                        </div>
+                                   <div>
+                                    <input id="textoPreguntas" value="<%= cortas.pregunta3 %>" type="text" name="pregunta3" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                                         placeholder="Escribir Pregunta" readonly></input>
                                        </div>
                                        <div>
-                                        <input id="textoPreguntas" name="pregunta4" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                             placeholder="Escribir Pregunta"></input>
+                                        <input id="textoRespuestas" name="respuesta3" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
+                                             placeholder="Escribir Respuesta"></input>
+                                            </div>
+                                       <div>
+                                        <input id="textoPreguntas" value="<%= cortas.pregunta4 %>" name="pregunta4" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                                             placeholder="Escribir Pregunta" readonly></input>
                                            </div>
                                            <div>
-                                            <input id="textoPreguntas" name="pregunta5" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                 placeholder="Escribir Pregunta"></input>
+                                            <input id="textoRespuestas" name="respuesta4" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
+                                                 placeholder="Escribir Respuesta"></input>
+                                                </div>
+                                           <div>
+                                            <input id="textoPreguntas" value="<%= cortas.pregunta5 %>" type="text" name="pregunta5" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                                                 placeholder="Escribir Pregunta" readonly></input>
                                                </div>
                                                <div>
-                                                <input id="textoPreguntas" name="pregunta6" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                     placeholder="Escribir Pregunta"></input>
+                                                <input id="textoRespuestas" name="respuesta5" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
+                                                     placeholder="Escribir Respuesta"></input>
+                                                    </div>
+                                               <div>
+                                                <input id="textoPreguntas" value="<%= cortas.pregunta6 %>" name="pregunta6" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                                                     placeholder="Escribir Pregunta" readonly></input>
                                                    </div>
                                                    <div>
-                                                    <input id="textoPreguntas" name="pregunta7" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                         placeholder="Escribir Pregunta"></input>
+                                                    <input id="textoRespuestas" name="respuesta6" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
+                                                         placeholder="Escribir Respuesta"></input>
+                                                        </div>
+                                                   <div>
+                                                    <input id="textoPreguntas" value="<%= cortas.pregunta7 %>" type="text" name="pregunta7" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                                                         placeholder="Escribir Pregunta" readonly></input>
                                                        </div>
                                                        <div>
-                                                        <input id="textoPreguntas" name="pregunta8" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                             placeholder="Escribir Pregunta"></input>
+                                                        <input id="textoRespuestas" name="respuesta7" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
+                                                             placeholder="Escribir Respuesta"></input>
+                                                            </div>
+                                                       <div>
+                                                        <input id="textoPreguntas" value="<%= cortas.pregunta8 %>" name="pregunta8" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                                                             placeholder="Escribir Pregunta" readonly></input>
                                                            </div>
                                                            <div>
-                                                            <input id="textoPreguntas" name="pregunta9" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                                 placeholder="Escribir Pregunta"></input>
+                                                            <input id="textoRespuestas" name="respuesta8" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
+                                                                 placeholder="Escribir Respuesta"></input>
+                                                                </div>
+                                                           <div>
+                                                            <input id="textoPreguntas" value="<%= cortas.pregunta9 %>" type="text" name="pregunta9" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                                                                 placeholder="Escribir Pregunta" readonly></input>
                                                                </div>
                                                                <div>
-                                                                <input id="textoPreguntas" name="pregunta10" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                                     placeholder="Escribir Pregunta"></input>
+                                                                <input id="textoRespuestas" name="respuesta9" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
+                                                                     placeholder="Escribir Respuesta"></input>
+                                                                    </div>
+                                                               <div>
+                                                                <input id="textoPreguntas" value="<%= cortas.pregunta10 %>" type="text" name="pregunta10" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                                                                     placeholder="Escribir Pregunta" readonly></input>
                                                                    </div>
+                                                                   <div>
+                                                                    <input id="textoRespuestas" name="respuesta10" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
+                                                                         placeholder="Escribir Respuesta"></input>
+                                                                        </div>
 
                     
                 </div>
