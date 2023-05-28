@@ -21,6 +21,6 @@ router.get('/creartarjetas/', tarjetasController.tarjetas_create_project);
 
 router.post('/creartarjetas/', tarjetasController.tarjetas_create_project_post);
 
-
+router.get('/:id', tarjetasController.tarjetas_develope_project);
 
 module.exports = router;

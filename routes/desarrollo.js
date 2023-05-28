@@ -21,6 +21,6 @@ router.get('/creardesarrollo/', desarrolloController.desarrollo_create_project);
 
 router.post('/creardesarrollo/', desarrolloController.desarrollo_create_project_post);
 
-
+router.get('/:id', desarrolloController.desarrollo_develope_project);
 
 module.exports = router;
