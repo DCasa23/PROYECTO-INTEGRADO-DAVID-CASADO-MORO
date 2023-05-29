@@ -25,11 +25,13 @@ const cortasRouter = require("./routes/cortas");
 const tarjetasRouter = require("./routes/tarjetas");
 const testRouter = require("./routes/test");
 const desarrolloRouter = require("./routes/desarrollo");
+const cantarRouter = require("./routes/cantar");
 const inicioRouter = require("./routes/inicio");
 const perfilRouter = require("./routes/perfil");
 const registroRouter = require("./routes/registro");
 const tareasdesarrolloRouter = require("./routes/tareasdesarrollo");
 const tareascortasRouter = require("./routes/tareascortas");
+//const tareascantarRouter = require("./routes/tareascantar");
 
 
 var app = express();
@@ -54,12 +56,14 @@ app.use('/desarrollo', desarrolloRouter);
 app.use('/test', testRouter);
 app.use('/tarjetas', tarjetasRouter);
 app.use('/cortas', cortasRouter);
+app.use('/cantar', cantarRouter);
 app.use('/users', usersRouter);
 app.use("/perfil", perfilRouter);
 app.use("/inicio", inicioRouter);
 app.use("/registro", registroRouter);
 app.use("/tareasdesarrollo", tareasdesarrolloRouter);
 app.use("/tareascortas", tareascortasRouter);
+//app.use("/tareascantar", tareascantarRouter);
 
 
 

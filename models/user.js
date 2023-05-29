@@ -16,6 +16,7 @@ const userSchema = new Schema({
     grupoPago: String,
     fechaIngreso: Date,
     fechaRenovacion: Date,
+    numeroID: String,
 });
 
 // Creación del modelo
