@@ -29,198 +29,162 @@
 
         <div class="float-start ms-0 row justify-content-center col-8 col-lg-8 col-md-9 col-sm-9 text-center">
 
-          <div class="h-100 m-3 col-11 float-none col-center border border-dark border-2" style=" background-color:#eee8cd;">
+          <div class="h-100 m-3 col-11 float-none col-center border border-dark border-2 overflow-hidden" style=" background-color:#eee8cd;">
                 <div class=" row border border-dark border-end-0 border-top-0 border-start-0">
                     <div class="col-center pt-4 pb-md-3 pb-sm-3 pb-3 pb-lg-3">
                         <span class="fs-5 fw-bold">Crear Test</span>
                     </div>
 
                 </div>
-                
-                <div class="col-12 mt-3" >
-                    <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
-                        placeholder="Nombre del Tema" value="<%= tarjetas.tema %>" readonly></input>
-                    <div class="container">
-
-                      <div class="row">
-                        <div class="mx-auto text-center align-content-center justify-content-center col-center ps-lg-5">
-                        <ul class="mb-3 float-none list-unstyled float-start col-center">
-                          <li class="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 fs-5 float-start mb-3 ms-3">
-                          <div>
+                <div class=" row border border-dark border-end-0 border-top-0 border-start-0">
+                  <div class="col-center pt-4 pb-md-3 pb-sm-3 pb-3 pb-lg-3">
+                    <div class="col-12 mt-3" >
+                      <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
+                          placeholder="Nombre del Tema" value="<%= tarjetas.tema %>" readonly></input>
+                      
+                          <div class="text-center ">
+                            <div class="row">
+                              
+                              <div class="carta-box col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center align-content-center justify-content-center col-center ">
+                                <div class="carta">    
+                                  <div class="cara">
+                                    <textarea id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.pregunta1 %>" readonly></textarea>
+                                 </div>
+                                  
+                                  <div class="cara reverso">
+                                    <textarea id="textoPreguntas" name="respuesta1" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-warning my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.respuesta1 %>" readonly></textarea>
+                                  </div>    
+                                </div>
+                              </div>
+                              <div class="carta-box col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center align-content-center justify-content-center col-center ">
+                                <div class="carta">    
+                                  <div class="cara">
+                                    <textarea id="textoPreguntas" name="pregunta2" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.pregunta2 %>" readonly></textarea>
+                                 </div>
+                                  
+                                  <div class="cara reverso">
+                                    <textarea id="textoPreguntas" name="respuesta2" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-warning my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.respuesta2 %>" readonly></textarea>
+                                  </div>    
+                                </div>
+                              </div>
+                              <div class="carta-box col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center align-content-center justify-content-center col-center ">
+                                <div class="carta">    
+                                  <div class="cara">
+                                    <textarea id="textoPreguntas" name="pregunta3" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.pregunta3 %>" readonly></textarea>
+                                 </div>
+                                  
+                                  <div class="cara reverso">
+                                    <textarea id="textoPreguntas" name="respuesta3" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-secondary my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.respuesta3 %>" readonly></textarea>
+                                  </div>    
+                                </div>
+                              </div>
+                              <div class="carta-box col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center align-content-center justify-content-center col-center ">
+                                <div class="carta">    
+                                  <div class="cara">
+                                    <textarea id="textoPreguntas" name="pregunta4" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.pregunta4 %>" readonly></textarea>
+                                 </div>
+                                  
+                                  <div class="cara reverso">
+                                    <textarea id="textoPreguntas" name="respuesta4" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-secondary my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.respuesta4 %>" readonly></textarea>
+                                  </div>    
+                                </div>
+                              </div>
+                              <div class="carta-box col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center align-content-center justify-content-center col-center ">
+                                <div class="carta">    
+                                  <div class="cara">
+                                    <textarea id="textoPreguntas" name="pregunta5" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.pregunta5 %>" readonly></textarea>
+                                 </div>
+                                  
+                                  <div class="cara reverso">
+                                    <textarea id="textoPreguntas" name="respuesta5" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-secondary my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.respuesta5 %>" readonly></textarea>
+                                  </div>    
+                                </div>
+                              </div>
+                              <div class="carta-box col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center align-content-center justify-content-center col-center ">
+                                <div class="carta">    
+                                  <div class="cara">
+                                    <textarea id="textoPreguntas" name="pregunta6" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.pregunta6 %>" readonly></textarea>
+                                 </div>
+                                  
+                                  <div class="cara reverso">
+                                    <textarea id="textoPreguntas" name="respuesta6" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-secondary my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.respuesta6 %>" readonly></textarea>
+                                  </div>    
+                                </div>
+                              </div>
+                              <div class="carta-box col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center align-content-center justify-content-center col-center ">
+                                <div class="carta">    
+                                  <div class="cara">
+                                    <textarea id="textoPreguntas" name="pregunta7" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.pregunta7 %>" readonly></textarea>
+                                 </div>
+                                  
+                                  <div class="cara reverso">
+                                    <textarea id="textoPreguntas" name="respuesta7" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-secondary my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.respuesta7 %>" readonly></textarea>
+                                  </div>    
+                                </div>
+                              </div>
+                              <div class="carta-box col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center align-content-center justify-content-center col-center ">
+                                <div class="carta">    
+                                  <div class="cara">
+                                    <textarea id="textoPreguntas" name="pregunta8" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.pregunta8 %>" readonly></textarea>
+                                 </div>
+                                  
+                                  <div class="cara reverso">
+                                    <textarea id="textoPreguntas" name="respuesta8" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-secondary my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.respuesta8 %>" readonly></textarea>
+                                  </div>    
+                                </div>
+                              </div>
+                              <div class="carta-box col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center align-content-center justify-content-center col-center ">
+                                <div class="carta">    
+                                  <div class="cara">
+                                    <textarea id="textoPreguntas" name="pregunta9" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.pregunta9 %>" readonly></textarea>
+                                 </div>
+                                  
+                                  <div class="cara reverso">
+                                    <textarea id="textoPreguntas" name="respuesta9" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-secondary my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.respuesta9 %>" readonly></textarea>
+                                  </div>    
+                                </div>
+                              </div>
+                              <div class="carta-box col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 text-center align-content-center justify-content-center col-center ">
+                                <div class="carta">    
+                                  <div class="cara">
+                                    <textarea id="textoPreguntas" name="pregunta10" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.pregunta10 %>" readonly></textarea>
+                                 </div>
+                                  
+                                  <div class="cara reverso">
+                                    <textarea id="textoPreguntas" name="respuesta10" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-danger my-2" style="width:180px; height:250px;"
+                                   placeholder="<%= tarjetas.respuesta10 %>" readonly></textarea>
+                                  </div>    
+                                </div>
+                              </div>
+                            </div> 
                             
-                            <div class="carta-box">
-                              <div class="carta">    
-                                <div class="cara">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.pregunta1 %>" readonly></input>
-                               </div>
-                                
-                                <div class="cara reverso">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.respuesta1 %>" readonly></input>
-                                </div>    
-                              </div>
-                            </div>
-                          </div> 
-                          </li>
-                            <li class="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 fs-5 float-start mb-3 ms-3">
-                          <div>
-                            <div class="carta-box ">
-                              <div class="carta">    
-                                <div class="cara">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2 text-center" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.pregunta2 %>" readonly></input>
-                               </div>
-                                
-                                <div class="cara reverso">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-4 col-lg-3 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.respuesta2 %>" readonly></input>
-                                </div>    
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 fs-5 float-start mb-3 ms-3">  
-                          <div>
-                            <div class="carta-box">
-                              <div class="carta">    
-                                <div class="cara">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2 text-center" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.pregunta3 %>" readonly></input>
-                               </div>
-                                
-                                <div class="cara reverso">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.respuesta3 %>" readonly></input>
-                                </div>    
-                              </div>
-                            </div>
-                          </div> 
-                          </li> 
-                          <li class="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 fs-5 float-start mb-3 ms-3">
-                          <div>
-                            <div class="carta-box">
-                              <div class="carta">    
-                                <div class="cara">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2 text-center" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.pregunta4 %>" readonly></input>
-                               </div>
-                                
-                                <div class="cara reverso">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.respuesta4 %>" readonly></input>
-                                </div>    
-                              </div>
-                            </div>
-                          </div>  
-                          </li>
-                          <li class="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 fs-5 float-start mb-3 ms-3">
-                          <div>
-                            <div class="carta-box">
-                              <div class="carta">    
-                                <div class="cara">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2 text-center" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.pregunta5 %>" readonly></input>
-                               </div>
-                                
-                                <div class="cara reverso">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.respuesta5 %>" readonly></input>
-                                </div>    
-                              </div>
-                            </div>
-                          </div>  
-                          </li> 
-                          <li class="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 fs-5 float-start mb-3 ms-3">
-                          <div>
-                            <div class="carta-box">
-                              <div class="carta">    
-                                <div class="cara">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2 text-center" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.pregunta6 %>" readonly></input>
-                               </div>
-                                
-                                <div class="cara reverso">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.respuesta6 %>" readonly></input>
-                                </div>    
-                              </div>
-                            </div>
-                          </div>  
-                          </li>
-                          <li class="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 fs-5 float-start mb-3 ms-3">
-                          <div>
-                            <div class="carta-box">
-                              <div class="carta">    
-                                <div class="cara">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2 text-center" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.pregunta7 %>" readonly></input>
-                               </div>
-                                <div class="cara reverso">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.respuesta7 %>" readonly></input>
-                                </div>    
-                              </div>
-                            </div>
-                          </div>  
-                          </li>
-                          <li class="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 fs-5 float-start mb-3 ms-3">
-                          <div>
-                            <div class="carta-box">
-                              <div class="carta">    
-                                <div class="cara">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2 text-center" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.pregunta8 %>" readonly></input>
-                               </div>
-                                
-                                <div class="cara reverso">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.respuesta8 %>" readonly></input>
-                                </div>    
-                              </div>
-                            </div>
-                          </div>    
-                          </li>
-                          <li class="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 fs-5 float-start mb-3 ms-3">
-                          <div>
-                            <div class="carta-box">
-                              <div class="carta">    
-                                <div class="cara">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2 text-center" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.pregunta9 %>" readonly></input>
-                               </div>
-                                
-                                <div class="cara reverso">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.respuesta9 %>" readonly></input>
-                                </div>    
-                              </div>
-                            </div>
-                          </div>
-                          </li>  
-                          <li class="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12 fs-5 float-start mb-3 ms-3">
-                          <div>
-                            <div class="carta-box">
-                              <div class="carta">    
-                                <div class="cara">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2 text-center" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.pregunta10 %>" readonly></input>
-                               </div>
-                                
-                                <div class="cara reverso">
-                                  <input id="textoPreguntas" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2" style="width:200px; height:250px;"
-                                 placeholder="<%= tarjetas.respuesta10 %>" readonly></input>
-                                </div>    
-                              </div>
-                            </div>
-                          </div>   
-                          </li> 
-                        </ul> 
-                      </div>   
-                    </div>
-                    </div>
-                    
-                </div>
+                        </div>   
+                      
+                      
+                  </div>
+                  </div>
+
+              </div>
+                
                 
             <a class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" href="/tarjetas">Ir a Tarjetas</a>
               

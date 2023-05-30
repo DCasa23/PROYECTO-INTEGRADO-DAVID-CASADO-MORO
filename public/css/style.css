@@ -10,7 +10,15 @@ main{
     min-height: 1700px;
     height: 100vh;
 }
-
+ul li{
+    text-overflow: ellipsis;
+    overflow:hidden;
+}
+ul li:hover{
+    text-overflow: clip;
+    overflow: visible;
+    
+}
 header {
     font-size: 4vw;
     background-color:#eee8cd;

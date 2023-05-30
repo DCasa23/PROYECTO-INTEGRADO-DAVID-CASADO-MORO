@@ -33,8 +33,9 @@
           </div>
           <ul class="mb-3 float-none list-unstyled float-start">
             <% arrayTarjetas.forEach(tarjetas=> { %>
-            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><a href="/tarjetas/<%= tarjetas._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-              img-fluid mx-3 align-items-end;" src="../img/portatil.jpg"><span class="p-1"><%= tarjetas.tema %></span></a></li>
+              
+            <li class="col-6 col-6 col-lg-2 col-md-3 col-sm-6 fs-5 float-start mb-3"><a href="/tarjetas/<%= tarjetas._id %>"><img class=" col-11 bd-placeholder-img bd-placeholder-img-lg featurette image
+              img-fluid mx-auto align-items-end;" src="../img/portatil.jpg"><span class="col-12 p-1 text-truncate"><%= tarjetas.tema %></span></a></li>
             
                     <% }) %>
           </ul>

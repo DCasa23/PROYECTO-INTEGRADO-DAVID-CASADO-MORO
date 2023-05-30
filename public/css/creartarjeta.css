@@ -7,7 +7,7 @@ main{
     background-color: #bad7b5;
     margin-bottom: 300px;
     padding-bottom: 300px;
-    min-height: 4200px;
+    min-height: 3200px;
     height: 100vh;
 }
 
@@ -22,12 +22,12 @@ header {
     margin: 0 auto;
 }
 .izquierdo{
-    min-height: 4200px;
+    min-height: 3200px;
     background-color: #dac56f;
     height: 100vh;
 }
 .derecho{
-    min-height: 4200px;
+    min-height: 3200px;
     background-color: #dac56f;
     height:100vh
 }
@@ -46,15 +46,25 @@ footer {
 #textoPreguntas::placeholder{
     color:black;
     font-weight: bold;
-    
+    white-space: normal;
+    vertical-align: middle;
 }
 #textoRespuesta::placeholder{
     color:white;
     
     
 }
+#textoPreguntas span{
+    text-overflow: ellipsis;
+}
+textarea{
+    resize: none;
+}
+textarea::placeholder {
+    padding: 30px 0;
+  }
 .carta-box {
-    margin: 70px;
+    margin-bottom: 70px;
     width: 200px;
     height: 200px;
     position: relative;
@@ -62,7 +72,7 @@ footer {
     
   }
   
-  .carta-box:hover .carta {
+  .carta-box:active .carta {
       transform: rotateY(180deg);
   }
   
