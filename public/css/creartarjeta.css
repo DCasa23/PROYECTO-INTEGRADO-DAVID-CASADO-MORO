@@ -7,7 +7,7 @@ main{
     background-color: #bad7b5;
     margin-bottom: 300px;
     padding-bottom: 300px;
-    min-height: 1600px;
+    min-height: 4200px;
     height: 100vh;
 }
 
@@ -22,12 +22,12 @@ header {
     margin: 0 auto;
 }
 .izquierdo{
-    min-height: 1600px;
+    min-height: 4200px;
     background-color: #dac56f;
     height: 100vh;
 }
 .derecho{
-    min-height: 1600px;
+    min-height: 4200px;
     background-color: #dac56f;
     height:100vh
 }
@@ -53,3 +53,29 @@ footer {
     
     
 }
+.carta-box {
+    margin: 70px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    perspective: 1000px;
+    
+  }
+  
+  .carta-box:hover .carta {
+      transform: rotateY(180deg);
+  }
+  
+  .carta {
+    transform-style: preserve-3d;
+    transition: all 0.5s linear;
+  }
+  
+  .cara {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .cara.reverso {
+    transform: rotateY(180deg);
+  }
