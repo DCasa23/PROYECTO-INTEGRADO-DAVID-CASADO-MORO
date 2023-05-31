@@ -22,13 +22,16 @@ exports.testunico_create_project_post = async (req, res) => {// Recuperamos los 
     try {
         if (body.tema != "") {
             const nuevaTestunico = new Testunico(body);
+            console.log("ENTRO")
             await nuevaTestunico.save();
             res.render("creartestunico", { tituloWeb: "Publicar Testunico", error: false, success: true });
+            res.redirect("/");
         } else {
             res.render("creartestunico", { tituloWeb: "Publicar Testunico", error: true, success: false });
         }
     } catch (error) {
         console.log(error);
+        
     }
 };
 
