@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Declaración del modelo y sus datos
-const testSchema = new Schema({
+const testunicoSchema = new Schema({
     correo: String,
     duracion: Number,
     tema: String,
@@ -14,6 +14,6 @@ const testSchema = new Schema({
 });
 
 // Creación del modelo
-const Test = mongoose.model("Test", testSchema, "testunico");
+const Testunico = mongoose.model("Testunico", testunicoSchema, "testunico");
 
-module.exports = Test;
+module.exports = Testunico;
