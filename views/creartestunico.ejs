@@ -32,16 +32,16 @@
             placeholder="Nombre del Tema"></input>
             <ul class="mb-3 list-unstyled">
               <span>Duración de la Prueba</span>
-              <li class="col-center col-12 col-sm-12 col-md-4 col-lg-3"><input id="unica" name="tipopregunta"
-                  type="radio" value="15" checked="checked"> 5 minutos</input></li>
-              <li><input id="tf" name="tipopregunta" type="radio" value="30"> 15 minutos</input></li>
-              <li><input id="varias" name="tipopregunta" type="radio" value="60"> 30 minutos</input></li>
-              <li><input id="varias" name="tipopregunta" type="radio" value="60"> 45 minutos</input></li>
+              <li class="col-center col-12 col-sm-12 col-md-4 col-lg-3"><input id="unica" name="duracion"
+                  type="radio" value="5" checked="checked"> 5 minutos</input></li>
+              <li><input id="tf" name="duracion" type="radio" value="15"> 15 minutos</input></li>
+              <li><input id="varias" name="duracion" type="radio" value="30"> 30 minutos</input></li>
+              <li><input id="varias" name="duracion" type="radio" value="45"> 45 minutos</input></li>
             </ul>
           </div>
            
           <div class="contenido overflow-auto" style=" background-color:#eee8cd;max-height: 600px; min-height: 500px">
-            
+            <fieldset>
             <div class="bloquepregunta border border-dark border-2">
               
                   <ul class="mb-3 list-unstyled">
@@ -55,29 +55,68 @@
         
                     <ul class="mb-3 list-unstyled d-block tipopregunta tipounica">
                       <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
-                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2" name="respuesta"
-                          placeholder="Escribe Respuesta Primera"></input><input class="col-12 col-sm-12 col-md-1 col-lg-1"
-                          name="unicaopcion" type="radio"/></li>
+                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2" name="respuesta1"
+                          placeholder="Escribe Respuesta Primera"></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                          name="unicaopcion" value="a" type="radio"/></li>
                       <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
-                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2"name="respuesta"
-                          placeholder="Escribe Respuesta Segunda"></input><input class="col-12 col-sm-12 col-md-1 col-lg-1"
-                          name="unicaopcion" type="radio"/></li>
+                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2"name="respuesta2"
+                          placeholder="Escribe Respuesta Segunda"></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                          name="unicaopcion" value="b" type="radio"/></li>
                       <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
-                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2"name="respuesta"
-                          placeholder="Escribe Respuesta Tercera"></input><input class="col-12 col-sm-12 col-md-1 col-lg-1"
-                          name="unicaopcion" type="radio"/></li>
+                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2"name="respuesta3"
+                          placeholder="Escribe Respuesta Tercera"></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                          name="unicaopcion" value="c" type="radio"/></li>
                       <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
-                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2"name="respuesta"
-                          placeholder="Escribe Respuesta Cuarta"></input><input class="col-12 col-sm-12 col-md-1 col-lg-1"
-                          name="unicaopcion" type="radio"/></li>
+                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2"name="respuesta4"
+                          placeholder="Escribe Respuesta Cuarta"></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                          name="unicaopcion" value="d" type="radio"/></li>
                     </ul>
         
-        
+                    
                     
         
                   </ul>
-            </div>          
+            </div>
+          </fieldset>          
+          <fieldset>
+            <div class="bloquepregunta border border-dark border-2">
               
+                  <ul class="mb-3 list-unstyled">
+                    <li class="row col-12 m-0 py-3"><input id="textoPreguntas"
+                        class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"name="pregunta"
+                        placeholder="Escribir la Primera Pregunta"></input></li>
+                    
+        
+        
+        
+        
+                    <ul class="mb-3 list-unstyled d-block tipopregunta tipounica">
+                      <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
+                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2" name="respuesta1"
+                          placeholder="Escribe Respuesta Primera"></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                          name="unicaopcion" value="a" type="radio"/></li>
+                      <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
+                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2"name="respuesta2"
+                          placeholder="Escribe Respuesta Segunda"></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                          name="unicaopcion" value="b" type="radio"/></li>
+                      <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
+                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2"name="respuesta3"
+                          placeholder="Escribe Respuesta Tercera"></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                          name="unicaopcion" value="c" type="radio"/></li>
+                      <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
+                          class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2"name="respuesta4"
+                          placeholder="Escribe Respuesta Cuarta"></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                          name="unicaopcion" value="d" type="radio"/></li>
+                      <input type="number" id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                          name="unicaopcion" max="4" min="1"/>
+                    </ul>
+        
+                    
+                    
+        
+                  </ul>
+            </div>
+          </fieldset>          
                
           </div>
 
@@ -108,6 +147,7 @@
   </main>
   <%- include("template/footer.ejs")%>
   <script>
+    
     contador=1
     contado=0
       $(".aniadir").click(function () {
@@ -115,13 +155,11 @@
         contador++;
         console.log(contador)
         console.log("ESTE ES EL "+contado )
-        //$('.bloquepregunta:last-of-type').addClass("d-none")
-        /*var miElto = document.getElementsByClass("bloquepregunta")[contado];
-        miElto.className += " d-none";*/
+       
        contado++;
        console.log("ESTE ES EL "+contado )
-       
-        $(".contenido").append("<div class=\"bloquepregunta border border-dark border-2\"><ul class=\"mb-3 list-unstyled\"><li class=\"row col-12 m-0 py-3\"><input id=\"textoPreguntas\"class=\"col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2\"name=\"pregunta\"placeholder=\"Escribir la Pregunta"+contado+"\"></input></li><ul class=\"mb-3 list-unstyled d-block tipopregunta tipounica\"><li class=\"row col-12 m-0 py-3\"><input id=\"textoRespuesta\"class=\"col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2\" name=\"respuesta\"placeholder=\"Escribe Respuesta Primera\"></input><input class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"unicaopcion\" type=\"radio\"/></li><li class=\"row col-12 m-0 py-3\"><input id=\"textoRespuesta\"class=\"col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2\"name=\"respuesta\"placeholder=\"Escribe Respuesta Segunda\"></input><input class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"unicaopcion\" type=\"radio\"/></li><li class=\"row col-12 m-0 py-3\"><input id=\"textoRespuesta\"class=\"col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2\"name=\"respuesta\"placeholder=\"Escribe Respuesta Tercera\"></input><input class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"unicaopcion\" type=\"radio\"/></li><li class=\"row col-12 m-0 py-3\"><input id=\"textoRespuesta\"class=\"col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2\"name=\"respuesta\"placeholder=\"Escribe Respuesta Cuarta\"></input><input class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"unicaopcion\" type=\"radio\"/></li></ul></ul></div>");
+       $("#unicaopcion").attr("value",["a","d"])
+        $(".contenido").append("<fieldset><div class=\"bloquepregunta border border-dark border-2\"><ul class=\"mb-3 list-unstyled\"><li class=\"row col-12 m-0 py-3\"><input id=\"textoPreguntas\"class=\"col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2\"name=\"pregunta\"placeholder=\"Escribir la Pregunta "+contador+"\"></input></li><ul class=\"mb-3 list-unstyled d-block tipopregunta tipounica\"><li class=\"row col-12 m-0 py-3\"><input id=\"textoRespuesta\"class=\"col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2\" name=\"respuesta1\"placeholder=\"Escribe Respuesta Primera\"></input><input class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"unicaopcion\""+[contador]+" type=\"radio\"/></li><li class=\"row col-12 m-0 py-3\"><input id=\"textoRespuesta\"class=\"col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2\"name=\"respuesta2\"placeholder=\"Escribe Respuesta Segunda\"></input><input class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"unicaopcion"+[contado]+"\" type=\"radio\"/></li><li class=\"row col-12 m-0 py-3\"><input id=\"textoRespuesta\"class=\"col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2\"name=\"respuesta3\"placeholder=\"Escribe Respuesta Tercera\"></input><input class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"unicaopcion"+[contado]+"\" type=\"radio\"/></li><li class=\"row col-12 m-0 py-3\"><input id=\"textoRespuesta\"class=\"col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2\"name=\"respuesta4\"placeholder=\"Escribe Respuesta Cuarta\"></input><input class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"unicaopcion"+[contado]+"\" type=\"radio\"/></li></ul></ul></div></fieldset>");
         $(".contenido").animate({ scrollTop: $('.contenido')[0].scrollHeight }, 1000);
       }else{
         console.log("I CANT")

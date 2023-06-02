@@ -21,6 +21,8 @@ router.get('/creartestunico/', testunicoController.testunico_create_project);
 
 router.post('/creartestunico/', testunicoController.testunico_create_project_post);
 
+router.get('/:id', testunicoController.testunico_develope_project);
 
+router.post('/:id/ejertestunico', testunicoController.testunico_develope_project_post);
 
 module.exports = router;
