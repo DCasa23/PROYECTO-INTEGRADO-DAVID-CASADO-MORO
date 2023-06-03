@@ -11,7 +11,7 @@ const testunicoSchema = new Schema({
     respuesta2: [String],
     respuesta3: [String],
     respuesta4: [String],
-    unicaopcion:[String],
+    unicaopcionfinal:[String],
     nota: Number,
     comentario: String,
     
