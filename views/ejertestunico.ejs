@@ -37,97 +37,46 @@
                     </div>
 
                 </div>
-                <form action="/cortas/:id/ejercortas" class= "needs-validation formulario" method="POST">
+                <form action="/testunico/:id/ejertestunico" class= "needs-validation formulario" method="POST">
                 <div class="col-12 mt-3" style="max-height: 1500px;">
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
-                        placeholder="Nombre del Tema" value="<%= cortas.tema %>"></input>
+                        placeholder="Nombre del Tema" value="<%= testunico.tema %>"></input>
+                        <% for(var j=0;j<testunico.pregunta.length; j++) {%>
+                          <li><%= testunico.pregunta[j] %></li>
 
-                    
-                       
-                          <div>
-                            <input id="textoPreguntas" value="<%= cortas.pregunta1 %>" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                 placeholder="Escribir Pregunta" readonly ></input>
-                                </div>
-                                <div>
-                                  <input id="textoRespuestas" name="respuesta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                       placeholder="Escribir Respuesta"></input>
-                                      </div>
-                               <div>
-                                <input id="textoPreguntas" value="<%= cortas.pregunta2 %>" name="pregunta2" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                     placeholder="Escribir Pregunta" readonly ></input>
-                                   </div>
-                                   <div>
-                                    <input id="textoRespuestas" name="respuesta2" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                         placeholder="Escribir Respuesta"></input>
-                                        </div>
-                                   <div>
-                                    <input id="textoPreguntas" value="<%= cortas.pregunta3 %>" type="text" name="pregunta3" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                         placeholder="Escribir Pregunta" readonly></input>
-                                       </div>
-                                       <div>
-                                        <input id="textoRespuestas" name="respuesta3" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                             placeholder="Escribir Respuesta"></input>
-                                            </div>
-                                       <div>
-                                        <input id="textoPreguntas" value="<%= cortas.pregunta4 %>" name="pregunta4" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                             placeholder="Escribir Pregunta" readonly></input>
-                                           </div>
-                                           <div>
-                                            <input id="textoRespuestas" name="respuesta4" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                                 placeholder="Escribir Respuesta"></input>
-                                                </div>
-                                           <div>
-                                            <input id="textoPreguntas" value="<%= cortas.pregunta5 %>" type="text" name="pregunta5" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                 placeholder="Escribir Pregunta" readonly></input>
-                                               </div>
-                                               <div>
-                                                <input id="textoRespuestas" name="respuesta5" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                                     placeholder="Escribir Respuesta"></input>
-                                                    </div>
-                                               <div>
-                                                <input id="textoPreguntas" value="<%= cortas.pregunta6 %>" name="pregunta6" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                     placeholder="Escribir Pregunta" readonly></input>
-                                                   </div>
-                                                   <div>
-                                                    <input id="textoRespuestas" name="respuesta6" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                                         placeholder="Escribir Respuesta"></input>
-                                                        </div>
-                                                   <div>
-                                                    <input id="textoPreguntas" value="<%= cortas.pregunta7 %>" type="text" name="pregunta7" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                         placeholder="Escribir Pregunta" readonly></input>
-                                                       </div>
-                                                       <div>
-                                                        <input id="textoRespuestas" name="respuesta7" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                                             placeholder="Escribir Respuesta"></input>
-                                                            </div>
-                                                       <div>
-                                                        <input id="textoPreguntas" value="<%= cortas.pregunta8 %>" name="pregunta8" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                             placeholder="Escribir Pregunta" readonly></input>
-                                                           </div>
-                                                           <div>
-                                                            <input id="textoRespuestas" name="respuesta8" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                                                 placeholder="Escribir Respuesta"></input>
-                                                                </div>
-                                                           <div>
-                                                            <input id="textoPreguntas" value="<%= cortas.pregunta9 %>" type="text" name="pregunta9" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                                 placeholder="Escribir Pregunta" readonly></input>
-                                                               </div>
-                                                               <div>
-                                                                <input id="textoRespuestas" name="respuesta9" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                                                     placeholder="Escribir Respuesta"></input>
-                                                                    </div>
-                                                               <div>
-                                                                <input id="textoPreguntas" value="<%= cortas.pregunta10 %>" type="text" name="pregunta10" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                                                     placeholder="Escribir Pregunta" readonly></input>
-                                                                   </div>
-                                                                   <div>
-                                                                    <input id="textoRespuestas" name="respuesta10" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                                                         placeholder="Escribir Respuesta"></input>
-                                                                        </div>
+                       <% } %>
+                       <% for(var j=0;j<testunico.pregunta.length; j++) {%>
+                        <div>
+                          <input id="textoPreguntas" value="<%= testunico.pregunta[j] %>" name="pregunta" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
+                               placeholder="Escribir Pregunta" readonly ></input>
+                              </div>
+                              <ul class="mb-3 list-unstyled d-block tipopregunta tipounica">
+                                <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
+                                    class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2" name="respuesta1"
+                                    value="<%= testunico.respuesta1[j] %>" readonly></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                                    name="unicaopcion<%= j %>" value="a" type="radio"/></li>
+                                <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
+                                  class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2" name="respuesta2"
+                                  value="<%= testunico.respuesta2[j] %>" readonly></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                                    name="unicaopcion<%= j %>" value="b" type="radio"/></li>
+                                <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
+                                  class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2" name="respuesta3"
+                                  value="<%= testunico.respuesta3[j] %>" readonly></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                                    name="unicaopcion<%= j %>" value="c" type="radio"/></li>
+                                <li class="row col-12 m-0 py-3"><input id="textoRespuesta"
+                                  class="col-12 col-sm-12 col-md-11 col-lg-11 btn btn-secondary my-2" name="respuesta4"
+                                  value="<%= testunico.respuesta4[j] %>" readonly></input></input><input id="unicaopcion" class="col-12 col-sm-12 col-md-1 col-lg-1"
+                                    name="unicaopcion<%= j %>" value="d" type="radio"/></li>
+                              </ul>
+                        
+                     <% } %>
+                          
+                                               
+                                                
 
                     
                 </div>
-                <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" href="/cortas" id="volveriniciarsesion">Ir a Cortas</a>
+                <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" href="/testunico" id="volveriniciarsesion">Ir a testunico</a>
             <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Enviars</button>
               </form>
             </div>
@@ -146,5 +95,19 @@
     </main>
     <%- include("template/footer.ejs")%>
 </body>
-
+<script>
+testunicos="<%= testunico.pregunta%>"
+$( document ).ready(function() {
+     i=0
+     total="<%= testunico.pregunta.length %>"
+     console.log(total)
+     
+    
+     for (var j=0;j<total; j++){
+     
+     
+     
+     };
+ });
+</script>
 </html>
