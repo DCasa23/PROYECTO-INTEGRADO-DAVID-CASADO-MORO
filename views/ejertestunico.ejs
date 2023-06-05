@@ -38,6 +38,7 @@
 
                 </div>
                 <form action="/testunico/:id/ejertestunico" class= "needs-validation formulario " method="POST">
+                <div class="row col-12 m-0 py-3" id="bloqueunicaopcionfinal"></div> 
                 <div class="col-12 mt-3 overflow-auto" style="max-height: 1500px;" >
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                         placeholder="Nombre del Tema" value="<%= testunico.tema %>"></input>
@@ -76,9 +77,10 @@
 
                     
                 </div>
+                <div class="row col-12 m-0 py-3" id="bloqueunicaopcionfinal"></div> 
                 <div>
                 <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" href="/testunico" id="volveriniciarsesion">Ir a testunico</a>
-            <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Enviars</button>
+            <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" id="crearenvio" type="submit">Enviars</button>
           </div>
               </form>
             </div>
@@ -95,21 +97,31 @@
 
 
     </main>
-    <%- include("template/footer.ejs")%>
+  
 </body>
 <script>
-testunicos="<%= testunico.pregunta%>"
-$( document ).ready(function() {
-     i=0
-     total="<%= testunico.pregunta.length %>"
-     console.log(total)
-     
+
+ $("#crearenvio").mouseover(function(){
+        console.log("he entrado")
+        prueba=$("form :radio[id=unicaopcion]:checked")
+        cadena=[]
     
-     for (var j=0;j<total; j++){
-     
-     
-     
-     };
- });
+    for (var i = 0; i < "<%=testunico.pregunta.length%>"; i++) {
+    cadena.push(prueba[i].value);
+    }
+    console.log(cadena);
+    
+    
+    console.log("HOIIIII")
+    var j= 0;
+    $("#bloqueunicaopcionfinal").html("")
+    for (var j=0;j< "<%=testunico.pregunta.length%>"; j++){
+        $("#bloqueunicaopcionfinal").append("<input id=\"unicaopcionfinal\" class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"unicaopcionfinal\" value=\""+cadena[j]+"\"/>");
+        
+        
+    }
+    $("#bloqueunicaopcionfinal").append("<input id=\"idoriginal\" class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"idoriginal\" value=\"<%= testunico._id %>\"/>");
+      
+  });    
 </script>
 </html>

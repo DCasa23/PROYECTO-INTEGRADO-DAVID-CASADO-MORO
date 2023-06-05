@@ -7,7 +7,9 @@ const testunico2Schema = new Schema({
     duracion: Number,
     tema: String,
     pregunta: [String],
-    respuesta: [String],
+    respuesta1: [String],
+    unicaopcionfinal:[String],
+    idoriginal:String,
     nota: Number,
     comentario: String,
     

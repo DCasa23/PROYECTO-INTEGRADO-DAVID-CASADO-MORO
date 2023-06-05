@@ -1,5 +1,5 @@
 const Testunico = require("../models/testunico");
-
+const Testunico2 = require("../models/testunico2");
 
 exports.testunico = async (req, res) => {
     try {
