@@ -13,6 +13,14 @@ router.get("/", (req, res, next) => {
     next();
   }
 });
+router.get("/crearcantar/", (req, res, next) => {
+  req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
+  if (!req.session.cuenta) {
+    res.render("cantar", { tituloWeb: "Inicio de sesión", error: false });
+  } else {
+    next();
+  }
+});
 
 /* GET home page. */
 router.get('/', cantarController.cantar);

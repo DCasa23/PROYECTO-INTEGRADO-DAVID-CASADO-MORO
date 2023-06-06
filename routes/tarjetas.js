@@ -13,6 +13,14 @@ router.get("/", (req, res, next) => {
     next();
   }
 });
+router.get("/creartarjetas/", (req, res, next) => {
+  req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
+  if (!req.session.cuenta) {
+    res.render("tarjetas", { tituloWeb: "Inicio de sesión", error: false });
+  } else {
+    next();
+  }
+});
 
 /* GET home page. */
 router.get('/', tarjetasController.tarjetas);

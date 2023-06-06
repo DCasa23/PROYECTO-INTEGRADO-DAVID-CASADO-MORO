@@ -128,7 +128,10 @@
                     
                 </div>
                 <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" href="/cortas" id="volveriniciarsesion">Ir a Cortas</a>
-            <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Enviars</button>
+                <%if (usuario.rol=="Alumno" ){%>
+                    <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Enviars</button>
+                    <%}%>
+            
               </form>
             </div>
             

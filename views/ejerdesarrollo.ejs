@@ -37,12 +37,21 @@
                     </div>
 
                 </div>
+                
                 <form action="/desarrollo/:id/ejerdesarrollo" class= "needs-validation formulario" method="POST">
+                  <section id="cronometro">
+                    <p>
+                        <span class="d-none" id="days"></span><span class="" id="hours"></span><span id="minutes"></span> minutos / <span id="seconds"></span> segundos
+                    </p>
+                </section> 
                 <div class="col-12 mt-3" style="max-height: 1100px;">
-                  <div>
-                    <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="correoAlumno"
-                        placeholder="Nombre de Alumno" value="Nombre del alumno: <%= usuario.correo %>"readonly></input>
-                      </div>
+                  <%if (usuario.rol=="Alumno" ){%>
+                    <div>
+                      <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="correoAlumno"
+                          placeholder="Nombre de Alumno" value="Nombre del alumno: <%= usuario.correo %>"readonly></input>
+                        </div>
+                    <%}%>
+                  
                   <div>
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                         placeholder="Nombre del Tema" value="Tema: <%= desarrollo.tema %>"readonly></input>
@@ -50,16 +59,26 @@
                     
                        
                           <div>
+                            <div class="d-none">
+                              <input id="duraciones" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="duracion"
+                                  placeholder="Duracion Examen" value="<%= desarrollo.duracion %>" readonly></input>
+                                </div>
+                              </div>
+                                 
+                                    <div>
                             <input id="textoPreguntas" name="pregunta" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
                             value="Pregunta Desarrollo: <%= desarrollo.pregunta %>"readonly></input>
                                </div>
                                <div>
-                               <textarea name="respuesta" rows="30" cols="150" style=resize:none placeholder="Escribe aquí tu respuesta. Suerte"></textarea>
+                               <textarea id=examen name="respuesta" rows="30" cols="150" style=resize:none placeholder="Escribe aquí tu respuesta. Suerte"></textarea>
                               </div>
                     
                 </div>
                 <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" href="/desarrollo" id="volveriniciarsesion">Ir a Desarrollo</a>
-            <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Enviar Todo</button>
+                <%if (usuario.rol=="Profesor" ){%>
+                  <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Enviar Todo</button>
+                  <%}%>
+            
               </form>
             </div>
             
@@ -76,6 +95,7 @@
 
     </main>
     <%- include("template/footer.ejs")%>
+    <script src="../js/cronometro.js"></script>
 </body>
 
 </html>

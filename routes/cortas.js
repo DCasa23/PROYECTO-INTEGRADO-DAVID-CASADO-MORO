@@ -13,6 +13,15 @@ router.get("/", (req, res, next) => {
     next();
   }
 });
+router.get("/crearcortas/", (req, res, next) => {
+  req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
+  if (!req.session.cuenta) {
+    res.render("cortas", { tituloWeb: "Inicio de sesión", error: false });
+  } else {
+    next();
+  }
+});
+
 
 /* GET home page. */
 router.get('/', cortasController.cortas);

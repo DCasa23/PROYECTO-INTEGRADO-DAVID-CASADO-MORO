@@ -1,7 +1,20 @@
 //===
 // VARIABLES
 //===
-const DATE_TARGET = new Date('04/13/2020 0:01 AM');
+aniadido=$('#duraciones').val()
+console.log(typeof(aniadido))
+DATE_TARGET = new Date();
+if(aniadido==1){
+    DATE_TARGET.setMinutes(DATE_TARGET. getMinutes() + 1);    
+}
+if(aniadido==15){
+    DATE_TARGET.setMinutes(DATE_TARGET. getMinutes() + 15);    
+}
+if(aniadido==30){
+    DATE_TARGET.setMinutes(DATE_TARGET. getMinutes() + 30);    
+}
+
+DATE_TARGET.getMinutes();
 // DOM for render
 const SPAN_DAYS = document.querySelector('span#days');
 const SPAN_HOURS = document.querySelector('span#hours');
@@ -35,6 +48,18 @@ function updateCountdown() {
     SPAN_HOURS.textContent = REMAINING_HOURS;
     SPAN_MINUTES.textContent = REMAINING_MINUTES;
     SPAN_SECONDS.textContent = REMAINING_SECONDS;
+
+    console.log(DURATION)
+    const AHORA = new Date()
+    if(DURATION<0 && DURATION>-1000){
+        alert("SE ACABÓ EL TIEMPO.")  
+    }
+    if(DURATION<=1000){
+        $("#cronometro").html("Se acabo el Examen. Por favor, envie el examen.") 
+        $("#examen").prop('readonly', true)
+        $("#examen").css("background-color","grey");
+    }
+    
 }
 
 //===
