@@ -18,23 +18,27 @@
           </ul>
         </div>
       </li>
-      <li class="mb-1 d-none d-sm-block d-md-block d-lg-none">
-        <button class="btn btn-toggle align-items-center rounded collapsed ps-0 boton" data-bs-toggle="collapse"
-          data-bs-target="#cr-proyecto" aria-expanded="true"><span class="fs-5 fw-bold">Crear Proyecto</span>
-
-        </button>
-        <div class="collapse menu" id="cr-proyecto" aria-labelledby="headingTwo" data-parent="#accordion">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
-            <li class="pb-3"><a id="preguntascrear2" href="/cortas/crearcortas" class="link-dark rounded text-decoration-none fs-6">Preguntas Cortas</a></li>
-            <li class="pb-3"><a id="desarrollocrear2"href="/desarrollo/creardesarrollo" class="link-dark rounded text-decoration-none fs-6">Examen Desarrollo</a>
-            </li>
-            <li class="pb-3"><a id="testcrear2" href="/testunico/creartestunico" class="link-dark rounded text-decoration-none fs-6">Test</a></li>
-            <li class="pb-3"><a id="cantarcrear2" href="/cantar/crearcantar" class="link-dark rounded text-decoration-none fs-6">Cantar Temas</a></li>
-            <li class="pb-3"><a id="tarjetascrear2" href="/tarjetascreartarjetas" class="link-dark rounded text-decoration-none fs-6">Tarjetas de Memoria</a>
-            </li>
-          </ul>
-        </div>
-      </li>
+      <%if (usuario.rol=="Profesor" ){%>
+        <li class="border-top border-dark my-3 me-5 d-none d-sm-block d-md-block d-lg-none"></li>
+        <li class="mb-1 d-none d-sm-block d-md-block d-lg-none">
+          <button class="btn btn-toggle align-items-center rounded collapsed ps-0 boton" data-bs-toggle="collapse"
+            data-bs-target="#cr-proyecto" aria-expanded="true"><span class="fs-5 fw-bold">Crear Proyecto</span>
+  
+          </button>
+          <div class="collapse menu" id="cr-proyecto" aria-labelledby="headingTwo" data-parent="#accordion">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 ps-2 small">
+              <li class="pb-3"><a id="preguntascrear2" href="/cortas/crearcortas" class="link-dark rounded text-decoration-none fs-6">Preguntas Cortas</a></li>
+              <li class="pb-3"><a id="desarrollocrear2"href="/desarrollo/creardesarrollo" class="link-dark rounded text-decoration-none fs-6">Examen Desarrollo</a>
+              </li>
+              <li class="pb-3"><a id="testcrear2" href="/testunico/creartestunico" class="link-dark rounded text-decoration-none fs-6">Test</a></li>
+              <li class="pb-3"><a id="cantarcrear2" href="/cantar/crearcantar" class="link-dark rounded text-decoration-none fs-6">Cantar Temas</a></li>
+              <li class="pb-3"><a id="tarjetascrear2" href="/tarjetascreartarjetas" class="link-dark rounded text-decoration-none fs-6">Tarjetas de Memoria</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <%}%>
+      
       
 
 

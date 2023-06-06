@@ -8,6 +8,8 @@ const desarrollo2Schema = new Schema({
     respuesta: String,
     duracion: Number,
     correoAlumno: String,
+    nota: Number,
+    observaciones: String,
 });
 
 // Creación del modelo

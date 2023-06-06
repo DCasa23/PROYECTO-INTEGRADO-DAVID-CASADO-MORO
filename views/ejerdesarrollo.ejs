@@ -41,7 +41,7 @@
                 <form action="/desarrollo/:id/ejerdesarrollo" class= "needs-validation formulario" method="POST">
                   <section id="cronometro">
                     <p>
-                        <span class="d-none" id="days"></span><span class="" id="hours"></span><span id="minutes"></span> minutos / <span id="seconds"></span> segundos
+                        <span class="d-none" id="days"></span><span class="d-none" id="hours"></span><span id="minutes"></span> minutos / <span id="seconds"></span> segundos
                     </p>
                 </section> 
                 <div class="col-12 mt-3" style="max-height: 1100px;">
@@ -64,6 +64,18 @@
                                   placeholder="Duracion Examen" value="<%= desarrollo.duracion %>" readonly></input>
                                 </div>
                               </div>
+                              <div>
+                              <div class="d-none">
+                                <input id="nota" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="nota"
+                                    placeholder="Nota Examen" value="" readonly></input>
+                                  </div>
+                                </div>
+                                <div>
+                                 <div class="d-none">
+                                <input id="observaciones" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="observaciones"
+                                    placeholder="Observaciones Examen" value="" readonly></input>
+                                  </div>
+                                </div>
                                  
                                     <div>
                             <input id="textoPreguntas" name="pregunta" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
@@ -75,7 +87,7 @@
                     
                 </div>
                 <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" href="/desarrollo" id="volveriniciarsesion">Ir a Desarrollo</a>
-                <%if (usuario.rol=="Profesor" ){%>
+                <%if (usuario.rol=="Alumno" ){%>
                   <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Enviar Todo</button>
                   <%}%>
             

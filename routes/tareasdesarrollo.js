@@ -19,5 +19,8 @@ router.get('/', tareasdesarrolloController.desarrollo);
 
 router.get('/:id', tareasdesarrolloController.desarrollo_develope_project);
 
+//router.get('/:id/correcciondesarrollo', tareasdesarrolloController.desarrollo_edit_get);
+
+router.put('/:id/', tareasdesarrolloController.desarrollo_edit_put);
 
 module.exports = router;
