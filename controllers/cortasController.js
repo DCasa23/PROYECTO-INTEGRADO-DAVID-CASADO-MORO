@@ -70,7 +70,25 @@ exports.cortas_develope_project_post = async (req, res) => {// Recuperamos los d
        console.log(error);
    }
 };
-
+exports.cortas_delete = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const cortasDB = await Cortas.findByIdAndDelete({ _id: id });
+        if (!cortasDB) {
+            res.json({ 
+                estado: false,
+                mensaje: 'No se puede eliminar el Pokémon.'
+            })
+        } else {
+            res.json({
+                estado: true,
+                mensaje: 'Pokémon eliminado.'
+            })
+        } 
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 

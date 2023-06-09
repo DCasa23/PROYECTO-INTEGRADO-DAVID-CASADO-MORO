@@ -72,7 +72,25 @@ exports.testunico_develope_project_post = async (req, res) => {// Recuperamos lo
        console.log(error);
    }
 };
-
+exports.testunico_delete = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const testunicoDB = await Testunico.findByIdAndDelete({ _id: id });
+        if (!testunicoDB) {
+            res.json({ 
+                estado: false,
+                mensaje: 'No se puede eliminar el Pokémon.'
+            })
+        } else {
+            res.json({
+                estado: true,
+                mensaje: 'Pokémon eliminado.'
+            })
+        } 
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 

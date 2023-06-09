@@ -90,8 +90,14 @@
                 <%if (usuario.rol=="Alumno" ){%>
                   <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Enviar Todo</button>
                   <%}%>
+                  
             
               </form>
+              <%if (usuario.rol=="Profesor" ){%>
+                <button class="btn btn-danger btn-sm" data-id="<%= desarrollo.id %>">
+                  Eliminar
+              </button>
+                <%}%>
             </div>
             
         
@@ -108,6 +114,27 @@
     </main>
     <%- include("template/footer.ejs")%>
     <script src="../js/cronometro.js"></script>
+    <script>
+      const btnEliminar = document.querySelector('.btn-danger')
+btnEliminar.addEventListener('click', async () => {
+    console.log(btnEliminar.dataset.id)
+    try {
+        // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
+        const data = await fetch(`/desarrollo/${btnEliminar.dataset.id}`, {
+            method: 'delete'
+        })
+        const res = await data.json()
+        console.log(res)
+        if (res.estado) {
+            window.location.href = '/desarrollo'
+        } else {
+            console.log(res)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+})
+    </script>
 </body>
 
 </html>

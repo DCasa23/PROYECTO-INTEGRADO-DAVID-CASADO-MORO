@@ -77,7 +77,15 @@
                 
             <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2 actualizar" onClick="window.location.reload()"  >Reinciar</button>
             <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" href="/cantar" id="volveriniciarsesion">Volver a Menu Cantar</a>
+            <div>
+              <%if (usuario.rol=="Profesor" ){%>
+                <button class="btn btn-danger btn-sm" data-id="<%= cantar.id %>">
+                  Eliminar
+              </button>
+                <%}%>
+              </div>
             </div>
+
             
         
         </div>
@@ -117,6 +125,26 @@
     console.log("I CANT")
     
   })
+  const btnEliminar = document.querySelector('.btn-danger')
+      btnEliminar.addEventListener('click', async () => {
+        
+          console.log(btnEliminar.dataset.id)
+          try {
+              // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
+              const data = await fetch(`/cantar/${btnEliminar.dataset.id}`, {
+                  method: 'delete'
+              })
+              const res = await data.json()
+              console.log(res)
+              if (res.estado) {
+                  window.location.href = '/cantar'
+              } else {
+                  console.log(res)
+              }
+          } catch (error) {
+              console.log(error)
+          }
+      })
   
 </script>
 </html>

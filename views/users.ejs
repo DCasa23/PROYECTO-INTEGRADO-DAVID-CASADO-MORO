@@ -1,117 +1,117 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<%- include("template/head.ejs")%>
-<link rel="stylesheet" type="text/css" href="../css/perfil.css" />
-    </head>
+  <%- include("template/head.ejs")%>
+  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  
+</head>
 
-    <body>
-        <%- include("template/header.ejs")%>
+<body>
+  <%- include("template/header.ejs")%>
+  <main class="container-fluid p-0 mb-0">
 
-            <main class="container-fluid ">
-                <%- include("template/navleft.ejs")%>
-                <div class="container-fluid p-5">
-                    <h1 class="display-3 text-light">Usuarios</h1>
-                    <h1 class="display-6 text-light">
-                        <%=title%>
-                    </h1>
-                </div>
-                <div class="otro">
-                    <div class="row justify-content-around">
-                        <div class="col-12 col-sm-12 col-md-9 col-lg-6 table-responsive overflow-auto text-center bg-secondary rounded border border-secondary border-1">
-                            <table class="table">
-                                <thead class="thead-dark fs-5">
-                                    <tr>
-                                        <th scope="col">Nombre de usuario</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Apellidos</th>
-                                        <th scope="col">Rol</th>
-                                        <th scope="col">Nombre de usuario</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Apellidos</th>
-                                        <th scope="col">Rol</th>
-                                        <th scope="col">Nombre de usuario</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Apellidos</th>
-                                        <th scope="col">Rol</th>
-                                        <%if (usuario.rol=="Profesor" ){%>
-                                            <th scope="col">Acción</th>
-                                            <%}%>
-                                    </tr>
-                                </thead>
+    <%- include("template/navleft.ejs")%>
 
-                                <tbody class="border-bottom border-dark text-light">
 
-                                    <!--Haremos el foreach para recorrer el array-->
-                                    <% arrayUsuarios.forEach(usuarios=> { %>
-                                        <tr>
-                                            <td>
-                                                <%= usuarios.nombre %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.correo %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.apellidos %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.rol %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.dni %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.telefono %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.direccion %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.ciudad %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.password %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.metodoPago %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.grupoPago %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.fechaIngreso %>
-                                            </td>
-                                            <td>
-                                                <%= usuarios.fechaRenovacion %>
-                                            </td>
-                                            <%if (usuario.rol=="Profesor" ){%>
-                                                <td>
-                                                    <a class="btn btn-warning btn-sm"
-                                                        href="/users/<%=usuarios.id%>">Editar/Eliminar</a>
-                                                </td>
-                                                <%}%>
-                                        </tr>
-                                        <% }) %>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <div class="col-7 text-center row">
+    <div class="float-start ms-0 row justify-content-center col-8 col-lg-8 col-md-9 col-sm-9 text-center">
+        <div class="row justify-content-around">
+            <div class="col-12 col-sm-12 col-md-9 col-lg-6 table-responsive overflow-auto text-center bg-secondary rounded border border-secondary border-1">
+                <table class="table">
+                    <thead class="thead-dark fs-5">
+                        <tr>
+                            <th scope="col">Nombre de usuario</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Rol</th>
+                            <th scope="col">Nombre de usuario</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Rol</th>
+                            <th scope="col">Nombre de usuario</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Rol</th>
                             <%if (usuario.rol=="Profesor" ){%>
-                                <div class="col-sm-12 col-md-6">
-                                    <a class="btn btn-secondary btn-block my-4 me-sm-0 me-md-5" href="/registro">Nuevo Usuario</a>
-                            </div>
+                                <th scope="col">Acción</th>
                                 <%}%>
-                                <div class="col-sm-12 col-md-6">
-                                    <a class="btn btn-secondary btn-block my-4" href="/">Volver</a>
-                                </div>
-                        </div>
-                    </div>
+                        </tr>
+                    </thead>
+    
+                    <tbody class="border-bottom border-dark text-light">
+    
+                        <!--Haremos el foreach para recorrer el array-->
+                        <% arrayUsuarios.forEach(usuarios=> { %>
+                            <tr>
+                                <td>
+                                    <%= usuarios.nombre %>
+                                </td>
+                                <td>
+                                    <%= usuarios.correo %>
+                                </td>
+                                <td>
+                                    <%= usuarios.apellidos %>
+                                </td>
+                                <td>
+                                    <%= usuarios.rol %>
+                                </td>
+                                <td>
+                                    <%= usuarios.dni %>
+                                </td>
+                                <td>
+                                    <%= usuarios.telefono %>
+                                </td>
+                                <td>
+                                    <%= usuarios.direccion %>
+                                </td>
+                                <td>
+                                    <%= usuarios.ciudad %>
+                                </td>
+                                <td>
+                                    <%= usuarios.password %>
+                                </td>
+                                <td>
+                                    <%= usuarios.fechaIngreso %>
+                                </td>
+                                
+                                <%if (usuario.rol=="Profesor" ){%>
+                                    <td>
+                                        <a class="btn btn-warning btn-sm"
+                                            href="/users/<%=usuarios.id%>">Editar/Eliminar</a>
+                                    </td>
+                                    <%}%>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="col-7 text-center row">
+                <%if (usuario.rol=="Profesor" ){%>
+                    <div class="col-sm-12 col-md-6">
+                        <a class="btn btn-secondary btn-block my-4 me-sm-0 me-md-5" href="/registro">Nuevo Usuario</a>
                 </div>
-                <%- include("template/navright.ejs")%>
-            </main>
+                    <%}%>
+                    <div class="col-sm-12 col-md-6">
+                        <a class="btn btn-secondary btn-block my-4" href="/">Volver</a>
+                    </div>
+            </div>
+        </div>
+      
 
-            <%- include("template/footer.ejs")%>
-        </body>
+    </div>
 
-        </html>
+
+    <%- include("template/navright.ejs")%>
+
+
+
+
+  </main>
+  <%- include("template/footer.ejs")%>
+</body>
+
+</html>
+
+
+

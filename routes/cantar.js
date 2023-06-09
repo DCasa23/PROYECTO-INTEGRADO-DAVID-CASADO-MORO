@@ -33,4 +33,6 @@ router.get('/:id', cantarController.cantar_develope_project);
 
 router.post('/:id/ejercantar', cantarController.cantar_develope_project_post);
 
+router.delete('/:id', cantarController.cantar_delete);
+
 module.exports = router;

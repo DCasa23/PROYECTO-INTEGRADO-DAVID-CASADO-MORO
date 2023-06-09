@@ -31,4 +31,6 @@ router.post('/creartarjetas/', tarjetasController.tarjetas_create_project_post);
 
 router.get('/:id', tarjetasController.tarjetas_develope_project);
 
+router.delete('/:id', tarjetasController.tarjetas_delete);
+
 module.exports = router;

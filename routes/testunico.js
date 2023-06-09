@@ -33,4 +33,6 @@ router.get('/:id', testunicoController.testunico_develope_project);
 
 router.post('/:id/ejertestunico', testunicoController.testunico_develope_project_post);
 
+router.delete('/:id', testunicoController.testunico_delete);
+
 module.exports = router;

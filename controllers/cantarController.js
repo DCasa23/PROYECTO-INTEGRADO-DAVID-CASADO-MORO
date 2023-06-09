@@ -75,6 +75,24 @@ exports.cantar_develope_project_post = async (req, res) => {// Recuperamos los d
    }
 };
 
-
+exports.cantar_delete = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const cantarDB = await Cantar.findByIdAndDelete({ _id: id });
+        if (!cantarDB) {
+            res.json({ 
+                estado: false,
+                mensaje: 'No se puede eliminar el Pokémon.'
+            })
+        } else {
+            res.json({
+                estado: true,
+                mensaje: 'Pokémon eliminado.'
+            })
+        } 
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 

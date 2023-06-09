@@ -72,7 +72,52 @@ exports.desarrollo_develope_project_post = async (req, res) => {// Recuperamos l
        console.log(error);
    }
 };
+exports.desarrollo_edit_put = async (req, res) => {
+    
+    const id = req.params.id;
+        const body = req.body;
+        console.log(id)
+        console.log('body', body)
+        try {
+            const desarrolloDB = await Desarrollo.findByIdAndUpdate(
+                id, body, { useFindAndModify: false }
+            )
+            console.log(desarrolloDB)
+            res.json({
+                estado: true,
+                mensaje: 'Nota Editada'
+            })
+        } catch (error) {
+            
+            console.log(error)
+            res.json({
+                estado: false,
+                mensaje: 'Nota no Editada'
+            })
+        }
+    }
 
 
 
+
+
+exports.desarrollo_delete = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const desarrolloDB = await Desarrollo.findByIdAndDelete({ _id: id });
+        if (!desarrolloDB) {
+            res.json({ 
+                estado: false,
+                mensaje: 'No se puede eliminar el Pokémon.'
+            })
+        } else {
+            res.json({
+                estado: true,
+                mensaje: 'Pokémon eliminado.'
+            })
+        } 
+    } catch (error) {
+        console.log(error)
+    }
+}
 

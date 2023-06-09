@@ -52,6 +52,25 @@ exports.tarjetas_develope_project = async (req, res) => {
         })
     }
 };
+exports.tarjetas_delete = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const tarjetasDB = await Tarjetas.findByIdAndDelete({ _id: id });
+        if (!tarjetasDB) {
+            res.json({ 
+                estado: false,
+                mensaje: 'No se puede eliminar el Pokémon.'
+            })
+        } else {
+            res.json({
+                estado: true,
+                mensaje: 'Pokémon eliminado.'
+            })
+        } 
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 

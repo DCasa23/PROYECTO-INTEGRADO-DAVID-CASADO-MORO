@@ -33,4 +33,8 @@ router.get('/:id', desarrolloController.desarrollo_develope_project);
 
 router.post('/:id/ejerdesarrollo', desarrolloController.desarrollo_develope_project_post);
 
+router.delete('/:id', desarrolloController.desarrollo_delete);
+
+router.put('/:id', desarrolloController.desarrollo_edit_put);
+
 module.exports = router;

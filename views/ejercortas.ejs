@@ -133,6 +133,12 @@
                     <%}%>
             
               </form>
+
+              <%if (usuario.rol=="Profesor" ){%>
+               <button class="btn btn-danger btn-sm" data-id="<%= cortas.id %>">
+                 Eliminar
+             </button>
+               <%}%>
             </div>
             
         
@@ -148,6 +154,29 @@
 
     </main>
     <%- include("template/footer.ejs")%>
+    <script>
+      
+     const btnEliminar = document.querySelector('.btn-danger')
+     btnEliminar.addEventListener('click', async () => {
+       
+         console.log(btnEliminar.dataset.id)
+         try {
+             // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
+             const data = await fetch(`/cortas/${btnEliminar.dataset.id}`, {
+                 method: 'delete'
+             })
+             const res = await data.json()
+             console.log(res)
+             if (res.estado) {
+                 window.location.href = '/cortas'
+             } else {
+                 console.log(res)
+             }
+         } catch (error) {
+             console.log(error)
+         }
+     })
+         </script>
 </body>
 
 </html>
