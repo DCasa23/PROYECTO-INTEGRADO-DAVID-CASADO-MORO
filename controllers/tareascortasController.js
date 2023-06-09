@@ -32,6 +32,30 @@ exports.cortas_develope_project = async (req, res) => {
         })
     }
 };
+exports.cortas_edit_put = async (req, res) => {
+    
+    const id = req.params.id;
+        const body = req.body;
+        console.log(id)
+        console.log('body', body)
+        try {
+            const cortas2DB = await Cortas2.findByIdAndUpdate(
+                id, body, { useFindAndModify: false }
+            )
+            console.log(cortas2DB)
+            res.json({
+                estado: true,
+                mensaje: 'Nota Editada'
+            })
+        } catch (error) {
+            
+            console.log(error)
+            res.json({
+                estado: false,
+                mensaje: 'Nota no Editada'
+            })
+        }
+    }
 
 
 

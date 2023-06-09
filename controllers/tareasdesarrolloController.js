@@ -44,6 +44,7 @@ exports.desarrollo_edit_get = async (req, res) => {
         console.log(error);
     }
 };*/
+/*
 exports.desarrollo_edit_get = async (req, res) => {
     const id = req.params.id //Recordemos que en la plantilla "gimnasio.ejs" le pusimos
     //a este campo gimnasio.id, por eso lo llamados con params.id
@@ -65,6 +66,7 @@ exports.desarrollo_edit_get = async (req, res) => {
         })
     }
 };
+*/
 exports.desarrollo_edit_put = async (req, res) => {
     
     const id = req.params.id;

@@ -57,7 +57,7 @@
                                 <ul class="mb-3 list-unstyled">
                                   <span>Duración de la Prueba</span>
                                   <li class="col-center col-12 col-sm-12 col-md-4 col-lg-3"><input id="duracion" name="tipopregunta"
-                                      type="radio" value="5" checked="checked"> 5 minutos</input></li>
+                                      type="radio" value="1" checked="checked"> 1 minuto</input></li>
                                   <li><input id="duracion" name="tipopregunta" type="radio" value="15"> 15 minutos</input></li>
                                   <li><input id="duracion" name="tipopregunta" type="radio" value="30"> 30 minutos</input></li>
                                   <li><input id="duracion" name="tipopregunta" type="radio" value="45"> 45 minutos</input></li>
@@ -66,14 +66,17 @@
                                <div>
                                 <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-warning my-2 px-1 my-2 sacar">Sacar Tema</button>
                               </div>
+                              <div id="reloj">
+
+                              </div>
                     
                 </div>
                 <%if (usuario.rol=="Alumno" ){%>
-                  <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" href="/cantar" id="volveriniciarsesion">Ir a Cantar</a>
+                  <button class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" id="botoncrono">Empezar</button>
                   <%}%>
                 
             <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2 actualizar" onClick="window.location.reload()"  >Reinciar</button>
-              
+            <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" href="/cantar" id="volveriniciarsesion">Volver a Menu Cantar</a>
             </div>
             
         
@@ -90,11 +93,11 @@
     </main>
     <%- include("template/footer.ejs")%>
 </body>
-
+<script src="../js/cronometrocantar.js"></script>
 <script>
   //tamanio=<%= cantar.tema[Math.floor(Math.random()*cantar.tema.length)].toString() %>
   //console.log(tamanio)
-  
+  console.log("HOLA: "+ $("input[id=duracion]:checked").val())
   console.log("<%= cantar.tema %>")
 
   console.log("<%= cantar.tema[4] %>")

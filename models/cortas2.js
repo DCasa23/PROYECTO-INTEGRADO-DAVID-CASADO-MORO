@@ -24,8 +24,19 @@ const cortas2Schema = new Schema({
     respuesta9: String,
     pregunta10: String,
     respuesta10: String,
+    puntos1:Number,
+    puntos2:Number,
+    puntos3:Number,
+    puntos4:Number,
+    puntos5:Number,
+    puntos6:Number,
+    puntos7:Number,
+    puntos8:Number,
+    puntos9:Number,
+    puntos10:Number,
     duracion: Number,
     correoAlumno: String,
+    nota:Number,
     
 });
 

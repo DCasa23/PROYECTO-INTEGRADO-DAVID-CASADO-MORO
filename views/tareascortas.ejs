@@ -25,18 +25,13 @@
           img-fluid mx-auto align-items-end;" src="../img/+remove.png"></a>
         </div>
         <div class="col-12 overflow-auto mt-3" style="max-height: 500px;">
-          <div>
-            <form class="form-inline my-2 my-lg-2">
-              <input class="form-control mr-sm-2" type="search" placeholder="Buscar Pregunta..." aria-label="Search">
-
-            </form>
-          </div>
+          
           <ul class="mb-3 float-none list-unstyled float-start">
-            <% arrayCortas2.forEach(cortas2=> { %>
+            <% arrayCortas2.forEach(cortas2=>{if(cortas2.nota==null){ %>
             <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><a href="/tareascortas/<%= cortas2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
               img-fluid mx-3 align-items-end;" src="../img/lupa.jpg"><span class="p-1"><%= cortas2.tema %></span></a></li>
             
-                    <% }) %>
+                    <% }}) %>
           </ul>
         </div>
       </div>
@@ -49,206 +44,17 @@
           img-fluid mx-auto align-items-end;" src="../img/+remove.png"></div>
         </div>
         <div class="col-center col-12 overflow-auto mt-3" style="max-height: 700px;">
-          <div>
-            <form class="form-inline my-2 my-lg-2">
-              <input class="form-control mr-sm-2" type="search" placeholder="Buscar Preguntas..." aria-label="Search">
-
-            </form>
-          </div>
+          
           <ul class="justify-content-center mb-3 float-none list-unstyled float-start">
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 elemento"
-              ondblclick="cambiarleerTodo(this)" onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-              img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
-                  asdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3" ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span
-                  class="elemento">Holaaasdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 mb-3" ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-              img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
-                  asdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 " ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span
-                  class="elemento">Holaaasdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 mb-3" ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-              img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
-                  asdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 " ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span
-                  class="elemento">Holaaasdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 mb-3" ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-              img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
-                  asdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 " ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span
-                  class="elemento">Holaaasdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 mb-3" ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-              img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
-                  asdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 " ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span
-                  class="elemento">Holaaasdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 mb-3" ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-              img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span class="elemento">Holaaaaaa asdasdas
-                  asdasdasdad</span></div>
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 " ondblclick="cambiarleerTodo(this)"
-              onclick="leerTodo(this)">
-              <div><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                img-fluid mx-auto align-items-end; pb-2" src="../img/lupa.jpg"></div>
-              <div class="col-center text-truncate" style=" max-width: 150px;"><span
-                  class="elemento">Holaaasdasdasdad</span></div>
-            </li>
-
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3 "><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                  img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaaaaaaaaaaaaaaaaaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                    img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaaaaaaaaaaaaaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                      img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                        img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                          img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                            img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                              img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                  img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                    img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                      img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                        img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                          img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                            img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                              img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                  img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                    img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                      img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                        img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                          img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                            img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                              img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                  img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                    img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                      img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                        img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                          img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                            img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                              img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                                img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                                  img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                                    img-fluid mx-auto align-items-end;"
-                src="../img/lupa.jpg">Holaaaaaa</li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
-                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                                      img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
-                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                                        img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
-                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                                          img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa
-            </li>
-            <li class="col-6 col-lg-2 col-md-3  col-sm-6 fs-5 float-start mb-3"><img
-                class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                                                                                            img-fluid mx-auto align-items-end;" src="../img/lupa.jpg">Holaaaaaa
-            </li>
-
+            <% arrayCortas2.forEach(cortas2=> {if(cortas2.nota!=null){%>
+           
+              <li><%= cortas2.nota %></li>
+            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><a href="/tareascortas/<%= cortas2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+              img-fluid mx-3 align-items-end;" src="../img/hoja.png"><span class="p-1"><%= cortas2.tema %></span></a></li>
+          
+           
+            
+                    <%}}) %>
           </ul>
         </div>
       </div>

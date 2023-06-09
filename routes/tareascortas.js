@@ -19,5 +19,6 @@ router.get('/', tareascortasController.cortas);
 
 router.get('/:id', tareascortasController.cortas_develope_project);
 
+router.put('/:id/', tareascortasController.cortas_edit_put);
 
 module.exports = router;
