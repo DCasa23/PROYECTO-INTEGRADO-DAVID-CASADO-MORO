@@ -41,10 +41,16 @@ contado=0
     cadena.push(prueba[i].value);
     }
     console.log(cadena);
+    var j= 0;
+    $("#bloqueunicaopcionfinal").html("")
+    for (var j=0;j< contador; j++){
+        $("#bloqueunicaopcionfinal").append("<input id=\"unicaopcionfinal\" class=\"col-12 col-sm-12 col-md-1 col-lg-1\"name=\"unicaopcionfinal\" value=\""+cadena[j]+"\"/>");
+    }
     
-    });  
+    }); 
+    /* 
     $("#volveriniciarsesion").mouseover(function(){
-        console.log("HOIIIII")
+        
         var j= 0;
         $("#bloqueunicaopcionfinal").html("")
         for (var j=0;j< contador; j++){
@@ -52,3 +58,4 @@ contado=0
         }
         
     });    
+    */
