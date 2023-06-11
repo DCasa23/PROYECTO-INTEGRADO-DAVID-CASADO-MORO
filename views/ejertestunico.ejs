@@ -40,6 +40,12 @@
                 <form action="/testunico/:id/ejertestunico" class= "needs-validation formulario " method="POST">
                 <div class="row col-12 m-0 py-3" id="bloqueunicaopcionfinal"></div> 
                 <div class="col-12 mt-3 overflow-auto" style="max-height: 1500px;" >
+                  <%if (usuario.rol=="Alumno" ){%>
+                    <div>
+                      <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="correoAlumno"
+                          placeholder="Nombre de Alumno" value="<%= usuario.correo %>"readonly></input>
+                        </div>
+                    <%}%>
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                         placeholder="Nombre del Tema" value="<%= testunico.tema %>"></input>
                         <% for(var j=0;j<testunico.pregunta.length; j++) {%>

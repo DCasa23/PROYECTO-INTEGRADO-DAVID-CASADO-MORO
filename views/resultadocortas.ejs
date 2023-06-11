@@ -39,6 +39,12 @@
                 </div>
                 <form id="editar" class="mb-3 list-unstyled" data-id="<%=cortas2._id%>">
                   <div class="col-12 mt-3" style="max-height: 1500px;">
+                    <%if (usuario.rol=="Profesor" ){%>
+                      <div>
+                        <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" name="correoAlumno"
+                            placeholder="Nombre de Alumno" value="<%= cortas2.correoAlumno %>"readonly></input>
+                          </div>
+                      <%}%>
                       <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                           placeholder="Nombre del Tema" value="<%= cortas2.tema %>"></input>
   
@@ -134,7 +140,9 @@
                       
                   </div>
                   <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" href="/cortas" id="volveriniciarsesion">Ir a Cortas</a>
-              <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Enviars</button>
+                  <%if (usuario.rol=="Profesor" ){%>
+              <button class="col-12 col-sm-12 col-md-12 col-lg-3 btn btn-success my-2 px-1 my-2" type="submit">Calificar</button>
+              <%}%>
                 </form>
             </div>
             

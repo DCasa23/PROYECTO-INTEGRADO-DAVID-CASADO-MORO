@@ -39,7 +39,12 @@
                 </div>
                 <form id="editar" class="mb-3 list-unstyled" data-id="<%=desarrollo2._id%>">
                 <div class="col-12 mt-3" style="max-height: 1100px;">
-                  
+                  <%if (usuario.rol=="Profesor" ){%>
+                    <div>
+                      <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" name="correoAlumno"
+                          placeholder="Nombre de Alumno" value="<%= desarrollo2.correoAlumno %>"readonly></input>
+                        </div>
+                    <%}%>
                   <div>
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                         placeholder="Nombre del Tema" value="<%= desarrollo2.tema %>"readonly></input>
@@ -64,7 +69,9 @@
                 </div>
                 <div class="row form-inline my-2 my-lg-0 justify-content-around">
                   <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2" href="/">Volver</a>
+                  <%if (usuario.rol=="Profesor" ){%>
                   <button class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2"  type="submit" >Calificar</button>
+                  <%}%>
                 </div>
               
             </form>

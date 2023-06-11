@@ -29,7 +29,7 @@
         <div class="col-12 overflow-auto mt-3" style="max-height: 500px;">
           
           <ul class="mb-3 float-none list-unstyled float-start">
-            <% arrayDesarrollo2.forEach(desarrollo2=> {if(desarrollo2.nota==null){%>
+            <% arrayDesarrollo2.forEach(desarrollo2=> {if(desarrollo2.nota==null&&desarrollo2.correoAlumno==usuario.correo){%>
            
               
             <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><a href="/tareasdesarrollo/<%= desarrollo2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
@@ -54,9 +54,9 @@
         <div class="col-center col-12 overflow-auto mt-3" style="max-height: 700px;">
           
           <ul class="justify-content-center mb-3 float-none list-unstyled float-start">
-            <% arrayDesarrollo2.forEach(desarrollo2=> {if(desarrollo2.nota!=null){%>
+            <% arrayDesarrollo2.forEach(desarrollo2=> {if(desarrollo2.nota!=null&&desarrollo2.correoAlumno==usuario.correo){%>
            
-              <li><%= desarrollo2.nota %></li>
+              
             <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><a href="/tareasdesarrollo/<%= desarrollo2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
               img-fluid mx-3 align-items-end;" src="../img/hoja.png"><span class="p-1"><%= desarrollo2.tema %></span></a></li>
           

@@ -37,40 +37,38 @@
                     </div>
 
                 </div>
-                <div>
-                    <% contador=0;
-                    for(var l=0;l<testunico2.pregunta.length; l++) {%>
-                  
-                
-                         <% if(testunico.unicaopcionfinal[l]==testunico2.unicaopcionfinal[l]){ %>
-                           <li><%= testunico2.pregunta[l] %>: Es Correcto</li>
-                           
-                           <% contador++;
-                           }else{ %>
-                            <li><%= testunico2.pregunta[l] %>: Es Incorrecto</li>
-                           <% } %>
-                         
-                     <% } %>
-                </div>
+                <%if (usuario.rol=="Profesor" ){%>
+                  <div>
+                    <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" name="correoAlumno"
+                        placeholder="Nombre de Alumno" value="<%= testunico2.correoAlumno %>"readonly></input>
+                      </div>
+                  <%}%>
                   <div class="col-12 mt-3" style="max-height: 1500px;">
                       <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                           placeholder="Nombre del Tema" value="<%= testunico2.tema %>"></input>
   
                           
                          
-                            <div>
-                              <input id="textoPreguntas" value="<%= testunico2.pregunta %>" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                                   placeholder="Escribir Pregunta" readonly ></input>
-                                  </div>
-                                  <div>
-                                    <input id="textoRespuestas" name="respuesta1" value="<%= testunico2.respuesta1 %>" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
-                                         placeholder="Escribir Respuesta" readonly></input>
-                                        </div>
+                          <div>
+                            <% contador=0;
+                            for(var l=0;l<testunico2.pregunta.length; l++) {%>
+                          
+                        
+                                 <% if(testunico.unicaopcionfinal[l]==testunico2.unicaopcionfinal[l]){ %>
+                                   <li><%= testunico2.pregunta[l] %>: <span class="text-success fw-bold">CORRECTO</span></li>
+                                   
+                                   <% contador++;
+                                   }else{ %>
+                                    <li><%= testunico2.pregunta[l] %>: <span class="text-danger fw-bold">INCORRECTO</span></li>
+                                   <% } %>
+                                 
+                             <% } %>
+                        </div>
                                         <div>
                                         <% if(contador>=5){ %>
-                                          <li> Esta Aprobado: <%=contador %></li>
+                                          <span class="text-dark fw-bold fs-2"> Esta Aprobado: <%=contador %></span>
                                           <% }else{ %>
-                                           <li> Esta Suspenso: <%=contador %></li>
+                                           <span class="text-dark fw-bold fs-2"> Esta Suspenso: <%=contador %></span>
                                            <% } %>
                                         </div>
                       

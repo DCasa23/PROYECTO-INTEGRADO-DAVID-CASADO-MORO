@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // Declaración del modelo y sus datos
 const testunico2Schema = new Schema({
-    correo: String,
+    correoAlumno: String,
     duracion: Number,
     tema: String,
     pregunta: [String],

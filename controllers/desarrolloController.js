@@ -27,7 +27,7 @@ exports.desarrollo_create_project_post = async (req, res) => {// Recuperamos los
             res.render("creardesarrollo", { tituloWeb: "Publicar Desarrollo", error: false, success: true });
             res.redirect("/");
         } else {
-            res.render("creardesarrollo", { tituloWeb: "Publicar Desarrollo", error: true, success: false });
+            res.render("creardesarrollo", { tituloWeb: "Publicar Desarrollo", error: false, success: true });
         }
     } catch (error) {
         console.log("ENTRAMOSnoooooo")

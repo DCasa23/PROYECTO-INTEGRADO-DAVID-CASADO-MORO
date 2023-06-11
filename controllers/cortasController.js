@@ -54,10 +54,10 @@ exports.cortas_develope_project = async (req, res) => {
 };
 exports.cortas_develope_project_post = async (req, res) => {// Recuperamos los datos del formulario
     let body = req.body;
-    console.log("YASADASD")
+    
    try {
-       if (body.respuesta1 != "") {
-           console.log("ENTRAMOS")
+       if (body.tema != "") {
+           
            let nuevaCortas2 = new Cortas2(body);
            await nuevaCortas2.save();
            res.render("ejercortas", { tituloWeb: "Publicar Cortas", error: false, success: true });
@@ -66,7 +66,7 @@ exports.cortas_develope_project_post = async (req, res) => {// Recuperamos los d
            res.render("ejercortas", { tituloWeb: "Publicar Cortas", error: true, success: false });
        }
    } catch (error) {
-       console.log("ENTRAMOSnoooooo")
+       
        console.log(error);
    }
 };
