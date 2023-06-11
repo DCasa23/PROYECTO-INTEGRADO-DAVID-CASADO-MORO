@@ -21,8 +21,10 @@
         <div class=" row border border-dark border-end-0 border-top-0 border-start-0">
           <div class="col-xl-11 col-lg-10 col-sm-12 col-md-12 col-center pt-4 pb-md-3 pb-sm-3 pb-3 pb-lg-3"><span
               class="fs-5 fw-bold">Temas de Cantar</span></div>
-          <a class="btn col-lg-2 col-xl-1 d-none d-lg-block text-end pe-2 pt-1 pb-1" href="/cantar/crearcantar"><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
-          img-fluid mx-auto align-items-end;" src="../img/+remove.png"></a>
+              <%if (usuario.rol=="Profesor" ){%>
+                <a class="btn col-lg-2 col-xl-1 d-none d-lg-block text-end pe-2 pt-1 pb-1"  href="/tarjetas/creartarjetas"> <img class=" bd-placeholder-img bd-placeholder-img-lg featurette image
+                  img-fluid mx-auto align-items-end;" src="../img/+remove.png"></a>
+                <%}%>
         </div>
         <div class="col-12 overflow-auto mt-3" style="max-height: 500px;">
           
@@ -40,8 +42,10 @@
         <div class=" row border border-dark border-end-0 border-top-0 border-start-0">
           <div class="col-xl-11 col-lg-10 col-sm-12 col-md-12 col-center pt-4 pb-lg-3 pb-md-3 pb-sm-3 pb-3"><span
               class="fs-5 fw-bold">Últimos Creados</span></div>
-          <div class="col-xl-1 col-lg-2 d-none d-lg-block text-end pe-2 pt-1 pb-1"> <img class=" bd-placeholder-img bd-placeholder-img-lg featurette image
-          img-fluid mx-auto align-items-end;" src="../img/+remove.png"></div>
+              <%if (usuario.rol=="Profesor" ){%>
+                <a class="btn col-lg-2 col-xl-1 d-none d-lg-block text-end pe-2 pt-1 pb-1"  href="/tarjetas/creartarjetas"> <img class=" bd-placeholder-img bd-placeholder-img-lg featurette image
+                  img-fluid mx-auto align-items-end;" src="../img/+remove.png"></a>
+                <%}%>
         </div>
         <div class="col-center col-12 overflow-auto mt-3" style="max-height: 700px;">
           
