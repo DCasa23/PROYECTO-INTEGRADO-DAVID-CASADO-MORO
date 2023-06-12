@@ -24,27 +24,33 @@
                 </div>
                 <div class="col-12 mt-3" style="max-height: 1700px;">
                   <form action="/registro" class= "needs-validation formulario" method="POST">
-                      
+                    <%if (error){%>
+                      <p class="text-center mt-3 p-1 bg-danger">Rellena los campos necesarios/Ese nombre de
+                          usuario ya existe</p>
+                      <%}%>
+                    <%if (success){%>
+                      <p class="text-center mt-3 p-1 bg-success">Usuario creado satisfactoriamente</p>
+                      <%}%>
                     <div class="mb-3">
                       <label for="correo" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Correo</label>
-                      <input type="text" id="correoform" name="correo" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" placeholder="" onkeyup="validarCorreoForm()" autocomplete="off">
+                      <input type="text" id="correoform" name="correo" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" placeholder="" onkeyup="validarCorreoForm(),comprobar()" autocomplete="off">
                     <span id="textoCorreo"></span>
                     </div>
-                      <div class="mb-3">
-                        <label for="password" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Contraseña</label>
-                        <input type="text" id="password" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " name="password" placeholder="oleesafamilia">
-                      </div>
-                      <div class="mb-3">
-                        <label for="nombre" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Nombre</label>
-                        <input type="text" id="nombreform" name="nombre" placeholder="" onkeyup="validarName()" autocomplete="off" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " maxlength="20">
-                        <span id="textoNombre"></span>
-                      </div>
-                      <div class="mb-3">
-                        <label for="apellidos" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Apellidos</label>
-                        
-                        <input type="text" id="apellidosform" name="apellidos" placeholder="" onkeyup="validarApellidos()" autocomplete="off" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" maxlength="30">
-                    <span id="textoApellidos"></span>
-                      </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Contraseña</label>
+                      <input type="password" id="passwordform" name="password" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " placeholder="" onkeyup="validarPassword(),comprobar()" autocomplete="off">
+                  <span id="textoPassword"></span>
+                    </div>
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Nombre</label>
+                      <input type="text" id="nombreform" name="nombre" placeholder="" onkeyup="validarName(),comprobar()" autocomplete="off" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " maxlength="20">
+                      <span id="textoNombre"></span>
+                    </div>
+                    <div class="mb-3">
+                      <label for="apellidos" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Apellidos</label>
+                      <input type="text" id="apellidosform" name="apellidos" placeholder="" onkeyup="validarApellidos(),comprobar()" autocomplete="off" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" maxlength="30">
+                  <span id="textoApellidos"></span>
+                    </div>
                       <div class="mb-3">
                         <label for="ciudad" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Ciudad</label>
                         <select id="ciudad" class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " name="ciudad" placeholder="Elija Ciudad">
@@ -58,8 +64,8 @@
                       </div>
                       <div class="mb-3">
                         <label for="telefono" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Telefono</label>
-                        <input type="text" id="telefonoform" name="telefono" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 "
-                        placeholder="XXX XXX XXX o XXX XX XX XX" onkeyup="validarTelefonoForm()" autocomplete="off"><span id="textoTelefono"></span>
+                        <input type="text" id="telefonoform2" name="telefono" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 "
+                        placeholder="XXX XXX XXX o XXX XX XX XX" onkeyup="validarTelefonoForm(),comprobar()" autocomplete="off"><span id="textoTelefono"></span>
                       </div>
                       
                       <div class="mb-3">
@@ -71,23 +77,22 @@
                       <div class="mb-3">
                         <label for="planformacion" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Plan de Formacion</label>
                         <select id="plan" class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " name="grupoPago">
-                          <option value="Gratuito" selected>Gratuito</option>
-                          <option value="Premium">Premium</option>
-                          <option value="Gold">Premium Gold</option>
+                          <option value="Gratuito" selected>Mensual</option>
+                          <option value="Premium">Trimestral</option>
+                          <option value="Gold">Anual</option>
                         </select>
                       </div>
                       <div class="mb-3">
                         <label for="fechainicio" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Fecha de Ingreso</label>
-                        <input type="text" id="ingreso" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2  "  placeholder="22-03-2021" name="fechaInicio">
+                        <input type="text" id="dateingreso" class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" readonly placeholder="XX-XX-XXXX" name="fechaInicio">
                       </div>
-                      <div class="mb-3">
-                        <label for="fechaRenovacion" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Fecha de Renovación</label>
-                        <input type="text" id="renovacion" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2"  placeholder="22-03-2023" name="fechaRenovacion">
-                      </div>
+                      
                       <div class="mb-3">
                         <label for="metodoPago" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Metodología de Pago</label>
                         <select id="pago" class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2"name="metodoPago">
-                          <option id="optionpago">Cuenta Google Play</option>
+                          <option id="optionpago">Efectivo</option>
+                          <option id="optionpago">PayPal</option>
+                          <option id="optionpago">Bizzum</option>
                         </select>
                       </div>
                       <div class="mb-3 d-none">
@@ -97,16 +102,10 @@
                         </select>
                       </div>
                       
-                      <%if (error){%>
-                        <p class="text-center mt-3 p-1 bg-danger">Rellena los campos necesarios/Ese nombre de
-                            usuario ya existe</p>
-                        <%}%>
-                      <%if (success){%>
-                        <p class="text-center mt-3 p-1 bg-success">Usuario creado satisfactoriamente</p>
-                        <%}%>
+                      
                         <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2" href="/inicio" id="volveriniciarsesion">Volver a Inicio</a>
                 
-                <button class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 my-2" onclick="gfg_Run()" type="submit">Crear Usuario</button>
+                <button class="botonenviar col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 my-2" onclick="gfg_Run()" type="submit">Crear Usuario</button>
                   </form>
                   
                   

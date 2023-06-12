@@ -9,13 +9,11 @@ const userSchema = new Schema({
     direccion: String,
     ciudad: String,
     password: String,
-    telefono: Number,
-    dni:String,
+    telefono: String,
     rol: String,
     metodoPago: String,
     grupoPago: String,
-    fechaIngreso: Date,
-    fechaRenovacion: Date,
+    fechaIngreso: String,
     numeroID: String,
 });
 

@@ -23,24 +23,33 @@
                     
                 </div>
                 <div class="col-12 mt-3" style="max-height: 1700px;">
-                  <form action="/registro" class= "needs-validation formulario" method="POST">
+                  <form action="/registrousuario" class= "needs-validation formulario" method="POST">
                       
                     <div class="mb-3">
                       <label for="correo" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Correo</label>
-                      <input type="text" id="correo" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" name="correo">
+                      <input type="text" id="correoform" name="correo" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" placeholder="" onkeyup="validarCorreoForm(),comprobar()" autocomplete="off">
+                    <span id="textoCorreo"></span>
                     </div>
-                      <div class="mb-3">
-                        <label for="password" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Contraseña</label>
-                        <input type="text" id="password" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " name="password">
-                      </div>
-                      <div class="mb-3">
-                        <label for="nombre" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Nombre</label>
-                        <input type="text" id="nombre" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " name="nombre">
-                      </div>
-                      <div class="mb-3">
-                        <label for="apellidos" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Apellidos</label>
-                        <input type="text" id="apellidos" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" name="apellidos">
-                      </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Contraseña</label>
+                      <input type="password" id="passwordform" name="password" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " placeholder="" onkeyup="validarPassword(),comprobar()" autocomplete="off">
+                  <span id="textoPassword"></span>
+                    </div>
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Nombre</label>
+                      <input type="text" id="nombreform" name="nombre" placeholder="" onkeyup="validarName(),comprobar()" autocomplete="off" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " maxlength="20">
+                      <span id="textoNombre"></span>
+                    </div>
+                    <div class="mb-3">
+                      <label for="apellidos" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Apellidos</label>
+                      <input type="text" id="apellidosform" name="apellidos" placeholder="" onkeyup="validarApellidos(),comprobar()" autocomplete="off" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" maxlength="30">
+                  <span id="textoApellidos"></span>
+                    </div>
+                    <div class="mb-3">
+                      <label for="telefono" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Telefono</label>
+                      <input type="text" id="telefonoform2" name="telefono" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 "
+                      placeholder="XXX XXX XXX o XXX XX XX XX" onkeyup="validarTelefonoForm(),comprobar()" autocomplete="off"><span id="textoTelefono"></span>
+                    </div>
                       <div class="mb-3">
                         <label for="ciudad" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Ciudad</label>
                         <select id="ciudad" class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " name="ciudad" placeholder="Elija Ciudad">
@@ -102,7 +111,7 @@
                         <%}%>
                         <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2" href="/inicio" id="volveriniciarsesion">Volver a Inicio</a>
                 
-                <button class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 my-2" onclick="gfg_Run()" type="submit">Crear Usuario</button>
+                <button class="botonenviar col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 my-2" onclick="gfg_Run()" disabled type="submit">Crear Usuario</button>
                   </form>
                   
                   
@@ -122,6 +131,7 @@
 
     </main>
     <%- include("template/footer.ejs")%>
+    <script src="../js/validar.js"></script>
     <script>
       var el_down = document.getElementById("numeroID");
       function generateP() {

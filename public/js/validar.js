@@ -1,10 +1,14 @@
+const telefono = document.getElementById("telefonoform2")
 const nombre = document.getElementById("nombreform")
 const apellidos = document.getElementById("apellidosform")
 const correo = document.getElementById("correoform")
 const password = document.getElementById("passwordform")
-const telefono = document.getElementById("telefonoform")
-const dni = document.getElementById("dniform")
-const direccion = document.getElementById("direccionform")
+let incorrectoApellidos=true;
+let incorrectoPassword=true;
+let incorrectoTelefono=true;
+let incorrectoCorreo=true;
+let incorrectoNombre=true;
+
 
 //Serán las diferentes validaciones de los campos del formulario a tiempo real por medio ONKEYUP
 
@@ -66,6 +70,30 @@ function validarCorreoForm() {
         incorrectoCorreo = false;
     }
 }
+
+
+function validarTelefonoForm() {
+    let regexMOVIL = /^(\d{3}[ ]\d{3}[ ]\d{3})|(\d{3}[ ]\d{2}[ ]\d{2}[ ]\d{2})$/;
+    if (!regexMOVIL.test(telefonoform2.value)) {
+
+        telefono.style.background = '#ff99b2';
+        telefono.style.border = '2px solid red';
+        document.getElementById("textoTelefono").innerHTML = "<br><span style='color: black;font-weight: bold;opacity:1.25;'>El telefono tiene un formato inadecuado</span>";
+
+        incorrectoTelefono = true;
+
+
+    } else {
+
+        telefono.style.background = ' #3CBC8D';
+        telefono.style.color = 'white';
+        telefono.style.border = '2px solid green';
+        document.getElementById("textoTelefono").innerHTML = "";
+        
+        incorrectoTelefono = false;
+    }
+}
+
 function validarPassword() {
     if (password.value.length < 5) {
         password.style.border = '2px solid red';
@@ -86,92 +114,30 @@ function validarPassword() {
         incorrectoPassword = false;
     }
 }
-function validarTelefonoForm() {
-    let regexMOVIL = /^(\d{3}[ ]\d{3}[ ]\d{3})|(\d{3}[ ]\d{2}[ ]\d{2}[ ]\d{2})$/;
-    if (!regexMOVIL.test(telefonoform.value)) {
-
-        telefono.style.background = '#ff99b2';
-        telefono.style.border = '2px solid red';
-        document.getElementById("textoTelefono").innerHTML = "<br><span style='color: black;font-weight: bold;opacity:1.25;'>El telefono tiene un formato inadecuado</span>";
-
-        incorrectoTelefono = true
+function comprobar(){
 
 
-    } else {
+if (incorrectoApellidos == false && incorrectoNombre == false && incorrectoPassword == false && incorrectoTelefono == false && incorrectoCorreo == false){
+    
+    $('.botonenviar').prop('disabled', false)
 
-        telefono.style.background = ' #3CBC8D';
-        telefono.style.color = 'white';
-        telefono.style.border = '2px solid green';
-        document.getElementById("textoTelefono").innerHTML = "";
-        
-        incorrectoTelefono = false;
-    }
+}else{
+    
+    $('.botonenviar').prop('disabled', true)
 }
-function validarUsuarioForm() {
-    if (usuario.value.length < 5) {
-
-        usuario.style.border = '2px solid red';
-        usuario.style.background = '#ff99b2';
-        document.getElementById("parrafo").innerHTML = "<span style='color: black;font-weight: bold;opacity:1.25;'>El usuario introducido es pequeño o esta vacio</span>";
-        document.getElementById("textoUsuario").innerHTML = "";
-
-
-        incorrectoUsuario = true;
-
-
-    } else {
-
-        usuario.style.background = ' #3CBC8D';
-        usuario.style.color = 'white';
-        usuario.style.border = '2px solid green';
-        document.getElementById("textoUsuario").innerHTML = "<img src=\"../images/ok.png\" width=\'24px\' >";
-        document.getElementById("parrafo").innerHTML = "";
-        incorrectoUsuario = false;
-    }
 }
 
-function validarDNIForm() {
-    let regexDNI = /^(\d{8})([A-z])$/;
-    if (!regexDNI.test(dni.value)) {
-
-        dni.style.border = '2px solid red';
-        dni.style.background = '#ff99b2';
-        
-        document.getElementById("textoDni").innerHTML = "<br><span style='color: black;font-weight: bold;opacity:1.25;'>El dni introducido es pequeño o esta vacio</span>";
-
-        
-        incorrectoDni = true;
-
-        password
-    } else {
-
-        dni.style.background = ' #3CBC8D';
-        dni.style.color = 'white';
-        dni.style.border = '2px solid green';
-        document.getElementById("textoDni").innerHTML = "";
-        
-        incorrectoDni = false;
-    }
-}
-
-function validarDireccionForm() {
-    if (direccion.value.length < 5) {
-
-        direccion.style.border = '2px solid red';
-        direccion.style.background = '#ff99b2';
-        document.getElementById("textoDireccion").innerHTML = "<br><span style='color: black;font-weight: bold;opacity:1.25;'>El direccion introducido es pequeño o esta vacio</span>";
-
-        
-        incorrectoDireccion = true;
 
 
-    } else {
 
-        direccion.style.background = ' #3CBC8D';
-        direccion.style.color = 'white';
-        direccion.style.border = '2px solid green';
-        document.getElementById("textoDireccion").innerHTML = "";
-        
-        incorrectoDireccion = false;
-    }
-}
+n =  new Date();
+//Año
+y = n.getFullYear();
+//Mes
+m = n.getMonth() + 1;
+//Día
+d = n.getDate();
+
+//Lo ordenas a gusto.
+$('#dateingreso').attr("value", d + "/" + m + "/" + y);
+
