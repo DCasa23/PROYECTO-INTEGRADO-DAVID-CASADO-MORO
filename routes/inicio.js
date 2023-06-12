@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+
 // Require de los controladores de login
 const inicioController = require("../controllers/inicioController");
 

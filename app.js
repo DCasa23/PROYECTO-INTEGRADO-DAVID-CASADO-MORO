@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+const mongoSanitize = require('express-mongo-sanitize');
 var cookieParser = require('cookie-parser');
 const session = require("express-session");
 var logger = require('morgan');
@@ -45,7 +46,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
+app.use(mongoSanitize());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
