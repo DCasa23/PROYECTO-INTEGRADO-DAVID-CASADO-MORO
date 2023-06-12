@@ -7,7 +7,7 @@ exports.users_edit_get = async (req, res) => {
     const id = req.params.id;
     try {
         const usuarioEditar = await Usuario.findOne({_id:id});
-        res.render("editarperfil", { tituloWeb: "Editar usuario", usuarioEditar: usuarioEditar });
+        res.render("editarperfil", { tituloWeb: "Editar usuario", usuarioEditar: usuarioEditar,usuario: req.session.cuenta });
     } catch (error) {
         console.log(error);
     }
