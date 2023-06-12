@@ -27,7 +27,8 @@
                       
                     <div class="mb-3">
                       <label for="correo" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Correo</label>
-                      <input type="text" id="correo" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" name="correo" placeholder="davidcasado.21@campus.es">
+                      <input type="text" id="correoform" name="correo" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" placeholder="" onkeyup="validarCorreoForm()" autocomplete="off">
+                    <span id="textoCorreo"></span>
                     </div>
                       <div class="mb-3">
                         <label for="password" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Contraseña</label>
@@ -35,11 +36,14 @@
                       </div>
                       <div class="mb-3">
                         <label for="nombre" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Nombre</label>
-                        <input type="text" id="nombre" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " name="nombre"  placeholder="David">
+                        <input type="text" id="nombreform" name="nombre" placeholder="" onkeyup="validarName()" autocomplete="off" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " maxlength="20">
+                        <span id="textoNombre"></span>
                       </div>
                       <div class="mb-3">
                         <label for="apellidos" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Apellidos</label>
-                        <input type="text" id="apellidos" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" name="apellidos" placeholder="Casado Moro">
+                        
+                        <input type="text" id="apellidosform" name="apellidos" placeholder="" onkeyup="validarApellidos()" autocomplete="off" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2" maxlength="30">
+                    <span id="textoApellidos"></span>
                       </div>
                       <div class="mb-3">
                         <label for="ciudad" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Ciudad</label>
@@ -54,7 +58,8 @@
                       </div>
                       <div class="mb-3">
                         <label for="telefono" class="form-label col-12 col-sm-12 col-md-12 col-lg-12 fw-bold fs-4 my-2">Telefono</label>
-                        <input type="text" id="telefono" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 " name="telefono"  placeholder="XXX-XXX-XXX">
+                        <input type="text" id="telefonoform" name="telefono" class=" col-12 col-sm-12 col-md-12 col-lg-4 btn btn-secondary my-2 "
+                        placeholder="XXX XXX XXX o XXX XX XX XX" onkeyup="validarTelefonoForm()" autocomplete="off"><span id="textoTelefono"></span>
                       </div>
                       
                       <div class="mb-3">
@@ -121,6 +126,7 @@
 
     </main>
     <%- include("template/footer.ejs")%>
+    <script src="../js/validar.js"></script>
     <script>
       var el_down = document.getElementById("numeroID");
       function generateP() {
