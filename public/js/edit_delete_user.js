@@ -22,10 +22,7 @@ $(document).ready(function () {
         const correo = formEditar.elements["correo"].value;
         const apellidos = formEditar.elements["apellidos"].value;
         const rol = formEditar.elements["rol"].value;
-        const password = formEditar.elements["password"].value;
-        const dni = formEditar.elements["dni"].value;
         const ciudad = formEditar.elements["ciudad"].value;
-        const direccion = formEditar.elements["direccion"].value;
         const telefono = formEditar.elements["telefono"].value;
         const metodoPago = formEditar.elements["metodoPago"].value;
         const grupoPago = formEditar.elements["grupoPago"].value;
@@ -39,7 +36,7 @@ $(document).ready(function () {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ nombre,correo,apellidos,rol,password,dni,ciudad,direccion,telefono,metodoPago,grupoPago })
+                body: JSON.stringify({ nombre,correo,apellidos,rol,ciudad,telefono,metodoPago,grupoPago })
             })
             const res = await data.json();
             

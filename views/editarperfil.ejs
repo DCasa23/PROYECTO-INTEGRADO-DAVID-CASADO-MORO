@@ -48,11 +48,6 @@
                   value="<%=usuarioEditar.correo%>">
             </div>
             <div class="row col-12 m-0 py-3">
-              <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Contraseña</label>
-              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="password" placeholder="Nombre..." name="password"
-                  value="<%=usuarioEditar.password%>">
-            </div>
-            <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Nombre del usuario</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="nombre" placeholder="Nombre..." name="nombre"
                   value="<%=usuarioEditar.nombre%>">
@@ -62,16 +57,7 @@
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="apellidos" placeholder="Nombre..." name="apellidos"
                   value="<%=usuarioEditar.apellidos%>">
             </div>
-            <div class="row col-12 m-0 py-3">
-              <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">DNI</label>
-              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="dni" placeholder="Nombre..." name="dni"
-                  value="<%=usuarioEditar.dni%>">
-            </div>
-            <div class="row col-12 m-0 py-3">
-              <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Direccion</label>
-              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="direccion" placeholder="direccion..." name="direccion"
-                  value="<%=usuarioEditar.direccion%>">
-            </div>
+            
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Ciudad</label>
               <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="ciudad" placeholder="ciudad..." name="ciudad"
@@ -85,19 +71,26 @@
             
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Rol</label>
-              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="rol" placeholder="rol..." name="rol"
+              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="rol" placeholder="rol..." name="rol" readonly
                   value="<%=usuarioEditar.rol%>">
             </div>
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Plan de Formación</label>
-              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="grupoPago" placeholder="grupoPago..." name="grupoPago"
-                  value="<%=usuarioEditar.grupoPago%>">
+              <select id="plan" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2 " name="grupoPago">
+                <option value="Mensual" selected>Mensual</option>
+                <option value="Trimestral">Trimestral</option>
+                <option value="Anual">Anual</option>
+              </select>
             </div>
             
             <div class="row col-12 m-0 py-3">
               <label class="form-label col-lg-3 col-md-4 col-sm-12 col-12 text-decoration-underline fw-bold align-self-center" for="nombreproyecto" class="form-label">Metodología de Pago</label>
-              <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" id="metodoPago" placeholder="metodoPago..." name="metodoPago"
-                  value="<%=usuarioEditar.metodoPago%>">
+              
+              <select id="pago" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2"name="metodoPago">
+                <option id="optionpago">Efectivo</option>
+                <option id="optionpago">PayPal</option>
+                <option id="optionpago">Bizzum</option>
+              </select>
             </div>
             
             <div class="row form-inline my-2 my-lg-0 justify-content-around">

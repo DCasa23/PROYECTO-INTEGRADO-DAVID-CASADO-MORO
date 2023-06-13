@@ -41,10 +41,12 @@
                 <div class="col-12 mt-3" style="max-height: 1500px;">
                   <%if (usuario.rol=="Alumno" ){%>
                     <div>
+                      <label>Alumno: </label>
                       <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="correoAlumno"
                           placeholder="Nombre de Alumno" value="<%= usuario.correo %>"readonly></input>
                         </div>
                     <%}%>
+                    <label>Tema: </label>
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                         placeholder="Nombre del Tema" value="<%= cortas.tema %>"readonly></input>
 

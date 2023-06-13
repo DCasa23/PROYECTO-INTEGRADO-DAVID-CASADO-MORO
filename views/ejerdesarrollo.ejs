@@ -47,14 +47,16 @@
                 <div class="col-12 mt-3" style="max-height: 1100px;">
                   <%if (usuario.rol=="Alumno" ){%>
                     <div>
+                      <label>Alumno: </label>
                       <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="correoAlumno"
                           placeholder="Nombre de Alumno" value="<%= usuario.correo %>"readonly></input>
                         </div>
                     <%}%>
                   
                   <div>
+                    <label>Tema: </label>
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
-                        placeholder="Nombre del Tema" value="Tema: <%= desarrollo.tema %>"readonly></input>
+                        placeholder="Nombre del Tema" value="<%= desarrollo.tema %>"readonly></input>
                       </div>
                     
                        
@@ -78,8 +80,9 @@
                                 </div>
                                  
                                     <div>
+                                      <label>Pregunta: </label>
                             <input id="textoPreguntas" name="pregunta" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
-                            value="Pregunta Desarrollo: <%= desarrollo.pregunta %>"readonly></input>
+                            value="<%= desarrollo.pregunta %>"readonly></input>
                                </div>
                                <div>
                                <textarea id=examen name="respuesta" rows="30" cols="150" style=resize:none placeholder="Escribe aquí tu respuesta. Suerte"></textarea>

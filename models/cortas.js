@@ -24,7 +24,7 @@ const cortasSchema = new Schema({
     respuesta9: String,
     pregunta10: String,
     respuesta10: String,
-    duracion: Number,
+    
     
 });
 

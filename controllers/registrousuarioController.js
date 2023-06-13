@@ -1,5 +1,5 @@
 const Usuario = require("../models/user");
-
+const bcryptjs = require('bcryptjs');
 exports.register = (req, res) => {
     res.render("registrousuario", { tituloWeb: "Registro de usuario", error: false, success: false, usuario: req.session.cuenta});
 };
@@ -11,6 +11,8 @@ exports.user_register_post = async (req, res) => {
         const mismoNombre = await Usuario.findOne({ correo: `${body.correo}` });
         // Validación de campos
         if (mismoNombre === null && (body.nombre != "" && body.correo != "" && body.apellidos != "" && body.password != "")) {
+            const salt =bcryptjs.genSaltSync(10);
+            body.password=bcryptjs.hashSync(body.password, salt);
             let nuevoUsuario = new Usuario(body);
             await nuevoUsuario.save();
             res.render("registrousuario", { tituloWeb: "Registro de usuario satisfactorio", error: false, success: true });
