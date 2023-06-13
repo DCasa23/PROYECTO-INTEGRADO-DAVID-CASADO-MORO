@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+//Sanear frente a Inyecciones NOSQL
 const mongoSanitize = require('express-mongo-sanitize');
 var cookieParser = require('cookie-parser');
 const session = require("express-session");
@@ -24,7 +25,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const cortasRouter = require("./routes/cortas");
 const tarjetasRouter = require("./routes/tarjetas");
-const testRouter = require("./routes/test");
+
 const testunicoRouter = require("./routes/testunico");
 const desarrolloRouter = require("./routes/desarrollo");
 const cantarRouter = require("./routes/cantar");
@@ -37,8 +38,7 @@ const registrousuarioRouter = require("./routes/registrousuario");
 const tareasdesarrolloRouter = require("./routes/tareasdesarrollo");
 const tareascortasRouter = require("./routes/tareascortas");
 const tareastestunicoRouter = require("./routes/tareastestunico");
-const tareastestRouter = require("./routes/tareastest");
-//const tareascantarRouter = require("./routes/tareascantar");
+
 
 
 var app = express();
@@ -60,7 +60,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/desarrollo', desarrolloRouter);
-app.use('/test', testRouter);
+
 app.use('/testunico', testunicoRouter);
 app.use('/tarjetas', tarjetasRouter);
 app.use('/cortas', cortasRouter);
@@ -74,9 +74,9 @@ app.use("/registro", registroRouter);
 app.use("/registrousuario", registrousuarioRouter);
 app.use("/tareasdesarrollo", tareasdesarrolloRouter);
 app.use("/tareascortas", tareascortasRouter);
-app.use("/tareastest", tareastestRouter);
+
 app.use("/tareastestunico", tareastestunicoRouter);
-//app.use("/tareascantar", tareascantarRouter);
+
 
 
 

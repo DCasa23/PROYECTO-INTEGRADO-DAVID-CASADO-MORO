@@ -9,7 +9,7 @@ const usersController = require("../controllers/usersController");
 router.get("/*", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("login", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("login", { tituloWeb: "Usuario del Sistema", error: false });
   } else {
     next();
   }

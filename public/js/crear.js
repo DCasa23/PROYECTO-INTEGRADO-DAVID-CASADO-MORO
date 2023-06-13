@@ -1,3 +1,5 @@
+//Funciones para Crear las Preguntas Tipo Test
+
 $('.nombreperfil').html(localStorage.getItem('usuario'));
 $("#textoRespuestaVerdadero").click(function () {
         
@@ -8,6 +10,7 @@ $("#textoRespuestaFalso").click(function () {
     $("#falso").prop("checked", true);
     console.log("saliste")
 })
+//Funcion Verdadero/Falso
 $("#tf").click(function () {
     $(".tipopregunta").removeClass("d-none");
     $(".tipopregunta").removeClass("d-block");
@@ -16,6 +19,7 @@ $("#tf").click(function () {
     $(".tipovarias").addClass("d-none");
     console.log("saliste")
 })
+//Función Respuesta Unica
 $("#unica").click(function () {
     $(".tipopregunta").removeClass("d-none");
     $(".tipopregunta").removeClass("d-block");
@@ -24,6 +28,7 @@ $("#unica").click(function () {
     $(".tipovarias").addClass("d-none");
     console.log("saliste")
 })
+//Función Respuesta Multiple
 $("#varias").click(function () {
     $(".tipopregunta").removeClass("d-none");
     $(".tipopregunta").removeClass("d-block");

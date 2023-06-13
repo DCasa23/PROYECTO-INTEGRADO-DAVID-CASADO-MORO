@@ -8,7 +8,7 @@ const cortasController = require("../controllers/cortasController");
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("cortas", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("cortas", { tituloWeb: "Preguntas Cortas", error: false });
   } else {
     next();
   }
@@ -16,14 +16,14 @@ router.get("/", (req, res, next) => {
 router.get("/crearcortas/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("cortas", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("cortas", { tituloWeb: "Crear Cortas", error: false });
   } else {
     next();
   }
 });
 
 
-/* GET home page. */
+/* GET,POST,PUT,DELETE */
 router.get('/', cortasController.cortas);
 
 router.get('/crearcortas/', cortasController.cortas_create_project);

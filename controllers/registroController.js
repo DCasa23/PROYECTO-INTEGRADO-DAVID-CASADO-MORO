@@ -1,9 +1,11 @@
 const Usuario = require("../models/user");
 const bcryptjs = require('bcryptjs');
+
+//Get de Toda la Información para el Estudiante
 exports.register = (req, res) => {
     res.render("registro", { tituloWeb: "Registro de usuario", error: false, success: false, usuario: req.session.cuenta});
 };
-
+//POST del Registro del Estudiante
 exports.user_register_post = async (req, res) => {
     // Recuperamos los datos del formulario
     let body = req.body;

@@ -8,7 +8,7 @@ const tarjetasController = require("../controllers/tarjetasController");
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("tarjetas", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("tarjetas", { tituloWeb: "Tarjetas", error: false });
   } else {
     next();
   }
@@ -16,13 +16,13 @@ router.get("/", (req, res, next) => {
 router.get("/creartarjetas/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("tarjetas", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("tarjetas", { tituloWeb: "Crear Tarjetas", error: false });
   } else {
     next();
   }
 });
 
-/* GET home page. */
+/* GET,POST,PUT,DELETE */
 router.get('/', tarjetasController.tarjetas);
 
 router.get('/creartarjetas/', tarjetasController.tarjetas_create_project);

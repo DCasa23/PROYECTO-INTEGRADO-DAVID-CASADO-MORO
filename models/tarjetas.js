@@ -26,8 +26,6 @@ const tarjetasSchema = new Schema({
     respuesta10: String,
   
     
-    
-    
 });
 
 // Creación del modelo

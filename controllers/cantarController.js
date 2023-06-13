@@ -1,6 +1,6 @@
 const Cantar = require("../models/cantar");
-const Cantar2 = require("../models/cantar2");
 
+//Lista de Temas para Cantar
 exports.cantar = async (req, res) => {
     try {
         let arrayCantar = await Cantar.find();
@@ -9,19 +9,20 @@ exports.cantar = async (req, res) => {
         console.log(error);
     }
 };
-
+//Get al Crear Nuevo Proyecto
 exports.cantar_create_project = async (req, res) => {
    
         
         res.render("crearcantar", { tituloWeb: "Crear nuevo proyecto", error: false, success: false,usuario: req.session.cuenta });
   
 };
-exports.cantar_create_project_post = async (req, res) => {// Recuperamos los datos del formulario
+//Post al Crear un Nuevo Proyecto
+exports.cantar_create_project_post = async (req, res) => {
      let body = req.body;
-     console.log("YASADASD")
+     
     try {
         if (body.area != "" && body.tema != "") {
-            console.log("ENTRAMOS")
+            
             let nuevaCantar = new Cantar(body);
             await nuevaCantar.save();
             res.render("crearcantar", { tituloWeb: "Publicar Cantar", error: false, success: true });
@@ -30,51 +31,29 @@ exports.cantar_create_project_post = async (req, res) => {// Recuperamos los dat
             res.render("crearcantar", { tituloWeb: "Publicar Cantar", error: true, success: false });
         }
     } catch (error) {
-        console.log("ENTRAMOSnoooooo")
+        
         console.log(error);
     }
 };
-
+//Get para Obtener el Ejercicio de Cantar Creado
 exports.cantar_develope_project = async (req, res) => {
-    const id = req.params.id //Recordemos que en la plantilla "gimnasio.ejs" le pusimos
-    //a este campo gimnasio.id, por eso lo llamados con params.id
+    const id = req.params.id 
     try {
-        const cantarDB = await Cantar.findOne({ _id: id }) //_id porque así lo indica Mongo
-							//Esta variable “Gimnasio” está definida arriba con el “require”
-        //Buscamos con Mongoose un único documento que coincida con el id indicado
-        console.log(cantarDB) //Para probarlo por consola
-        res.render('ejercantar', { //Para mostrar el objeto en la vista "detalle", que tenemos que crear
+        const cantarDB = await Cantar.findOne({ _id: id }) 
+        console.log(cantarDB) 
+        res.render('ejercantar', { 
             cantar: cantarDB,
             error: false, usuario: req.session.cuenta
         })
-    } catch (error) { //Si el id indicado no se encuentra
+    } catch (error) { 
         console.log('Se ha producido un error', error)
-        res.render('ejercantar', { //Mostraremos el error en la vista "detalle"
+        res.render('ejercantar', { 
             error: true,
             mensaje: 'Corta no encontrado!',usuario: req.session.cuenta
         })
     }
 };
-
-exports.cantar_develope_project_post = async (req, res) => {// Recuperamos los datos del formulario
-    let body = req.body;
-    console.log("YASADASD")
-   try {
-       if (body.tema != "") {
-           console.log("ENTRAMOS")
-           let nuevaCantar2 = new Cantar2(body);
-           await nuevaCantar2.save();
-           res.render("ejercantar", { tituloWeb: "Publicar Cantar", error: false, success: true });
-           res.redirect("/");
-       } else {
-           res.render("ejercantar", { tituloWeb: "Publicar Cantar", error: true, success: false });
-       }
-   } catch (error) {
-       console.log("ENTRAMOSnoooooo")
-       console.log(error);
-   }
-};
-
+//Tema Eliminado de los Temas para Cantar
 exports.cantar_delete = async (req, res) => {
     const id = req.params.id;
     try {
@@ -82,12 +61,12 @@ exports.cantar_delete = async (req, res) => {
         if (!cantarDB) {
             res.json({ 
                 estado: false,
-                mensaje: 'No se puede eliminar el Pokémon.'
+                mensaje: 'No se puede eliminar el Tema.'
             })
         } else {
             res.json({
                 estado: true,
-                mensaje: 'Pokémon eliminado.'
+                mensaje: 'Tema eliminado.'
             })
         } 
     } catch (error) {

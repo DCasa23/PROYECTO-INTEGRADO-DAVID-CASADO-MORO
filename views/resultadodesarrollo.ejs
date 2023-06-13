@@ -39,26 +39,30 @@
                 </div>
                 <form id="editar" class="mb-3 list-unstyled" data-id="<%=desarrollo2._id%>">
                 <div class="col-12 mt-3" style="max-height: 1100px;">
+                  <!--Nombre del Alumno que ha hecho el examen y Tema del Examen-->
                   <%if (usuario.rol=="Profesor" ){%>
                     <div>
+                      <label>Alumno: </label>
                       <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" name="correoAlumno"
                           placeholder="Nombre de Alumno" value="<%= desarrollo2.correoAlumno %>"readonly></input>
                         </div>
                     <%}%>
                   <div>
+                    <label>Tema: </label>
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                         placeholder="Nombre del Tema" value="<%= desarrollo2.tema %>"readonly></input>
                       </div>
                     
                        
                           <div>
+                            <!--Pregunta y Respuesta del Alumno del Examen-->
                             <input id="textoPreguntas" name="pregunta" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
                             value="Pregunta Desarrollo: <%= desarrollo2.pregunta %>"readonly></input>
                                </div>
                                <div>
                                <textarea name="respuesta" class="col-12 col-sm-12 col-md-12 col-lg-12 my-2" style=resize:none type="text" placeholder="Respuesta: <%= desarrollo2.respuesta %>"rows="30" cols="150" readonly></textarea>
                               </div>
-                              
+                              <!--Observación y Nota final del Examen-->
                                <div><span>Observaciones</span>
                                <input type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 my-2 "  rows="3" style=resize:none name="observaciones"
                                     value="<%=desarrollo2.observaciones %>"></input>
@@ -91,6 +95,7 @@
     </main>
     <%- include("template/footer.ejs")%>
     <script>
+      //Editar Nota del Alumno y Observación
       const formEditar = document.querySelector('#editar');
             formEditar.addEventListener('submit', async (e) => {
                 e.preventDefault()

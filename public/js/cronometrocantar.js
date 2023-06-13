@@ -1,3 +1,4 @@
+//Boton para Activar el Cronometro
 $("#botoncrono").click(function(){
     $("#reloj").html("<section><p>        <span class=\"d-none\" id=\"days\"></span><span class=\"d-none\" id=\"hours\"></span><span id=\"minutes\"></span> minutos / <span id=\"seconds\"></span> segundos    </p></section>")
 //===

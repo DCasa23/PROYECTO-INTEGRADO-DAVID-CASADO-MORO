@@ -27,10 +27,10 @@
                 <%}%>
         </div>
         <div class="col-12 overflow-auto mt-3" style="max-height: 500px;">
-          
+          <!--Se generan por pantalla todas las actividades de desarrollo creadas por los profesores-->
           <ul class="mb-3 float-none list-unstyled float-start">
             <% arrayDesarrollo.forEach(desarrollo=> { %>
-            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><a href="/desarrollo/<%= desarrollo._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+            <li class="col-6 col-lg-2 col-md-3 col-sm-6 fs-5 float-start mt-3 cuadrado"><a href="/desarrollo/<%= desarrollo._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
               img-fluid mx-3 align-items-end;" src="../img/hoja.png"><span class="p-1"><%= desarrollo.tema %></span></a></li>
             
                     <% }) %>

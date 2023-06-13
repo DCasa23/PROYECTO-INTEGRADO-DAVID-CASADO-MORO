@@ -1,5 +1,7 @@
 const Usuario = require("../models/user");
 
+
+//GET de la Lista de Usuarios en el Sistema
 exports.users = async (req, res) => {
     try {
         const arrayUsuarios = await Usuario.find();
@@ -8,13 +10,12 @@ exports.users = async (req, res) => {
         console.log(error);
     }
 
-    // res.render("users", { title: "Lista de usuarios" });
 };
 
+//Get para Editar el Perfil del Usuario
 exports.users_edit_get = async (req, res) => {
     const id = req.params.id;
     try {
-        console.log("Entro")
         const usuarioEditar = await Usuario.findById(id);
         res.render("edituser", { tituloWeb: "Editar usuario", usuarioEditar: usuarioEditar });
     } catch (error) {
@@ -22,6 +23,8 @@ exports.users_edit_get = async (req, res) => {
     }
 };
 
+
+//Put para Cambiar o Editar el Usuario
 exports.users_edit_put = async (req, res) => {
     const body = req.body;
     const id = req.params.id;
@@ -49,6 +52,7 @@ exports.users_edit_put = async (req, res) => {
     }
 };
 
+//DELETE USUARIO ELIMINADO
 exports.users_edit_delete = async (req, res) => {
     const id = req.params.id;
     try {

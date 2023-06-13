@@ -8,7 +8,7 @@ const registrousuarioController = require("../controllers/registrousuarioControl
 router.get("/*", (req, res, next) => {
     req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
     if (!req.session.cuenta) {
-        res.render("registrousuario", { tituloWeb: "Inicio de sesión", error: false, success: false });
+        res.render("registrousuario", { tituloWeb: "Registro de Usuario", error: false, success: false });
     } else {
         next();
     }

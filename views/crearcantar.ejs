@@ -24,7 +24,7 @@
 
         </div>
         <form action="/cantar/crearcantar" class= "needs-validation formulario" method="POST">
-          
+          <!--Se incluye el nombre del area-->
         <div class="col-12 mt-3" style="max-height: 2100px;">
           <div>
           <input id="textoPreguntas" name="area" type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2"
@@ -33,23 +33,14 @@
           </div>
           <div class="contenido">
           <div>
+            <!--Se incluye el tema que se genera-->
            <input id="textoPreguntas" name="tema" type="text"
                 class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
                 placeholder="Escribir Tema"></input>
               </div>
               
              </div>          
-              <div>
-                <ul class="mb-3 list-unstyled">
-                  <span>Duración de la Prueba</span>
-                  <li class="col-center col-12 col-sm-12 col-md-4 col-lg-3"><input id="unica" name="tipopregunta"
-                      type="radio" value="15" checked="checked"> 5 minutos</input></li>
-                  <li><input id="tf" name="tipopregunta" type="radio" value="30"> 15 minutos</input></li>
-                  <li><input id="varias" name="tipopregunta" type="radio" value="60"> 30 minutos</input></li>
-                  <li><input id="varias" name="tipopregunta" type="radio" value="60"> 45 minutos</input></li>
-                </ul>
-          </div>
-
+              
         </div>
         
           <a class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2" href="/cantar" id="volveriniciarsesion">Ir a Temas Cantados</a>
@@ -72,7 +63,7 @@
 
 
   </main>
-  
+  <!--Permitirá incluir nuevos temas para cantar-->
   <script>
     contador=1
     

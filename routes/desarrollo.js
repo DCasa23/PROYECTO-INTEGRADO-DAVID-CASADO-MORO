@@ -8,7 +8,7 @@ const desarrolloController = require("../controllers/desarrolloController");
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("desarrollo", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("desarrollo", { tituloWeb: "Tema Desarrollo", error: false });
   } else {
     next();
   }
@@ -16,13 +16,13 @@ router.get("/", (req, res, next) => {
 router.get('/creardesarrollo/', (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("desarrollo", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("desarrollo", { tituloWeb: "Crear Desarrollo", error: false });
   } else {
     next();
   }
 });
 
-/* GET home page. */
+/* GET,POST,PUT,DELETE */
 router.get('/', desarrolloController.desarrollo);
 
 router.get('/creardesarrollo/', desarrolloController.desarrollo_create_project);

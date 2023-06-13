@@ -1,6 +1,6 @@
 const Desarrollo = require("../models/desarrollo");
 const Desarrollo2 = require("../models/desarrollo2");
-
+//Lista con todas las actividades de Desarrollo
 exports.desarrollo = async (req, res) => {
     try {
         let arrayDesarrollo = await Desarrollo.find();
@@ -9,19 +9,20 @@ exports.desarrollo = async (req, res) => {
         console.log(error);
     }
 };
-
+//GET para obtener los datos al crear un Ejercicio
 exports.desarrollo_create_project = async (req, res) => {
    
         
         res.render("creardesarrollo", { tituloWeb: "Crear nuevo proyecto", error: false, success: false,usuario: req.session.cuenta });
   
 };
+//POST para crear el Ejercicio de Desarrollo
 exports.desarrollo_create_project_post = async (req, res) => {// Recuperamos los datos del formulario
      let body = req.body;
-     console.log("YASADASD")
+     
     try {
         if (body.tema != "" && body.pregunta != "") {
-            console.log("ENTRAMOS")
+            
             let nuevaDesarrollo = new Desarrollo(body);
             await nuevaDesarrollo.save();
             res.render("creardesarrollo", { tituloWeb: "Publicar Desarrollo", error: false, success: true });
@@ -30,48 +31,49 @@ exports.desarrollo_create_project_post = async (req, res) => {// Recuperamos los
             res.render("creardesarrollo", { tituloWeb: "Publicar Desarrollo", error: false, success: true });
         }
     } catch (error) {
-        console.log("ENTRAMOSnoooooo")
+        
         console.log(error);
     }
 };
+//GET para realizar el ejercicio ya creado para el Alumno
 exports.desarrollo_develope_project = async (req, res) => {
-    const id = req.params.id //Recordemos que en la plantilla "gimnasio.ejs" le pusimos
-    //a este campo gimnasio.id, por eso lo llamados con params.id
+    const id = req.params.id 
     try {
-        const desarrolloDB = await Desarrollo.findOne({ _id: id }) //_id porque así lo indica Mongo
-							//Esta variable “Gimnasio” está definida arriba con el “require”
-        //Buscamos con Mongoose un único documento que coincida con el id indicado
-        console.log(desarrolloDB) //Para probarlo por consola
-        res.render('ejerdesarrollo', { //Para mostrar el objeto en la vista "detalle", que tenemos que crear
+        const desarrolloDB = await Desarrollo.findOne({ _id: id }) 
+						
+        console.log(desarrolloDB) 
+        res.render('ejerdesarrollo', { 
             desarrollo: desarrolloDB,
             error: false, usuario: req.session.cuenta
         })
-    } catch (error) { //Si el id indicado no se encuentra
+    } catch (error) { 
         console.log('Se ha producido un error', error)
-        res.render('ejerdesarrollo', { //Mostraremos el error en la vista "detalle"
+        res.render('ejerdesarrollo', { 
             error: true,
             mensaje: 'Corta no encontrado!',usuario: req.session.cuenta
         })
     }
 };
-exports.desarrollo_develope_project_post = async (req, res) => {// Recuperamos los datos del formulario
+//POST para la respuesta del Examen
+exports.desarrollo_develope_project_post = async (req, res) => {
     let body = req.body;
-    console.log("YASADASD")
+    
    try {
        if (body.respuesta != "") {
-           console.log("ENTRAMOS")
+           
            let nuevaDesarrollo2 = new Desarrollo2(body);
            await nuevaDesarrollo2.save();
-           res.render("ejerdesarrollo", { tituloWeb: "Publicar Desarrollo", error: false, success: true });
+           res.render("ejerdesarrollo", { tituloWeb: "Publicar Respuesta Desarrollo", error: false, success: true });
            res.redirect("/");
        } else {
-           res.render("ejerdesarrollo", { tituloWeb: "Publicar Desarrollo", error: true, success: false });
+           res.render("ejerdesarrollo", { tituloWeb: "Publicar Respuesta Desarrollo", error: true, success: false });
        }
    } catch (error) {
-       console.log("ENTRAMOSnoooooo")
+       
        console.log(error);
    }
 };
+//Put para modificar la nota y observaciones de Desarrollo
 exports.desarrollo_edit_put = async (req, res) => {
     
     const id = req.params.id;
@@ -99,7 +101,7 @@ exports.desarrollo_edit_put = async (req, res) => {
 
 
 
-
+//DELETE para ELiminar la actividad de Desarrollo
 
 exports.desarrollo_delete = async (req, res) => {
     const id = req.params.id;
@@ -108,12 +110,12 @@ exports.desarrollo_delete = async (req, res) => {
         if (!desarrolloDB) {
             res.json({ 
                 estado: false,
-                mensaje: 'No se puede eliminar el Pokémon.'
+                mensaje: 'No se puede eliminar el Ejercicio.'
             })
         } else {
             res.json({
                 estado: true,
-                mensaje: 'Pokémon eliminado.'
+                mensaje: 'Ejercicio eliminado.'
             })
         } 
     } catch (error) {

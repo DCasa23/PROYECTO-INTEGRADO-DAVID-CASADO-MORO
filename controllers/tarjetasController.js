@@ -1,6 +1,6 @@
 const Tarjetas = require("../models/tarjetas");
 
-
+//Get Lista de Tarjetas
 exports.tarjetas = async (req, res) => {
     try {
         let arrayTarjetas = await Tarjetas.find();
@@ -10,12 +10,15 @@ exports.tarjetas = async (req, res) => {
     }
 };
 
+//Get de la Creación de una nueva Tarjeta
 exports.tarjetas_create_project = async (req, res) => {
    
         
         res.render("creartarjetas", { tituloWeb: "Crear nuevo proyecto", error: false, success: false, usuario: req.session.cuenta });
   
 };
+
+//POST de la información de la Tarjeta Creada
 exports.tarjetas_create_project_post = async (req, res) => {// Recuperamos los datos del formulario
      let body = req.body;
     
@@ -32,26 +35,31 @@ exports.tarjetas_create_project_post = async (req, res) => {// Recuperamos los d
         console.log(error);
     }
 };
+
+
+//Get de la Actividad Disponible de Tarjetas de Memoria para realizar
+
 exports.tarjetas_develope_project = async (req, res) => {
-    const id = req.params.id //Recordemos que en la plantilla "gimnasio.ejs" le pusimos
-    //a este campo gimnasio.id, por eso lo llamados con params.id
+    const id = req.params.id 
+    
     try {
-        const tarjetasDB = await Tarjetas.findOne({ _id: id }) //_id porque así lo indica Mongo
-							//Esta variable “Gimnasio” está definida arriba con el “require”
-        //Buscamos con Mongoose un único documento que coincida con el id indicado
-        console.log(tarjetasDB) //Para probarlo por consola
-        res.render('ejertarjetas', { //Para mostrar el objeto en la vista "detalle", que tenemos que crear
+        const tarjetasDB = await Tarjetas.findOne({ _id: id }) 
+							
+        console.log(tarjetasDB) 
+        res.render('ejertarjetas', { 
             tarjetas: tarjetasDB,
             error: false, usuario: req.session.cuenta
         })
-    } catch (error) { //Si el id indicado no se encuentra
+    } catch (error) { 
         console.log('Se ha producido un error', error)
-        res.render('ejertarjetas', { //Mostraremos el error en la vista "detalle"
+        res.render('ejertarjetas', { 
             error: true,
             mensaje: 'Corta no encontrado!',usuario: req.session.cuenta
         })
     }
 };
+
+//DELETE Tarjeta de Memoria
 exports.tarjetas_delete = async (req, res) => {
     const id = req.params.id;
     try {
@@ -59,12 +67,12 @@ exports.tarjetas_delete = async (req, res) => {
         if (!tarjetasDB) {
             res.json({ 
                 estado: false,
-                mensaje: 'No se puede eliminar el Pokémon.'
+                mensaje: 'No se puede eliminar la Tarjeta.'
             })
         } else {
             res.json({
                 estado: true,
-                mensaje: 'Pokémon eliminado.'
+                mensaje: 'Ejercicio eliminado.'
             })
         } 
     } catch (error) {

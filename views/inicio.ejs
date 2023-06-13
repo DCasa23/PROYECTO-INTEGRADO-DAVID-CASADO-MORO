@@ -9,9 +9,7 @@
 </head>
 
 <body>
-  <header>
-    <!-- place navbar here -->
-  </header>
+  
   <main>
     <div class="container-fluid imagen">
       <div class="row">
@@ -21,12 +19,13 @@
     </div>
     <div>
       <form class="row g-3 needs-validation justify-content-center justify-content-center formulario mt-md-3 m-sm-4 m-4" action="/inicio"  method="POST">
-
+        <!--CORREO DEL USUARIO-->
         <div class="col-md-12 position-relative text-center">
           <label class="col-12 text-center" for="correo" class="form-label ">Correo de Usuario</label>
           <input class="col-lg-2 col-md-4 col-sm-6 col-12 text-center" type="text" class=" form-control" autocomplete="off" id="usuarioform" name="correo">
           
         </div>
+        <!--CONTRASEÑA DEL USUARIO-->
         <div class="col-md-12 position-relative text-center">
           <label class="col-12 text-center" for="password" class="form-label">Contraseña</label>
           <input class="col-lg-2 col-md-4 col-sm-6 col-12 text-center" type="password" class="form-control" id="passwordform" name="password">
@@ -42,6 +41,7 @@
         </div>
       </form>
     </div>
+    <!--MENSAJE SI NO EXISTE CUENTA-->
     <div class="row">
       <%if (locals.error){%>
         <span class="col-center text-center col-6 fs-5">Parece que no tienes cuenta aquí,¿Deseas crear una cuenta?</span>

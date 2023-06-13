@@ -8,13 +8,13 @@ const tareastestunicoController = require("../controllers/tareastestunicoControl
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("tareastestunico", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("tareastestunico", { tituloWeb: "Tareas Test Unico", error: false });
   } else {
     next();
   }
 });
 
-/* GET home page. */
+/* GET,POST,PUT,DELETE */
 router.get('/', tareastestunicoController.testunico);
 
 router.get('/:id', tareastestunicoController.testunico_develope_project);

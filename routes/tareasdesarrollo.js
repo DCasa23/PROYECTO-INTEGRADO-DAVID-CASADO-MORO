@@ -8,18 +8,16 @@ const tareasdesarrolloController = require("../controllers/tareasdesarrolloContr
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("tareasdesarrollo", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("tareasdesarrollo", { tituloWeb: "Tareas de Desarrollo", error: false });
   } else {
     next();
   }
 });
 
-/* GET home page. */
+/* GET,POST,PUT,DELETE */
 router.get('/', tareasdesarrolloController.desarrollo);
 
 router.get('/:id', tareasdesarrolloController.desarrollo_develope_project);
-
-//router.get('/:id/correcciondesarrollo', tareasdesarrolloController.desarrollo_edit_get);
 
 router.put('/:id/', tareasdesarrolloController.desarrollo_edit_put);
 

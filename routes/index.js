@@ -8,24 +8,14 @@ const indexController = require("../controllers/indexController");
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("login", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("login", { tituloWeb: "Pagina Principal", error: false });
   } else {
     next();
   }
 });
 
-/* GET home page. */
+/* GET,POST,PUT,DELETE */
 
 router.get('/', indexController.index);
-/*
-router.get('/crearProyecto', indexController.index_create_project);
 
-router.post('/crearProyecto', indexController.index_create_project_post);
-
-router.get("/editarProyecto/:id", indexController.index_edit_project);
-
-router.put("/editarProyecto/:id", indexController.index_edit_project_put);
-
-router.delete("/editarProyecto/:id", indexController.index_edit_project_delete);
-*/
 module.exports = router;

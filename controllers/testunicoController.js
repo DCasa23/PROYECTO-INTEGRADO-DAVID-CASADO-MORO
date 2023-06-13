@@ -1,6 +1,8 @@
 const Testunico = require("../models/testunico");
 const Testunico2 = require("../models/testunico2");
 
+
+//GET Lista de Test Unicos para Realizar
 exports.testunico = async (req, res) => {
     try {
         const arrayTestunico = await Testunico.find();
@@ -10,19 +12,21 @@ exports.testunico = async (req, res) => {
     }
 };
 
+//GET para Crear un Nuevo Test Unico
 exports.testunico_create_project = async (req, res) => {
    
         
         res.render("creartestunico", { tituloWeb: "Crear nuevo proyecto", error: false, success: false , usuario: req.session.cuenta });
   
 };
+
+//POST para Crear un NUevo Test Unico
 exports.testunico_create_project_post = async (req, res) => {// Recuperamos los datos del formulario
      const body = req.body;
     
     try {
         if (body.tema != "") {
             const nuevaTestunico = new Testunico(body);
-            console.log("ENTRO")
             await nuevaTestunico.save();
             res.render("creartestunico", { tituloWeb: "Publicar Testunico", error: false, success: true });
             res.redirect("/");
@@ -34,32 +38,35 @@ exports.testunico_create_project_post = async (req, res) => {// Recuperamos los 
         
     }
 };
+
+//GET de los Ejercicios Test para Realizar de forma Individual
 exports.testunico_develope_project = async (req, res) => {
-    const id = req.params.id //Recordemos que en la plantilla "gimnasio.ejs" le pusimos
-    //a este campo gimnasio.id, por eso lo llamados con params.id
+    const id = req.params.id 
+    
     try {
-        const testunicoDB = await Testunico.findOne({ _id: id }) //_id porque así lo indica Mongo
-							//Esta variable “Gimnasio” está definida arriba con el “require”
-        //Buscamos con Mongoose un único documento que coincida con el id indicado
-        console.log(testunicoDB) //Para probarlo por consola
-        res.render('ejertestunico', { //Para mostrar el objeto en la vista "detalle", que tenemos que crear
+        const testunicoDB = await Testunico.findOne({ _id: id }) 
+							
+        console.log(testunicoDB) 
+        res.render('ejertestunico', { 
             testunico: testunicoDB,
             error: false, usuario: req.session.cuenta
         })
-    } catch (error) { //Si el id indicado no se encuentra
+    } catch (error) { 
         console.log('Se ha producido un error', error)
-        res.render('ejertestunico', { //Mostraremos el error en la vista "detalle"
+        res.render('ejertestunico', { 
             error: true,
             mensaje: 'Corta no encontrado!',usuario: req.session.cuenta
         })
     }
 };
-exports.testunico_develope_project_post = async (req, res) => {// Recuperamos los datos del formulario
+
+//POST de la Respuesta a ese Ejercicio 
+exports.testunico_develope_project_post = async (req, res) => {
     let body = req.body;
-    console.log("YASADASD")
+    
    try {
        if (body.respuesta != "") {
-           console.log("ENTRAMOS")
+           
            let nuevaTestunico2 = new Testunico2(body);
            await nuevaTestunico2.save();
            res.render("ejertestunico", { tituloWeb: "Publicar Testunico", error: false, success: true });
@@ -68,10 +75,12 @@ exports.testunico_develope_project_post = async (req, res) => {// Recuperamos lo
            res.render("ejertestunico", { tituloWeb: "Publicar Testunico", error: true, success: false });
        }
    } catch (error) {
-       console.log("ENTRAMOSnoooooo")
+       
        console.log(error);
    }
 };
+
+//DELETE del Ejercicio Test para Realizar
 exports.testunico_delete = async (req, res) => {
     const id = req.params.id;
     try {
@@ -79,12 +88,12 @@ exports.testunico_delete = async (req, res) => {
         if (!testunicoDB) {
             res.json({ 
                 estado: false,
-                mensaje: 'No se puede eliminar el Pokémon.'
+                mensaje: 'No se puede eliminar el Test.'
             })
         } else {
             res.json({
                 estado: true,
-                mensaje: 'Pokémon eliminado.'
+                mensaje: 'Test eliminado.'
             })
         } 
     } catch (error) {

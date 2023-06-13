@@ -24,7 +24,7 @@
 
         </div>
         <form action="/desarrollo/creardesarrollo" class= "needs-validation formulario" method="POST">
-          
+          <!--Se incluye el nombre del tema de lo que se va a preguntar-->
         <div class="col-12 mt-3" style="max-height: 1100px;">
           <div>
           <input id="textoPreguntas" name="tema" type="text" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2"
@@ -32,11 +32,13 @@
 
           </div>
           <div>
+            <!--Se incluye la pregunta que hay que desarrollar-->
            <input id="textoPreguntas" name="pregunta" type="text"
                 class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
                 placeholder="Escribir Pregunta"></input>
               </div>
               <div>
+                <!--Se elige la duración del tema a desarrollar-->
                 <ul class="mb-3 list-unstyled">
                   <span>Duración de la Prueba</span>
                   <li class="col-center col-12 col-sm-12 col-md-4 col-lg-3"><input id="unica" name="duracion"

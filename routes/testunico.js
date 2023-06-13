@@ -8,7 +8,7 @@ const testunicoController = require("../controllers/testunicoController");
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("testunico", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("testunico", { tituloWeb: "Test Unico", error: false });
   } else {
     next();
   }
@@ -16,13 +16,13 @@ router.get("/", (req, res, next) => {
 router.get("/creartestunico/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("testunico", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("testunico", { tituloWeb: "Crear Test", error: false });
   } else {
     next();
   }
 });
 
-/* GET home page. */
+/* GET,POST,PUT,DELETE */
 router.get('/', testunicoController.testunico);
 
 router.get('/creartestunico/', testunicoController.testunico_create_project);

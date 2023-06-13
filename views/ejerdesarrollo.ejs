@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <!--Header con la Información del Usuario-->
     <header class="container-fluid border-bottom border-dark border-1">
         <div class="row d-flex flex-wrap align-items-center">
           <div class="col-lg-2 d-none d-lg-block float-start align-items-center text-center px-0 py-0 "><img class="bd-placeholder-img bd-placeholder-img-lg featurette image
@@ -33,18 +34,20 @@
                 style=" background-color:#eee8cd;max-height: 1200px;">
                 <div class=" row border border-dark border-end-0 border-top-0 border-start-0">
                     <div class="col-center pt-4 pb-md-3 pb-sm-3 pb-3 pb-lg-3">
-                        <span class="fs-5 fw-bold">Crear Test</span>
+                        <span class="fs-5 fw-bold">Realizar Desarrollo</span>
                     </div>
 
                 </div>
                 
                 <form action="/desarrollo/:id/ejerdesarrollo" class= "needs-validation formulario" method="POST">
+                  <!--CRONOMETRO-->
                   <section id="cronometro">
                     <p>
                         <span class="d-none" id="days"></span><span class="d-none" id="hours"></span><span id="minutes"></span> minutos / <span id="seconds"></span> segundos
                     </p>
                 </section> 
                 <div class="col-12 mt-3" style="max-height: 1100px;">
+                  <!--Nombre del Alumno-->
                   <%if (usuario.rol=="Alumno" ){%>
                     <div>
                       <label>Alumno: </label>
@@ -52,7 +55,7 @@
                           placeholder="Nombre de Alumno" value="<%= usuario.correo %>"readonly></input>
                         </div>
                     <%}%>
-                  
+                  <!--Nombre del tema a desarrollar-->
                   <div>
                     <label>Tema: </label>
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
@@ -78,12 +81,13 @@
                                     placeholder="Observaciones Examen" value="" readonly></input>
                                   </div>
                                 </div>
-                                 
+                                 <!--Pregunta sobre el tema que se ha decidido-->
                                     <div>
                                       <label>Pregunta: </label>
                             <input id="textoPreguntas" name="pregunta" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
                             value="<%= desarrollo.pregunta %>"readonly></input>
                                </div>
+                               <!--Respuesta del estudiante antes de acabar el tiempo de desarrollo-->
                                <div>
                                <textarea id=examen name="respuesta" rows="30" cols="150" style=resize:none placeholder="Escribe aquí tu respuesta. Suerte"></textarea>
                               </div>
@@ -116,13 +120,15 @@
 
     </main>
     <%- include("template/footer.ejs")%>
+    <!--CRONOMETRO PARA LA CUENTA ATRAS DEL EJERCICIO-->
     <script src="../js/cronometro.js"></script>
     <script>
+      //Permite eliminar el ejercicio
       const btnEliminar = document.querySelector('.btn-danger')
 btnEliminar.addEventListener('click', async () => {
     console.log(btnEliminar.dataset.id)
     try {
-        // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
+        
         const data = await fetch(`/desarrollo/${btnEliminar.dataset.id}`, {
             method: 'delete'
         })

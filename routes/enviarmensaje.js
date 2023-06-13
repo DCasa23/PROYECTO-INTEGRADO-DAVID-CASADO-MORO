@@ -8,26 +8,17 @@ const enviarmensajeController = require("../controllers/enviarmensajeController"
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("enviarmensaje", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("enviarmensaje", { tituloWeb: "Enviar Mensaje", error: false });
   } else {
     next();
   }
 });
 
 
-/* GET home page. */
-//router.get('/mensajes', mensajeController.mensaje);
+/* GET,POST,PUT,DELETE */
 
 router.get('/', enviarmensajeController.mensaje_create_project);
 
 router.post('/', enviarmensajeController.mensaje_create_project_post);
-
-/*router.get('/:id', mensajeController.mensaje_develope_project);
-
-router.post('/:id/ejermensaje', mensajeController.mensaje_develope_project_post);
-
-router.delete('/:id', mensajeController.mensaje_delete);
-
-router.put('/:id', mensajeController.mensaje_edit_put);*/
 
 module.exports = router;

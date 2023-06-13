@@ -39,6 +39,7 @@
                 </div>
                 <form action="/cortas/:id/ejercortas" class= "needs-validation formulario" method="POST">
                 <div class="col-12 mt-3" style="max-height: 1500px;">
+                  <!--El alumno verá su nombre antes de empezar el ejercicio-->
                   <%if (usuario.rol=="Alumno" ){%>
                     <div>
                       <label>Alumno: </label>
@@ -50,7 +51,7 @@
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                         placeholder="Nombre del Tema" value="<%= cortas.tema %>"readonly></input>
 
-                    
+                    <!--Responder las 10 preguntas cortas-->
                        
                           <div>
                             <input id="textoPreguntas" value="<%= cortas.pregunta1 %>" name="pregunta1" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2"
@@ -141,7 +142,7 @@
                     <%}%>
             
               </form>
-
+              <!--Botón Para Eliminar-->
               <%if (usuario.rol=="Profesor" ){%>
                <button class="btn btn-danger btn-sm" data-id="<%= cortas.id %>">
                  Eliminar
@@ -163,13 +164,13 @@
     </main>
     <%- include("template/footer.ejs")%>
     <script>
-      
+      //Permite eliminar el ejercicio
      const btnEliminar = document.querySelector('.btn-danger')
      btnEliminar.addEventListener('click', async () => {
        
          console.log(btnEliminar.dataset.id)
          try {
-             // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
+             
              const data = await fetch(`/cortas/${btnEliminar.dataset.id}`, {
                  method: 'delete'
              })

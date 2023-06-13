@@ -8,14 +8,14 @@ const mensajesController = require("../controllers/mensajesController");
 router.get("/", (req, res, next) => {
   req.session.cuenta = req.session.cuenta ? req.session.cuenta : false;
   if (!req.session.cuenta) {
-    res.render("mensajes", { tituloWeb: "Inicio de sesión", error: false });
+    res.render("mensajes", { tituloWeb: "Lista Mensajes", error: false });
   } else {
     next();
   }
 });
 
 
-/* GET home page. */
+/* GET,POST,PUT,DELETE */
 router.get('/', mensajesController.mensaje);
 
 router.get('/:id', mensajesController.mensaje_develope_project);

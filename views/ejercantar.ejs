@@ -37,7 +37,7 @@
                     </div>
 
                 </div>
-                
+                <!--Después de leer el nombre del alumno y el tema a desarrollar-->
                 <div class="col-12 mt-3" style="max-height: 1100px;">
                   <%if (usuario.rol=="Alumno" ){%>
                     <div>
@@ -51,7 +51,7 @@
                         placeholder="Nombre del Tema" value="Tema: <%= cantar.area %>"readonly></input>
                       </div>
                     
-                       
+                       <!--Se decide que tema cantar por azar y se selecciona el tiempo-->
                           <div>
                             <input id="textoPreguntas" name="pregunta" type="text" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-success my-2 preguntarandom"
                             value="Para conocer la pregunta pulse el botón: %>"readonly></input>
@@ -74,6 +74,7 @@
                               </div>
                     
                 </div>
+                <!--Se pulsa para activar el cronometro de la cuenta atras-->
                 <%if (usuario.rol=="Alumno" ){%>
                   <button class="col-12 col-sm-12 col-md-12 col-lg-4 btn btn-success my-2 px-1 m-5" id="botoncrono">Empezar</button>
                   <%}%>
@@ -104,19 +105,12 @@
     </main>
     <%- include("template/footer.ejs")%>
 </body>
+<!--Cronometro de la cuenta atras-->
 <script src="../js/cronometrocantar.js"></script>
 <script>
-  //tamanio=<%= cantar.tema[Math.floor(Math.random()*cantar.tema.length)].toString() %>
-  //console.log(tamanio)
-  console.log("HOLA: "+ $("input[id=duracion]:checked").val())
-  console.log("<%= cantar.tema %>")
-
-  console.log("<%= cantar.tema[4] %>")
-  console.log("<%= cantar.tema.length %>")
-  //
-  ramon="<%= cantar.tema[Math.floor(Math.random()*cantar.tema.length)] %>"
-  console.log(ramon)
-  //
+  
+  
+  //Se saca un tema al azar
   $(".sacar").click(function () {
      
     random="<%= cantar.tema[Math.floor(Math.random()*cantar.tema.length)] %>"
@@ -125,15 +119,17 @@
     $(".sacar").text("Tema Elegido. Mucha Suerte");
     $(':radio:not(:checked)').attr('disabled', true);
   
-    console.log("I CANT")
+    
     
   })
+
+  //Permite eliminar el ejercicio
   const btnEliminar = document.querySelector('.btn-danger')
       btnEliminar.addEventListener('click', async () => {
         
-          console.log(btnEliminar.dataset.id)
+          
           try {
-              // https://developer.mozilla.org/es/docs/Web/API/HTMLElement/dataset
+              
               const data = await fetch(`/cantar/${btnEliminar.dataset.id}`, {
                   method: 'delete'
               })

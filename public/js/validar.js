@@ -114,6 +114,7 @@ function validarPassword() {
         incorrectoPassword = false;
     }
 }
+//Se comprueba que sea correcto para validar el envio
 function comprobar(){
 
 
@@ -127,7 +128,7 @@ if (incorrectoApellidos == false && incorrectoNombre == false && incorrectoPassw
 }
 }
 
-
+//Sirve para crear la fecha e ingreso
 
 
 n =  new Date();

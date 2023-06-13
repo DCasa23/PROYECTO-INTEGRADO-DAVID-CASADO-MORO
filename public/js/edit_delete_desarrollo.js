@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // DELETE USER
+    // DELETE TAREA DESARROLLO
     const id = $("#editar").data("id");
     $("#delete").click(async function (e) {
         e.preventDefault();
@@ -14,7 +14,7 @@ $(document).ready(function () {
         }
     });
 
-    // PUT USER
+    // PUT TAREA DESARROLLO
     $("#edit").click(async function (e) {
         e.preventDefault();
         const formEditar = document.querySelector("#editar");
@@ -24,17 +24,6 @@ $(document).ready(function () {
         const pregunta = formEditar.elements["pregunta"].value;
         const respuesta = formEditar.elements["respuesta"].value;
         
-       /* const apellidos = formEditar.elements["apellidos"].value;
-        const rol = formEditar.elements["rol"].value;
-        const password = formEditar.elements["password"].value;
-        const dni = formEditar.elements["dni"].value;
-        const ciudad = formEditar.elements["ciudad"].value;
-        const direccion = formEditar.elements["direccion"].value;
-        const telefono = formEditar.elements["telefono"].value;
-        const metodoPago = formEditar.elements["metodoPago"].value;
-        const grupoPago = formEditar.elements["grupoPago"].value;*/
-       
-        //const id = formEditar.elements["id"].value;
         const id = formEditar.dataset.id
         try {
             

@@ -33,23 +33,26 @@
                 style=" background-color:#eee8cd;max-height: 1500px; min-height: 1400px;">
                 <div class=" row border border-dark border-end-0 border-top-0 border-start-0">
                     <div class="col-center pt-4 pb-md-3 pb-sm-3 pb-3 pb-lg-3">
-                        <span class="fs-5 fw-bold">Crear Test</span>
+                        <span class="fs-5 fw-bold">Resultado Examen Preguntas Cortas</span>
                     </div>
 
                 </div>
                 <form id="editar" class="mb-3 list-unstyled" data-id="<%=cortas2._id%>">
                   <div class="col-12 mt-3" style="max-height: 1500px;">
+                    <!--Nombre del Alumno que ha hecho el examen y Tema del Examen-->
                     <%if (usuario.rol=="Profesor" ){%>
                       <div>
+                        <label>Alumno: </label>
                         <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-secondary my-2" name="correoAlumno"
                             placeholder="Nombre de Alumno" value="<%= cortas2.correoAlumno %>"readonly></input>
                           </div>
                       <%}%>
+                      <label>Tema: </label>
                       <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                           placeholder="Nombre del Tema" value="<%= cortas2.tema %>"></input>
   
                       
-                         
+                         <!--Preguntas y Respuestas de las 10 Preguntas Cortas-->
                             <div>
                               <input id="textoPreguntas" value="<%= cortas2.pregunta1 %>" name="pregunta1" type="text" class="col-10 col-sm-10 col-md-10 col-lg-11 btn btn-success my-2"
                                    placeholder="Escribir Pregunta" readonly ></input><input id="textoPreguntas" value="<%= cortas2.puntos1 %>" name="puntos1" type="number" min="0" max="1" step="0.01" class="col-2 col-sm-2 col-md-2 col-lg-1 btn btn-secondary my-2 puntos1"placeholder="Puntos"></input>
@@ -130,6 +133,7 @@
                                                                       <input id="textoRespuestas" name="respuesta10" type="text" value="<%= cortas2.respuesta10 %>" class="col-12 col-sm-12 col-md-12 col-lg-12 btn btn-light my-2"
                                                                            placeholder="Escribir Respuesta" readonly></input>
                                                                           </div>
+                                                                          <!--Nota Provisional y Nota Final del Estudiante-->
                                                                           <div>
                                                                             <span id="notaprovisional"><span>
                                                                            </div>
@@ -160,6 +164,7 @@
     </main>
     <%- include("template/footer.ejs")%>
     <script>
+      //Nota Provisional Generada por Suma de Puntos
      const formEditar = document.querySelector('#editar');
            formEditar.addEventListener('submit', async (e) => {
                e.preventDefault()

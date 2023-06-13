@@ -33,20 +33,20 @@
                 style=" background-color:#eee8cd;max-height: 1300px; min-height: 1200px;">
                 <div class=" row border border-dark border-end-0 border-top-0 border-start-0">
                     <div class="col-center pt-4 pb-md-3 pb-sm-3 pb-3 pb-lg-3">
-                        <span class="fs-5 fw-bold">Crear Test</span>
+                        <span class="fs-5 fw-bold">Mensaje de Sugerencia</span>
                     </div>
 
                 </div>
                 
                 <div class="col-12 mt-3" style="max-height: 1100px;">
-                  
+                  <!--Asunto del Mensaje-->
                   <div>
                     <input id="textoPerfil" class="col-12 col-sm-12 col-md-8 col-lg-9 btn btn-info my-2" name="tema"
                         placeholder="Nombre del Tema" value="<%= mensaje.titulo %>"readonly></input>
                       </div>
                     
                        
-                          
+                          <!--Cuerpo del Mensaje-->
                                <div>
                                <textarea name="respuesta" class="col-12 col-sm-12 col-md-12 col-lg-12 my-2" style=resize:none type="text" placeholder="Respuesta: <%= mensaje.mensaje %>"rows="30" cols="150" readonly></textarea>
                               </div>
@@ -79,6 +79,7 @@
     </main>
     <%- include("template/footer.ejs")%>
     <script>
+      //Eliminar Mensaje de Sugerencia
       const btnEliminar = document.querySelector('.btn-danger')
 btnEliminar.addEventListener('click', async () => {
   

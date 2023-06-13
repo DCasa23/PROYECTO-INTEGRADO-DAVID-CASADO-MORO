@@ -1,3 +1,5 @@
+//SE ACTIVA AL INICIAR LA PAGINA
+
 $(document).ready(function () {
     // DELETE USER
     const id = $("#editar").data("id");
@@ -27,7 +29,6 @@ $(document).ready(function () {
         const metodoPago = formEditar.elements["metodoPago"].value;
         const grupoPago = formEditar.elements["grupoPago"].value;
        
-        //const id = formEditar.elements["id"].value;
         const id = formEditar.dataset.id
         try {
             
