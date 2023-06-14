@@ -3,7 +3,7 @@
 
 <head>
   <%- include("template/head.ejs")%>
-  <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  <link rel="stylesheet" type="text/css" href="../css/actividades.css" />
   
 </head>
 
@@ -33,7 +33,7 @@
             <% arrayCortas.forEach(cortas=> { %>
               
             <li class="col-6 col-lg-2 col-md-3 col-sm-6 fs-5 float-start mt-3 cuadrado"><a href="/cortas/<%= cortas._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-              img-fluid mx-3 align-items-end;" src="../img/hoja.png"><span class="p-1 overflow-auto"><%= cortas.tema %></span></a></li>
+              img-fluid mx-3 align-items-end;" src="../img/cortas.jpg"><span class="p-1 overflow-auto"><%= cortas.tema %></span></a></li>
             
                     <% }) %>
           </ul>

@@ -31,16 +31,16 @@
           <ul class="mb-3 float-none list-unstyled float-start">
             <%if (usuario.rol=="Profesor" ){%>
               <% arrayCortas2.forEach(cortas2=> {if(cortas2.nota==null){%>
-                <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><a href="/tareascortas/<%= cortas2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                  img-fluid mx-3 align-items-end;" src="../img/lupa.jpg"><span class="p-1"><%= cortas2.tema %></span><span class="p-1"><%= cortas2.correoAlumno %></span></a></li>
+                <li class="col-6 col-lg-2 col-md-3 col-sm-6 fs-5 float-start mt-3 cuadrado"><a href="/tareascortas/<%= cortas2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                  img-fluid mx-3 align-items-end;" src="../img/cortas.jpg"><span class="p-1"><%= cortas2.tema %></span></a></li>
                 
                         <% }}) %>
               <%}%>
               <!--Actividades sin corregir del Alumno(SOLO DE ESE MISMO ALUMNO)-->
               <%if (usuario.rol=="Alumno" ){%>
             <% arrayCortas2.forEach(cortas2=> {if(cortas2.nota==null&&cortas2.correoAlumno==usuario.correo){%>
-            <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><a href="/tareascortas/<%= cortas2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-              img-fluid mx-3 align-items-end;" src="../img/lupa.jpg"><span class="p-1"><%= cortas2.tema %></span></a></li>
+            <li class="col-6 col-lg-2 col-md-3 col-sm-6 fs-5 float-start mt-3 cuadrado"><a href="/tareascortas/<%= cortas2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+              img-fluid mx-3 align-items-end;" src="../img/cortas.jpg"><span class="p-1"><%= cortas2.tema %></span></a></li>
             
                     <% }}) %>
                     <%}%>
@@ -62,16 +62,16 @@
           <ul class="justify-content-center mb-3 float-none list-unstyled float-start">
             <%if (usuario.rol=="Profesor" ){%>
               <% arrayCortas2.forEach(cortas2=> {if(cortas2.nota!=null){%>
-                <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><a href="/tareascortas/<%= cortas2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                  img-fluid mx-3 align-items-end;" src="../img/lupa.jpg"><span class="p-1"><%= cortas2.tema %></span><span class="p-1"><%= cortas2.correoAlumno %></span></a></li>
+                <li class="col-6 col-lg-2 col-md-3 col-sm-6 fs-5 float-start mt-3 cuadrado"><a href="/tareascortas/<%= cortas2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                  img-fluid mx-3 align-items-end;" src="../img/cortas.jpg"><span class="p-1"><%= cortas2.tema %></span></a></li>
                 
                         <% }}) %>
               <%}%>
               <!--Actividades Corregidas del Alumno(SOLO DE ESE MISMO ALUMNO)-->
               <%if (usuario.rol=="Alumno" ){%>
                 <% arrayCortas2.forEach(cortas2=> {if(cortas2.nota!=null&&cortas2.correoAlumno==usuario.correo){%>
-                <li class="col-6 col-6 col-lg-2 col-md-3   col-sm-6 fs-5 float-start mb-3"><a href="/tareascortas/<%= cortas2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
-                  img-fluid mx-3 align-items-end;" src="../img/lupa.jpg"><span class="p-1"><%= cortas2.tema %></span></a></li>
+                <li class="col-6 col-lg-2 col-md-3 col-sm-6 fs-5 float-start mt-3 cuadrado"><a href="/tareascortas/<%= cortas2._id %>"><img class=" col-8 bd-placeholder-img bd-placeholder-img-lg featurette image
+                  img-fluid mx-3 align-items-end;" src="../img/cortas.jpg"><span class="p-1"><%= cortas2.tema %></span></a></li>
                 
                         <% }}) %>
                         <%}%>
